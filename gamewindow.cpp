@@ -9,6 +9,7 @@ GameWindow::GameWindow(QWidget *parent) :
 
     //don't call this normally here..
     //just here to see it in action
+    //also set all these to false. true is just to see what it could look like
     ui->arrowLabel1->setVisible(true);
     ui->arrowLabel2->setVisible(false);
     ui->arrowLabel3->setVisible(false);
