@@ -24,7 +24,7 @@ Scrum Questions
 		Brainstormed game design concepts and completed the team 
 		formation requirments for class.
 	Kevin:
-	Jesse:
+	Jesse: Brainstormed and picked an idea.
 	Eddie:
 	Sean: 
 	Ethan:
@@ -36,7 +36,7 @@ Scrum Questions
 		repo for the project board. 
 		Identified priority tasks that need to be completed first.
 	Kevin:
-	Jesse:
+	Jesse: Set up repo, create the ui for the main window of the app, created a story board for the project.
 	Eddie:
 	Sean: 
 	Ethan:
@@ -47,7 +47,7 @@ Scrum Questions
 		A few people from the team have fallen ill so we will be 
 		short handed until people are feeling well again.
 	Kevin:
-	Jesse:
+	Jesse: No.
 	Eddie:
 	Sean: 
 	Ethan:
