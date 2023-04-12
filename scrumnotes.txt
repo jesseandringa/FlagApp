@@ -1,0 +1,121 @@
+#######################
+# Scrum Meeting Notes #
+#######################
+
+########################
+## Wednesday 04/11/23 ##
+########################
+
+Notes:
+
+A lot of discussion on the design of the game. 
+We've settled on a geography themed guessing game where the user 
+is given a series of fun facts about a country, and the user has 
+to guess what country is being described. With each wrong guess, 
+a new, more obvious fact will be presented, and a blacked out 
+image of the countries flag will be displayed, with more and 
+more of the countries flag being revealed with each incorrect 
+guess.
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+		Brainstormed game design concepts and completed the team 
+		formation requirments for class.
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+2. What will you do today?
+	
+	Sam:	
+		Set up the repo for the assignment, and the seperate 
+		repo for the project board. 
+		Identified priority tasks that need to be completed first.
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+3. Is anything in your way?
+	
+	Sam:
+		A few people from the team have fallen ill so we will be 
+		short handed until people are feeling well again.
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+#######################
+## Thursday 04/12/23 ##
+#######################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+2. What will you do today?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+3. Is anything in your way?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+#####################
+## Friday 04/13/23 ##
+#####################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+2. What will you do today?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
+
+3. Is anything in your way?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:
