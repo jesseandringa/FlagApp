@@ -22,6 +22,10 @@ GameWindow::GameWindow(QWidget *parent) :
     ui->distanceLine4->setVisible(false);
     ui->distanceLine5->setVisible(false);
 
+    //Would probably go off the difficulty of the game to select from a certain file, and rand1-12 for which flag is being quizzed (Sean)
+    QPixmap image(":/flags/FlagImagesHard/liechtenstein.jpg");
+    ui->flagImageLabel->setPixmap(image.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
+
 }
 
 GameWindow::~GameWindow()

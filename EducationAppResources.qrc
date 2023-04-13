@@ -12,5 +12,29 @@
         <file>FlagImages/mexico.jpg</file>
         <file>FlagImages/south-korea.jpg</file>
         <file>FlagImages/united-kingdom.jpg</file>
+        <file>FlagImagesMedium/belgium.jpg</file>
+        <file>FlagImagesMedium/czech-republic.jpg</file>
+        <file>FlagImagesMedium/hungary.jpg</file>
+        <file>FlagImagesMedium/iceland.jpg</file>
+        <file>FlagImagesMedium/india.jpg</file>
+        <file>FlagImagesMedium/indonesia.jpg</file>
+        <file>FlagImagesMedium/nigeria.jpg</file>
+        <file>FlagImagesMedium/north-korea.jpg</file>
+        <file>FlagImagesMedium/norway.jpg</file>
+        <file>FlagImagesMedium/pakistan.jpg</file>
+        <file>FlagImagesMedium/philippines.jpg</file>
+        <file>FlagImagesMedium/vietnam.jpg</file>
+        <file>FlagImagesHard/angola.jpg</file>
+        <file>FlagImagesHard/bhutan.jpg</file>
+        <file>FlagImagesHard/chad.jpg</file>
+        <file>FlagImagesHard/ecuador.jpg</file>
+        <file>FlagImagesHard/grenada.jpg</file>
+        <file>FlagImagesHard/lebanon.jpg</file>
+        <file>FlagImagesHard/liechtenstein.jpg</file>
+        <file>FlagImagesHard/malawia.jpg</file>
+        <file>FlagImagesHard/mozambique.jpg</file>
+        <file>FlagImagesHard/nepal.jpg</file>
+        <file>FlagImagesHard/saudi-arabia.jpg</file>
+        <file>FlagImagesHard/south-sudan.jpg</file>
     </qresource>
 </RCC>
