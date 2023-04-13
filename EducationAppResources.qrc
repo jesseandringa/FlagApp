@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/flags">
-        <file>FlagImages/united-states.jpg</file>
+        <file>FlagImages/united states.jpg</file>
         <file>FlagImages/argentina.jpg</file>
         <file>FlagImages/australia.jpg</file>
         <file>FlagImages/brazil.jpg</file>
@@ -10,16 +10,16 @@
         <file>FlagImages/germany.jpg</file>
         <file>FlagImages/japan.jpg</file>
         <file>FlagImages/mexico.jpg</file>
-        <file>FlagImages/south-korea.jpg</file>
-        <file>FlagImages/united-kingdom.jpg</file>
+        <file>FlagImages/south korea.jpg</file>
+        <file>FlagImages/united kingdom.jpg</file>
         <file>FlagImagesMedium/belgium.jpg</file>
-        <file>FlagImagesMedium/czech-republic.jpg</file>
+        <file>FlagImagesMedium/czech republic.jpg</file>
         <file>FlagImagesMedium/hungary.jpg</file>
         <file>FlagImagesMedium/iceland.jpg</file>
         <file>FlagImagesMedium/india.jpg</file>
         <file>FlagImagesMedium/indonesia.jpg</file>
         <file>FlagImagesMedium/nigeria.jpg</file>
-        <file>FlagImagesMedium/north-korea.jpg</file>
+        <file>FlagImagesMedium/north korea.jpg</file>
         <file>FlagImagesMedium/norway.jpg</file>
         <file>FlagImagesMedium/pakistan.jpg</file>
         <file>FlagImagesMedium/philippines.jpg</file>
@@ -34,8 +34,8 @@
         <file>FlagImagesHard/malawia.jpg</file>
         <file>FlagImagesHard/mozambique.jpg</file>
         <file>FlagImagesHard/nepal.jpg</file>
-        <file>FlagImagesHard/saudi-arabia.jpg</file>
-        <file>FlagImagesHard/south-sudan.jpg</file>
+        <file>FlagImagesHard/saudi arabia.jpg</file>
+        <file>FlagImagesHard/south sudan.jpg</file>
     </qresource>
     <qresource prefix="/facts">
         <file>easy_facts.json</file>
