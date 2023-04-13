@@ -42,4 +42,7 @@
         <file>medium_facts.json</file>
         <file>hard_facts.json</file>
     </qresource>
+    <qresource prefix="/">
+        <file>distanceData/world_country_and_usa_states_latitude_and_longitude_values.csv</file>
+    </qresource>
 </RCC>
