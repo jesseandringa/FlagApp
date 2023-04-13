@@ -3,11 +3,18 @@
 #ifndef GAMEMODEL_H
 #define GAMEMODEL_H
 
+#include <QString>
+
 
 class GameModel
 {
 public:
     GameModel();
+
+private:
+    QString username;
+    int gamesPlayed;  // total games this user has played
+    int whereTheGamesEnded[6]; // index 0 would represent first guess correct... index 5 would be they didn't get it
 };
 
 #endif // GAMEMODEL_H

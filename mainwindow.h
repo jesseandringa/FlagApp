@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "gamewindow.h"
+#include "signupwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,7 @@ public slots:
     void easyDifficultyClicked();
     void mediumDifficultyClicked();
     void hardDifficultyClicked();
+    void signupButtonClicked();
 
 signals:
     void showWindowDifficultyChosen(QString difficulty);
@@ -30,5 +32,6 @@ signals:
 private:
     Ui::MainWindow *ui;
     GameWindow gameWindow;
+    SignUpWindow signupWindow;
 };
 #endif // MAINWINDOW_H

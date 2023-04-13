@@ -4,11 +4,19 @@
 #ifndef USERDATAHANDLER_H
 #define USERDATAHANDLER_H
 
+#include <vector>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QFile>
+#include <iostream>
+#include <QString>
+
 
 class userDataHandler
 {
 public:
-    userDataHandler();
+    userDataHandler(QString username);
 };
 
 #endif // USERDATAHANDLER_H

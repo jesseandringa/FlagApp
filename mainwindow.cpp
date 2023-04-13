@@ -16,6 +16,8 @@ MainWindow::MainWindow (QWidget *parent)
     connect(ui->mediumButton, &QPushButton::clicked, this, &MainWindow::mediumDifficultyClicked);
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
 
+    connect(ui->signupButton, &QPushButton::clicked, this, &MainWindow::signupButtonClicked);
+
 }
 
 MainWindow::~MainWindow()
@@ -64,6 +66,11 @@ void MainWindow::hardDifficultyClicked()
     this->close();
     emit showWindowDifficultyChosen("HARD");
     gameWindow.show();
+}
+
+void MainWindow::signupButtonClicked()
+{
+    signupWindow.show();
 }
 
 

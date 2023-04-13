@@ -14,6 +14,7 @@ SOURCES += \
     gamewindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    signupwindow.cpp \
     userdatahandler.cpp
 
 HEADERS += \
@@ -21,11 +22,13 @@ HEADERS += \
     country.h \
     gamewindow.h \
     mainwindow.h \
+    signupwindow.h \
     userdatahandler.h
 
 FORMS += \
     gamewindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    signupwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
