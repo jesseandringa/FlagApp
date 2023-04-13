@@ -63,7 +63,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin:
-	Jesse:
+	Jesse: Started the main apps UI
 	Eddie:
 	Sean: 
 	Ethan:
@@ -72,7 +72,7 @@ Scrum Questions
 	
 	Sam:
 	Kevin:
-	Jesse:
+	Jesse: get the UI more complete. Get a understanding of how we will calculate distances between countries. 
 	Eddie:
 	Sean: 
 	Ethan:
@@ -81,7 +81,7 @@ Scrum Questions
 	
 	Sam:
 	Kevin:
-	Jesse:
+	Jesse: no. 
 	Eddie:
 	Sean: 
 	Ethan:
