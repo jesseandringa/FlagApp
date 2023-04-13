@@ -12,7 +12,6 @@ class GameModel
 {
 public:
     GameModel();
-<<<<<<< HEAD
 
 private:
     QString username;
