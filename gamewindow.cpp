@@ -21,6 +21,7 @@ GameWindow::GameWindow(QWidget *parent) :
     ui->distanceLine3->setVisible(false);
     ui->distanceLine4->setVisible(false);
     ui->distanceLine5->setVisible(false);
+
 }
 
 GameWindow::~GameWindow()

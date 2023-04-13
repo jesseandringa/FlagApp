@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/flags">
+        <file>FlagImages/united-states.jpg</file>
+        <file>FlagImages/argentina.jpg</file>
+        <file>FlagImages/australia.jpg</file>
+        <file>FlagImages/brazil.jpg</file>
+        <file>FlagImages/canada.jpg</file>
+        <file>FlagImages/china.jpg</file>
+        <file>FlagImages/france.jpg</file>
+        <file>FlagImages/germany.jpg</file>
+        <file>FlagImages/japan.jpg</file>
+        <file>FlagImages/mexico.jpg</file>
+        <file>FlagImages/south-korea.jpg</file>
+        <file>FlagImages/united-kingdom.jpg</file>
+    </qresource>
+</RCC>
