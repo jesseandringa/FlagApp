@@ -5,6 +5,14 @@
 
 #include "country.h"
 
+/// \brief Country::Country
+/// Constructor for a Country object
+/// \param name
+/// Name of the country
+/// \param flagFilename
+/// File path to the countries flag image
+/// \param facts
+/// Vector of five facts about the country
 Country::Country(QString name, QString flagFilename, std::vector<QString> facts) :
     name(name),
     flagFilename(flagFilename),

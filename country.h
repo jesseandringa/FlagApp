@@ -23,6 +23,7 @@ public:
 
     Country(QString name, QString flagFilename, std::vector<QString> facts);
     void shuffleFacts();
+
     static std::vector<Country> loadCountries(int difficulty);
     static void shuffleCountries(std::vector<Country>& countryVector);
 };
