@@ -40,6 +40,6 @@
     <qresource prefix="/facts">
         <file>easy_facts.json</file>
         <file>medium_facts.json</file>
-        <file>hard_facts</file>
+        <file>hard_facts.json</file>
     </qresource>
 </RCC>

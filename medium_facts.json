@@ -1,1 +1,110 @@
-# TODO
+{
+  "belgium": {
+    "facts": [
+      "Home to famous Gothic architecture",
+      "World-renoun beer producer",
+      "Famous for their waffles",
+      "Birthplace of famous cartoon characters like The Smurfs and Tintin",
+      "Birthplace of the \"French Fry\""
+    ]
+  },
+  "czech-republic": {
+    "facts": [
+      "The capital city is nicknamed \"the city of a hundred spires\"",
+      "Home of the largest ancient castle in the world",
+      "Has a rich history of puppetry and marionette theater",
+      "Home to the oldest university on the continent",
+      "It's citizens consume more beer per capita then any other country in the world"
+    ]
+  },
+  "hungary": {
+    "facts": [
+      "Birthplace of the Rubik's Cube",
+      "Birthplace of the famous magician Harry Houdini",
+      "Home to the largest thermal lake in the world",
+      "Famous for it's many natural hotsprings and baths",
+      "Has a strong tradition of fold music and dancing"
+    ]
+  },
+  "iceland": {
+    "facts": [
+      "Known as the \"land of fire and ice\" for its many glaciers and volcanoes",
+      "One of the most sparcely populated countries in the world.",
+      "Has one of the oldest living languages in the world",
+      "Has the highest life expectancy in the world",
+      "Primarily a fishing economy"
+    ]
+  },
+  "india": {
+    "facts": [
+      "Seventh largest country in the world",
+      "Has 22 official languages and over 1600 dialects",
+      "Home to the worlds largest school, with over 55,000 students in grades K-12",
+      "Home to one of the worlds largest film industries",
+      "Has the largest postal network in the world"
+    ]
+  },
+  "indonesia": {
+    "facts": [
+      "Fourth most populous country in the world",
+      "Has over 17,000 islands",
+      "Has over 300 ethnic groups",
+      "Home to the worlds largest Muslim population",
+      "Worlds largest producer of palm oil"
+    ]
+  },
+  "nigeria": {
+    "facts": [
+      "The most populous country on its continent",
+      "Over 60% of the population is under 25",
+      "Home to the second largest film industry in the world",
+      "Has ovoer 250 ethnic groups",
+      "Multi-religous country with Christianity and Islam being the two primary religions"
+    ]
+  },
+  "north-korea": {
+    "facts": [
+      "One of the most isolated countries in the world",
+      "The countries leader is the youngest head of state in the world",
+      "Has it's own unique calendar based on the birth of the countries founder",
+      "Has an official country ideology called \"Juche\", which emphasizes self-reliance and independence",
+      "Home to the deepest metro systems in the world"
+    ]
+  },
+  "norway": {
+    "facts": [
+      "One of the largest oil producers on its continent",
+      "Has a strong culture of outdoor activities, such as skiing, hiking, and fishing",
+      "Home to the worlds longest road tunner, which is over 15 miles long",
+      "The Nobel Peace Price is awarded in the nations capital",
+      "Known for its many fjords, which are long, narrow inlets of sea surrounded by steep cliffs."
+    ]
+  },
+  "pakistan": {
+    "facts": [
+      "Sixth most populous country in the world",
+      "Field hockey is the national sport",
+      "Home to K2, the second tallest mountain in the world",
+      "The Indus River, flows through this country",
+      "The national language is Urdu"
+    ]
+  },
+  "philippines": {
+    "facts": [
+      "Home to the worlds smallest volcano",
+      "Only country on their continent with a predominantly Christion population",
+      "Has over 7,000 islands, making it the second largest archipelago in the world",
+      "Has the highest number of call centers in the world",
+      "The worlds first ever Chinatown can be found in the nations capital"
+    ]
+  },
+  "vietnam": {
+    "facts": [
+      "Known for it's history of resilence and struggle against foreign occupation",
+      "Home of the worlds largest cave",
+      "Its culture is heavily influenced by Buddhism and Confucianism",
+      "The national currency is the \"Dong\"",
+      "Worlds largest producer of cashews"
+    ]
+  }
+}

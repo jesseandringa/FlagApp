@@ -1,0 +1,110 @@
+{
+    "angola": {
+        "facts": [
+            "The official language is Portuguese",
+            "Home to the second largest waterfall in the world",
+            "The countries basketball team has won 7 continental tournaments",
+            "The national currency is the Kwanza",
+            "Tropical climate prone to flooding and droughts"
+        ]
+    },
+    "bhutan": {
+        "facts": [
+            "Landlocked country containing part of the Himalayas",
+            "One of the few remaining Buddhist kingdoms",
+            "One of the least densely populations in the world",
+            "The only country in the world that has banned the sale of tobacco",
+            "Home to the black-necked crane, which is sacred in their culture"
+        ]
+    },
+    "chad": {
+        "facts": [
+            "The country is named after its largest lake",
+            "One of the poorest countries in the world",
+            "Has a history of civil wars and instability",
+            "The official national languages are French and Arabic",
+            "How climate with temperatures commonly over 100F (38C)"
+        ]
+    },
+    "ecuador": {
+        "facts": [
+            "Home to the Galapagos Islands",
+            "The official currency is the US dollar",
+            "Largest exporter of bananas in the world",
+            "The indigenous people speak the traditional language Quechua",
+            "The capital city has the highest altitude of any other capital city in the world"
+        ]
+    },
+    "grenada": {
+        "facts": [
+            "Small island nation known as the Spice Isle",
+            "Popular destination for sailing and beach going",
+            "The head of state is the King of England",
+            "Second largest producer of Nutmeg",
+            "The official language is English"
+        ]
+    },
+    "lebanon": {
+        "facts": [
+            "The only country on their continent without a desert",
+            "Home to the second oldest city in the world",
+            "One of the few countries in their region with a parlimentary system of government",
+            "Diverse religious population of Christians, Muslims, and Druze",
+            "Has the highest concentration of ski resorts in their region"
+        ]
+    },
+    "liechtenstein": {
+        "facts": [
+            "One of the smallest countries in the world",
+            "Has a population of just 38,000",
+            "Known for its many castles",
+            "The country is a tax haven known for its high standard of living and low unemployment",
+            "Famous for its beautiful alpine scenery"
+        ]
+    },
+    "malawia": {
+        "facts": [
+            "The official languages are English and Chichewa",
+            "The countries largest lake covers one fifth of the countries land mass",
+            "Over 8% of the population suffers from HIV/AIDS",
+            "The countries currency is the Kwacha",
+            "Home to a diverse range of wildlife and wildlife sanctuaries"
+        ]
+    },
+    "mozambique": {
+        "facts": [
+            "The official language is Portuguese, which is the main language of about half the population",
+            "The national currency is the metical (MZM)",
+            "Rich in national resources, such as coal, gas, and precious stones",
+            "Largely agricultural economy relying heavily on cashews, cotton, and tobacco",
+            "The national sport is football, but the national team has yet to win any international competitions"
+        ]
+    },
+    "nepal": {
+        "facts": [
+            "Home of Mount Everest",
+            "Birthplace of The Buddha",
+            "Officially, the country is secular but Hinduism is the countries dominant religion",
+            "Tourism is the countries largest industry",
+            "This country was never colonized, making it the oldest sovereign nation in it's region"
+        ]
+    },
+    "saudi arabia": {
+        "facts": [
+            "Birthplace of Islam",
+            "Home to the two holiest sites in Islam: Mecca and Medina",
+            "Largest producer of oil in the world",
+            "The education system is segregated by gender",
+            "Women gained the right to drive in 2018"
+        ]
+    },
+    "south sudan": {
+        "facts": [
+            "Youngest country in the world",
+            "The official languages are Arabic and English",
+            "Landlocked country with a dry/tropical climate",
+            "Has one of the worlds lowest literacy rates at 27%",
+            "The majority of the population practice Christianity"
+        ]
+    }
+}
