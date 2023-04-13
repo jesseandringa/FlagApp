@@ -11,12 +11,16 @@
 #include <QFile>
 #include <iostream>
 #include <QString>
+#include <QObject>
 
-
-class userDataHandler
+class UserDataHandler : public QObject
 {
+    Q_OBJECT
 public:
-    userDataHandler(QString username);
+    explicit UserDataHandler(QObject *parent = nullptr);
+
+signals:
+
 };
 
 #endif // USERDATAHANDLER_H

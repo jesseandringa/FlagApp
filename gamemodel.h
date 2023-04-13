@@ -4,6 +4,9 @@
 #define GAMEMODEL_H
 
 #include <QObject>
+#include <string>
+
+using std::string;
 
 class GameModel : public QObject
 {

@@ -3,8 +3,8 @@
 
 #include "userdatahandler.h"
 
-
-userDataHandler::userDataHandler(QString username)
+UserDataHandler::UserDataHandler(QObject *parent)
+    : QObject{parent}
 {
 
 }
