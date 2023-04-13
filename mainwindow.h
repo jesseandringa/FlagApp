@@ -25,7 +25,7 @@ public slots:
     void hardDifficultyClicked();
 
 signals:
-    void showWindowDifficultyChosen(QString difficulty);
+    void startGame(int difficulty);
 
 private:
     Ui::MainWindow *ui;

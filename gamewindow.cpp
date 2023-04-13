@@ -32,8 +32,11 @@ GameWindow::~GameWindow()
 
 ///SLOT
 /// resets ui when new game is created
-void GameWindow::initNewGame()
+void GameWindow::initNewGame(int difficulty)
 {
+
+    // load countries
+    countries = Country::loadCountries(difficulty);
 
 }
 

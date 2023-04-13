@@ -5,12 +5,21 @@
 
 #include "country.h"
 
-Country::Country(QString name, std::vector<QString> facts) :
+Country::Country(QString name, QString flagFilename, std::vector<QString> facts) :
     name(name),
+    flagFilename(flagFilename),
     facts(facts)
 {
-    // convert name to flag filename
-    flagFilename = name + ".jpg";
+    shuffleFacts();
+}
+
+/// \brief Country::shuffleFacts
+/// Shuffles the ordering of the countries facts vector
+void Country::shuffleFacts()
+{
+    std::random_device rd;
+    std::default_random_engine rng(rd());
+    std::shuffle(facts.begin(), facts.end(), rng);
 }
 
 /// \brief Country::loadCountries
@@ -26,15 +35,19 @@ std::vector<Country> Country::loadCountries(int difficulty)
 {
     // Select the fact filename associated with the chosen difficulty
     QString filename;
+    QString flagFilenamePrefix;
     switch (difficulty) {
     case 0:
         filename = ":/facts/easy_facts.json";
+        flagFilenamePrefix = ":/flags/FlagImages/";
         break;
     case 1:
         filename = ":/facts/medium_facts.json";
+        flagFilenamePrefix = ":/flags/FlagImagesMedium/";
         break;
     case 2:
         filename = ":/facts/hard_facts.json";
+        flagFilenamePrefix = ":/flags/FlagImagesHard/";
         break;
     }
 
@@ -66,8 +79,21 @@ std::vector<Country> Country::loadCountries(int difficulty)
         }
 
         // Create country object with parsed data
-        Country country(countryName, factsVector);
+        QString flagFilename = flagFilenamePrefix + countryName + ".jpg";
+        Country country(countryName, flagFilename, factsVector);
         countryVector.push_back(country);
     }
+    shuffleCountries(countryVector);
     return countryVector;
+}
+
+/// \brief Country::shuffleCountries
+/// Static function used to shuffle a vector of countries
+/// \param countryVector
+/// std vector of Countries passed by reference
+void Country::shuffleCountries(std::vector<Country> &countryVector)
+{
+    std::random_device rd;
+    std::default_random_engine rng(rd());
+    std::shuffle(countryVector.begin(), countryVector.end(), rng);
 }
