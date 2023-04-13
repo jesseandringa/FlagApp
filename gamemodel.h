@@ -4,17 +4,24 @@
 #define GAMEMODEL_H
 
 #include <QString>
+#include <string>
+using std::string;
 
 
 class GameModel
 {
 public:
     GameModel();
+<<<<<<< HEAD
 
 private:
     QString username;
     int gamesPlayed;  // total games this user has played
     int whereTheGamesEnded[6]; // index 0 would represent first guess correct... index 5 would be they didn't get it
+    string country;
+    int guessNumber;
+    string guessedCountry;
+
 };
 
 #endif // GAMEMODEL_H

@@ -20,9 +20,7 @@ guess.
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-		Brainstormed game design concepts and completed the team 
-		formation requirments for class.
+	Sam: Brainstormed game design concepts and completed the team formation requirments for class.
 	Kevin:
 	Jesse: Brainstormed and picked an idea.
 	Eddie:
@@ -31,9 +29,7 @@ Scrum Questions
 
 2. What will you do today?
 	
-	Sam:	
-		Set up the repo for the assignment, and the seperate 
-		repo for the project board. 
+	Sam: Set up the repo for the assignment, and the seperate repo for the project board. 
 		Identified priority tasks that need to be completed first.
 	Kevin:
 	Jesse: Set up repo, create the ui for the main window of the app, created a story board for the project.
@@ -43,9 +39,7 @@ Scrum Questions
 
 3. Is anything in your way?
 	
-	Sam:
-		A few people from the team have fallen ill so we will be 
-		short handed until people are feeling well again.
+	Sam: A few people from the team have fallen ill so we will be short handed until people are feeling well again.
 	Kevin:
 	Jesse: No.
 	Eddie:
@@ -57,6 +51,9 @@ Scrum Questions
 #######################
 
 Notes:
+
+The team met during the latter portion of class time to discuss the design of our UI and 
+how to adjust our game design and UI for a better game experience.
 
 Scrum Questions
 1. What did you do yesterday?
@@ -70,7 +67,7 @@ Scrum Questions
 
 2. What will you do today?
 	
-	Sam:
+	Sam: Implement a class for loading and using country information from a json file
 	Kevin:
 	Jesse: get the UI more complete. Get a understanding of how we will calculate distances between countries. 
 	Eddie:
@@ -79,7 +76,7 @@ Scrum Questions
 
 3. Is anything in your way?
 	
-	Sam:
+	Sam: No.
 	Kevin:
 	Jesse: no. 
 	Eddie:

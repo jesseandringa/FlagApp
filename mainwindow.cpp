@@ -48,23 +48,21 @@ void MainWindow::helpButtonClicked()
 void MainWindow::easyDifficultyClicked()
 {
     this->close();
-    //this signal emits to logic model for game
-    emit showWindowDifficultyChosen("EASY");
+    gameWindow.initNewGame(0);
     gameWindow.show();
 }
 
 void MainWindow::mediumDifficultyClicked()
 {
     this->close();
-    //this signal emits to logic model for game
-    emit showWindowDifficultyChosen("MEDIUM");
+    gameWindow.initNewGame(1);
     gameWindow.show();
 }
 
 void MainWindow::hardDifficultyClicked()
 {
     this->close();
-    emit showWindowDifficultyChosen("HARD");
+    gameWindow.initNewGame(2);
     gameWindow.show();
 }
 

@@ -27,7 +27,7 @@ public slots:
     void signupButtonClicked();
 
 signals:
-    void showWindowDifficultyChosen(QString difficulty);
+    void startGame(int difficulty);
 
 private:
     Ui::MainWindow *ui;
