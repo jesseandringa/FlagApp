@@ -72,7 +72,7 @@ Scrum Questions
 	Jesse: get the UI more complete. Get a understanding of how we will calculate distances between countries. 
 	Eddie:
 	Sean: 
-	Ethan:
+	Ethan: Figure out how user data will be stored and loaded locally.
 
 3. Is anything in your way?
 	
@@ -81,7 +81,7 @@ Scrum Questions
 	Jesse: no. 
 	Eddie:
 	Sean: 
-	Ethan:
+	Ethan: Need more research into using Json in Qt creator.
 
 #####################
 ## Friday 04/13/23 ##
