@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     gamemodel.cpp \
+    country.cpp \
     gamewindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     gamemodel.h \
+    country.h \
     gamewindow.h \
     mainwindow.h \
     userdatahandler.h
@@ -32,3 +34,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     EducationAppResources.qrc
+DISTFILES +=

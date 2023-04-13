@@ -10,17 +10,17 @@ GameWindow::GameWindow(QWidget *parent) :
     //don't call this normally here..
     //just here to see it in action
     //also set all these to false. true is just to see what it could look like
-    ui->arrowLabel1->setVisible(true);
-    ui->arrowLabel2->setVisible(false);
-    ui->arrowLabel3->setVisible(false);
-    ui->arrowLabel4->setVisible(false);
-    ui->arrowLabel5->setVisible(false);
+//    ui->arrowLabel1->setVisible(true);
+//    ui->arrowLabel2->setVisible(false);
+//    ui->arrowLabel3->setVisible(false);
+//    ui->arrowLabel4->setVisible(false);
+//    ui->arrowLabel5->setVisible(false);
 
-    ui->distanceLine1->setVisible(true);
-    ui->distanceLine2->setVisible(false);
-    ui->distanceLine3->setVisible(false);
-    ui->distanceLine4->setVisible(false);
-    ui->distanceLine5->setVisible(false);
+//    ui->distanceLine1->setVisible(true);
+//    ui->distanceLine2->setVisible(false);
+//    ui->distanceLine3->setVisible(false);
+//    ui->distanceLine4->setVisible(false);
+//    ui->distanceLine5->setVisible(false);
 
     //Would probably go off the difficulty of the game to select from a certain file, and rand1-12 for which flag is being quizzed (Sean)
     QPixmap image(":/flags/FlagImagesHard/liechtenstein.jpg");
