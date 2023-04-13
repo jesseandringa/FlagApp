@@ -3,15 +3,13 @@
 #ifndef GAMEMODEL_H
 #define GAMEMODEL_H
 
-#include <QString>
-#include <string>
-using std::string;
+#include <QObject>
 
-
-class GameModel
+class GameModel : public QObject
 {
+    Q_OBJECT
 public:
-    GameModel();
+    explicit GameModel(QObject *parent = nullptr);
 
 private:
     QString username;
@@ -20,6 +18,9 @@ private:
     string country;
     int guessNumber;
     string guessedCountry;
+
+
+signals:
 
 };
 

@@ -2,7 +2,8 @@
 
 #include "gamemodel.h"
 
-GameModel::GameModel(): country(""), guessNumber(1), guessedCountry("")
+GameModel::GameModel(QObject *parent)
+    : QObject{parent}
 {
 
 }

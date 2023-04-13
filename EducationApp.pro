@@ -9,8 +9,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    gamemodel.cpp \
     country.cpp \
+    gamemodel.cpp \
     gamewindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -18,8 +18,8 @@ SOURCES += \
     userdatahandler.cpp
 
 HEADERS += \
-    gamemodel.h \
     country.h \
+    gamemodel.h \
     gamewindow.h \
     mainwindow.h \
     signupwindow.h \
