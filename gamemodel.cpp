@@ -2,7 +2,7 @@
 
 #include "gamemodel.h"
 
-GameModel::GameModel()
+GameModel::GameModel(): country(""), guessNumber(1), guessedCountry("")
 {
 
 }
