@@ -37,4 +37,9 @@
         <file>FlagImagesHard/saudi-arabia.jpg</file>
         <file>FlagImagesHard/south-sudan.jpg</file>
     </qresource>
+    <qresource prefix="/facts">
+        <file>easy_facts.json</file>
+        <file>medium_facts.json</file>
+        <file>hard_facts</file>
+    </qresource>
 </RCC>
