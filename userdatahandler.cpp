@@ -4,8 +4,10 @@
 #include "userdatahandler.h"
 
 UserDataHandler::UserDataHandler(QObject *parent)
-    : QObject{parent}
+    : QObject{parent}, totalGames(0), totalWinPercentage(0),losePercentage(0)
 {
-
+    for (int i = 0; i<5; i++){
+        winPercentagePerGuess[i] = 0;
+    }
 }
 

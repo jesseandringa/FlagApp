@@ -17,6 +17,11 @@ class UserDataHandler : public QObject
 {
     Q_OBJECT
 public:
+    int totalGames;
+    int totalWinPercentage;
+    int winPercentagePerGuess[5];
+    int losePercentage;
+
     explicit UserDataHandler(QObject *parent = nullptr);
 
 signals:
