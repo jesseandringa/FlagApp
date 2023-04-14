@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <iostream>
 #include "country.h"
+#include "gamemodel.h"
 
 using std::cout;
 using std::endl;
@@ -18,8 +19,8 @@ class GameWindow : public QWidget
 
 public:
     std::vector<Country> countries;
-
     explicit GameWindow(QWidget *parent = nullptr);
+    explicit GameWindow(GameModel &model,QWidget *parent = nullptr);
     ~GameWindow();
 
     void initNewGame(int difficulty);

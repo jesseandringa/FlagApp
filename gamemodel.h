@@ -15,12 +15,16 @@ public:
     explicit GameModel(QObject *parent = nullptr);
 
 private:
+    const int allowedGuesses = 5;
     QString username;
     int gamesPlayed;  // total games this user has played
     int whereTheGamesEnded[6]; // index 0 would represent first guess correct... index 5 would be they didn't get it
     string country;
     int guessNumber;
     string guessedCountry;
+    bool won;
+public slots:
+    void newGuessSlot(string);
 
 
 signals:

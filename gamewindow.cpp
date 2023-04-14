@@ -1,7 +1,19 @@
 #include "gamewindow.h"
+#include "gamemodel.h"
 #include "ui_gamewindow.h"
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
+//default constructor ------not sure if we need this
 GameWindow::GameWindow(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::GameWindow)
+{ui->setupUi(this);}
+
+
+GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameWindow)
 {
@@ -23,6 +35,8 @@ GameWindow::GameWindow(QWidget *parent) :
     QPixmap image(":/flags/FlagImagesHard/liechtenstein.jpg");
     ui->flagImageLabel->setPixmap(image.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
 
+    //signal with string of guess connect to model
+    connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
 }
 
 GameWindow::~GameWindow()
@@ -47,8 +61,10 @@ void GameWindow::initNewGame(int difficulty)
 ///
 void GameWindow::on_currentGuess_returnPressed()
 {
+
     QString currentGuess ="";
-    if(ui->currentGuess->hasSelectedText()){
+    if(ui->currentGuess->text()!=""){
+        cout<<"hit reutrn"<<endl;
         ui->currentGuess->setReadOnly(true);
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
