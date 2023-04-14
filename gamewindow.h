@@ -28,6 +28,8 @@ public:
 private slots:
     void on_currentGuess_returnPressed();
 
+    void on_guessButton_clicked();
+
 private:
     Ui::GameWindow *ui;
 signals:

@@ -65,11 +65,26 @@ void GameWindow::on_currentGuess_returnPressed()
     QString currentGuess ="";
     if(ui->currentGuess->text()!=""){
         cout<<"hit reutrn"<<endl;
-        ui->currentGuess->setReadOnly(true);
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
+        ui->currentGuess->setText("");
+        ui->currentGuess->setPlaceholderText("");
         emit newGuess(guessStr);
     }
 
+}
+
+
+void GameWindow::on_guessButton_clicked()
+{
+    QString currentGuess ="";
+    if(ui->currentGuess->text()!=""){
+        cout<<"hit guess button"<<endl;
+        currentGuess = ui->currentGuess->text();
+        string guessStr = currentGuess.toStdString();
+        ui->currentGuess->setText("");
+        ui->currentGuess->setPlaceholderText("");
+        emit newGuess(guessStr);
+    }
 }
 
