@@ -24,7 +24,7 @@ Scrum Questions
 	Kevin:
 	Jesse: Brainstormed and picked an idea.
 	Eddie:
-	Sean: 
+	Sean: chose an idea with group and confirmed with professor.
 	Ethan:
 
 2. What will you do today?
@@ -34,7 +34,7 @@ Scrum Questions
 	Kevin:
 	Jesse: Set up repo, create the ui for the main window of the app, created a story board for the project.
 	Eddie:
-	Sean: 
+	Sean: I looked through what we had and added and familiarized myself. Also added flag image files.
 	Ethan:
 
 3. Is anything in your way?
@@ -43,7 +43,7 @@ Scrum Questions
 	Kevin:
 	Jesse: No.
 	Eddie:
-	Sean: 
+	Sean: I was feeling sick on lab day.
 	Ethan:
 
 #######################
@@ -62,7 +62,7 @@ Scrum Questions
 	Kevin:
 	Jesse: Started the main apps UI
 	Eddie:
-	Sean: 
+	Sean: Added flags images
 	Ethan:
 
 2. What will you do today?
@@ -71,7 +71,7 @@ Scrum Questions
 	Kevin:
 	Jesse: get the UI more complete. Get a understanding of how we will calculate distances between countries. 
 	Eddie:
-	Sean: 
+	Sean: Look into the api for google maps esc. things and look at ui for history box.
 	Ethan: Figure out how user data will be stored and loaded locally.
 
 3. Is anything in your way?
@@ -80,7 +80,7 @@ Scrum Questions
 	Kevin:
 	Jesse: no. 
 	Eddie:
-	Sean: 
+	Sean: no.
 	Ethan: Need more research into using Json in Qt creator.
 
 #####################
