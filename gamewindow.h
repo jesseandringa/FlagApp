@@ -24,8 +24,13 @@ public:
 
     void initNewGame(int difficulty);
 
+private slots:
+    void on_currentGuess_returnPressed();
+
 private:
     Ui::GameWindow *ui;
+signals:
+    void newGuess(string currGuess);
 
 };
 

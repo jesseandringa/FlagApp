@@ -41,3 +41,19 @@ void GameWindow::initNewGame(int difficulty)
 }
 
 
+///\brief SLOT when user guesses country
+/// sees if text is in it
+///sends signal to model with text
+///
+void GameWindow::on_currentGuess_returnPressed()
+{
+    QString currentGuess ="";
+    if(ui->currentGuess->hasSelectedText()){
+        ui->currentGuess->setReadOnly(true);
+        currentGuess = ui->currentGuess->text();
+        string guessStr = currentGuess.toStdString();
+        emit newGuess(guessStr);
+    }
+
+}
+

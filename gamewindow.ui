@@ -310,7 +310,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="currentGuess">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -323,7 +323,7 @@
      <string>Guess a country</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="guessButton">
     <property name="geometry">
      <rect>
       <x>530</x>
