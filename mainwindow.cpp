@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 
 MainWindow::MainWindow (GameModel &model, QWidget *parent)
     : QMainWindow(parent)
@@ -20,7 +21,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
 
     connect(ui->signupButton, &QPushButton::clicked, this, &MainWindow::signupButtonClicked);
-
+    connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signUpAttempt);
 }
 
 MainWindow::~MainWindow()
@@ -75,5 +76,10 @@ void MainWindow::signupButtonClicked()
     signupWindow.show();
 }
 
-
+void MainWindow::signUpAttempt(std::tuple<QString, QString, QString> temp)
+{
+    QString check = get<0>(temp);
+    std::cout << check.toStdString() << std::endl;
+    signupWindow.close();
+}
 

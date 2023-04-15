@@ -2,6 +2,7 @@
 #define SIGNUPWINDOW_H
 
 #include <QDialog>
+#include <tuple>
 
 namespace Ui {
 class SignUpWindow;
@@ -14,6 +15,11 @@ class SignUpWindow : public QDialog
 public:
     explicit SignUpWindow(QWidget *parent = nullptr);
     ~SignUpWindow();
+public slots:
+    void signUpAttemptSlot();
+
+signals:
+    void signUpAttemptSignal(std::tuple<QString, QString, QString>);
 
 private:
     Ui::SignUpWindow *ui;

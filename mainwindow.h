@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <tuple>
 #include "gamewindow.h"
 #include "signupwindow.h"
 #include "studywindow.h"
@@ -27,6 +28,7 @@ public slots:
     void mediumDifficultyClicked();
     void hardDifficultyClicked();
     void signupButtonClicked();
+    void signUpAttempt(std::tuple<QString, QString, QString> temp);
 
 signals:
     void startGame(int difficulty);
