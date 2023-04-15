@@ -1,10 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow (QWidget *parent)
+MainWindow::MainWindow (GameModel &model, QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),
+    gameWindow(model)
 {
+
     ui->setupUi(this);
     ui->easyButton->setVisible(false);
     ui->mediumButton->setVisible(false);

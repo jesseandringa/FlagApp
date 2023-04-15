@@ -7,10 +7,10 @@ using std::cout;
 using std::endl;
 
 //default constructor ------not sure if we need this
-GameWindow::GameWindow(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::GameWindow)
-{ui->setupUi(this);}
+//GameWindow::GameWindow(QWidget *parent) :
+//    QWidget(parent),
+//    ui(new Ui::GameWindow)
+//{ui->setupUi(this);}
 
 
 GameWindow::GameWindow(GameModel &model,QWidget *parent) :

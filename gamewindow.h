@@ -19,7 +19,7 @@ class GameWindow : public QWidget
 
 public:
     std::vector<Country> countries;
-    explicit GameWindow(QWidget *parent = nullptr);
+//    explicit GameWindow(QWidget *parent = nullptr);
     explicit GameWindow(GameModel &model,QWidget *parent = nullptr);
     ~GameWindow();
 

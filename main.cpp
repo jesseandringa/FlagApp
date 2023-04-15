@@ -6,8 +6,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    GameWindow gameWindow;
+    GameModel model;
+    MainWindow w(model);
+    GameWindow gameWindow(model);
     w.show();
     return a.exec();
 }
