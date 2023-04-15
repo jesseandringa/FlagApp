@@ -3,7 +3,7 @@
 #######################
 
 ########################
-## Wednesday 04/11/23 ##
+## Wednesday 04/12/23 ##
 ########################
 
 Notes:
@@ -47,7 +47,7 @@ Scrum Questions
 	Ethan:
 
 #######################
-## Thursday 04/12/23 ##
+## Thursday 04/13/23 ##
 #######################
 
 Notes:
@@ -84,7 +84,41 @@ Scrum Questions
 	Ethan: Need more research into using Json in Qt creator.
 
 #####################
-## Friday 04/13/23 ##
+## Friday 04/14/23 ##
+#####################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: Slighty looked over progress, not as much work done as wanted
+	Ethan:
+
+2. What will you do today?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: Actually work well on the history box of guesses
+	Ethan:
+
+3. Is anything in your way?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: can't get connects to work, think its a constructor thing 
+	Ethan:
+	
+#####################
+## Saturday 04/15/23 ##
 #####################
 
 Notes:
@@ -116,3 +150,4 @@ Scrum Questions
 	Eddie:
 	Sean: 
 	Ethan:
+
