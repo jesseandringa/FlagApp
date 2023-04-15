@@ -4,7 +4,7 @@
 MainWindow::MainWindow (GameModel &model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),
-    gameWindow(model)
+      gameWindow(model)
 {
 
     ui->setupUi(this);
@@ -13,6 +13,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->hardButton->setVisible(false);
 
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
+    connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);
 
     connect(ui->easyButton, &QPushButton::clicked, this, &MainWindow::easyDifficultyClicked);
     connect(ui->mediumButton, &QPushButton::clicked, this, &MainWindow::mediumDifficultyClicked);
@@ -30,8 +31,8 @@ MainWindow::~MainWindow()
 void MainWindow::playButtonClicked()
 {
     ui->playButton->setVisible(false);
-    ui->playButton->setVisible(false);
-    ui->playButton->setVisible(false);
+    ui->studyButton->setVisible(false);
+    ui->helpButton->setVisible(false);
     ui->easyButton->setVisible(true);
     ui->mediumButton->setVisible(true);
     ui->hardButton->setVisible(true);
@@ -39,7 +40,8 @@ void MainWindow::playButtonClicked()
 
 void MainWindow::studyButtonClicked()
 {
-
+    this->close();
+    studyWindow.show();
 }
 
 void MainWindow::helpButtonClicked()

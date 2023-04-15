@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "gamewindow.h"
 #include "signupwindow.h"
+#include "studywindow.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,5 +35,6 @@ private:
     Ui::MainWindow *ui;
     GameWindow gameWindow;
     SignUpWindow signupWindow;
+    StudyWindow studyWindow;
 };
 #endif // MAINWINDOW_H
