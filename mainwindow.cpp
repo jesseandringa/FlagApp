@@ -78,7 +78,7 @@ void MainWindow::signupButtonClicked()
 
 void MainWindow::signUpAttempt(std::tuple<QString, QString, QString> temp)
 {
-    QString check = get<0>(temp);
+    QString check = std::get<0>(temp);
     std::cout << check.toStdString() << std::endl;
     signupWindow.close();
 }

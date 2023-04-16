@@ -220,7 +220,13 @@
        <item>
         <widget class="QLineEdit" name="guessLine1">
          <property name="text">
-          <string>Canada [flag emoji]</string>
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
          </property>
         </widget>
        </item>
@@ -234,77 +240,163 @@
        <item>
         <widget class="QLineEdit" name="distanceLine1">
          <property name="text">
-          <string>10232 miles</string>
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Distance</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout2">
+      <layout class="QHBoxLayout" name="horizontalLayout1_4">
        <item>
-        <widget class="QLineEdit" name="guessLine2"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="arrowLabel2">
+        <widget class="QLineEdit" name="guessLine2">
          <property name="text">
           <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>2</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="distanceLine2"/>
+        <widget class="QLabel" name="arrowLabel1_4">
+         <property name="text">
+          <string>&lt;-</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="distanceLine2">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Distance</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout3">
+      <layout class="QHBoxLayout" name="horizontalLayout1_5">
        <item>
-        <widget class="QLineEdit" name="guessLine3"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="arrowLabel3">
+        <widget class="QLineEdit" name="guessLine3">
          <property name="text">
           <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>3</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="distanceLine3"/>
+        <widget class="QLabel" name="arrowLabel1_5">
+         <property name="text">
+          <string>&lt;-</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="distanceLine3">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Distance</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout4">
+      <layout class="QHBoxLayout" name="horizontalLayout1_3">
        <item>
-        <widget class="QLineEdit" name="guessLine4"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="arrowLabel4">
+        <widget class="QLineEdit" name="guessLine4">
          <property name="text">
           <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>4</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="distanceLine4"/>
+        <widget class="QLabel" name="arrowLabel1_3">
+         <property name="text">
+          <string>&lt;-</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="distanceLine4">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Distance</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout5">
+      <layout class="QHBoxLayout" name="horizontalLayout1_2">
        <item>
-        <widget class="QLineEdit" name="guessLine5"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="arrowLabel5">
+        <widget class="QLineEdit" name="guessLine5">
          <property name="text">
           <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>5</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="distanceLine5"/>
+        <widget class="QLabel" name="arrowLabel1_2">
+         <property name="text">
+          <string>&lt;-</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="distanceLine5">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Distance</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -320,7 +412,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>Guess a country</string>
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Guess a Country</string>
     </property>
    </widget>
    <widget class="QPushButton" name="guessButton">

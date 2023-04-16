@@ -37,6 +37,8 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
+
+    connect(&model, &GameModel::sendUIGuessNumAndStr, this, &GameWindow::receiveCurrentGuessAndStr);
 }
 
 GameWindow::~GameWindow()
@@ -68,7 +70,6 @@ void GameWindow::on_currentGuess_returnPressed()
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
         ui->currentGuess->setText("");
-        ui->currentGuess->setPlaceholderText("");
         emit newGuess(guessStr);
     }
 
@@ -83,8 +84,33 @@ void GameWindow::on_guessButton_clicked()
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
         ui->currentGuess->setText("");
-        ui->currentGuess->setPlaceholderText("");
         emit newGuess(guessStr);
+    }
+}
+
+void GameWindow::receiveCurrentGuessAndStr(std::string guess, int guessNum, double distance){
+    //if distance == 0, maybe do something else? 0 meaning that the guess was not found in resource
+    QString guessStr = QString::fromStdString(guess);
+    QString distanceStr = QString::number(distance);
+    if(guessNum == 0){
+        ui->guessLine1->setText(guessStr);
+        ui->distanceLine1->setText(distanceStr + " Miles");
+    }
+    else if(guessNum == 1){
+         ui->guessLine2->setText(guessStr);
+         ui->distanceLine2->setText(distanceStr + " Miles");
+    }
+    else if(guessNum == 2){
+         ui->guessLine3->setText(guessStr);
+         ui->distanceLine3->setText(distanceStr + " Miles");
+    }
+    else if(guessNum == 3){
+         ui->guessLine4->setText(guessStr);
+         ui->distanceLine4->setText(distanceStr + " Miles");
+    }
+    else if(guessNum == 4){
+         ui->guessLine5->setText(guessStr);
+         ui->distanceLine5->setText(distanceStr + " Miles");
     }
 }
 

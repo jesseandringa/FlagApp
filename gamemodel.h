@@ -4,6 +4,10 @@
 #define GAMEMODEL_H
 
 #include <QObject>
+#include <QFile>
+#include <QTextStream>
+#include <QStringList>
+#include <cmath>
 #include <string>
 
 using std::string;
@@ -19,16 +23,19 @@ private:
     QString username;
     int gamesPlayed;  // total games this user has played
     int whereTheGamesEnded[6]; // index 0 would represent first guess correct... index 5 would be they didn't get it
+    //These three below should be selected on startup of game, they are compared to for checking the users guess! not implemented fully:
     string country;
+    float xCoordCountry;
+    float yCoordCountry;
     int guessNumber;
     string guessedCountry;
     bool won;
 public slots:
-    void newGuessSlot(string);
+    void newGuessSlot(std::string guess);
 
 
 signals:
-
+    void sendUIGuessNumAndStr(std::string guess, int guessNum, double distance);
 };
 
 #endif // GAMEMODEL_H
