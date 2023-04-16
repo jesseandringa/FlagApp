@@ -4,10 +4,10 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+using std::string;
 
 GameModel::GameModel(QObject *parent)
     : QObject{parent},
-      username(""),
       gamesPlayed(0),
       country(""),
       guessNumber(0),
@@ -82,3 +82,40 @@ void GameModel::newGuessSlot(std::string guess)
     emit sendUIGuessInfo(guess, guessNumber, distance);
     guessNumber++;
 }
+
+/// \brief signupCheck
+/// Tries to sign up a new user.  If something goes wrong an appropriate emit will occur.
+/// \param username
+/// \param password
+/// \param passwordCheck
+void GameModel::signupAttempt(QString user, QString pass, QString passCheck)
+{
+    string username = user.toStdString();
+    string password = pass.toStdString();
+    string passwordCheck = passCheck.toStdString();
+
+    if(username.length() == 0 || password.length() == 0 || passwordCheck.length() == 0)
+    {
+        emit signupFailNotAllFields();
+    }
+    else if(password != passwordCheck)
+    {
+        emit signupFailPasswordMismatch();
+    }
+    else
+    {
+        currentUser.first = username;
+        currentUser.second = password;
+        emit signupSuccess();
+
+        cout << currentUser.second << endl;
+    }
+}
+
+
+
+
+
+
+
+
