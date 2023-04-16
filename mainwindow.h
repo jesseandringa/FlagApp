@@ -31,6 +31,7 @@ public slots:
 
     void signupAttempt(std::tuple<QString, QString, QString> temp);
     void signupFailedNotAllFields();
+    void signupFailedUserExists();
     void signupFailedPassWordMismatch();
     void signupSuccess();
 
@@ -38,6 +39,7 @@ signals:
     void startGame(int difficulty);
     void checkSignupAttempt(QString,QString,QString);
     void signupFailedNotAllFieldsFromModel();
+    void signupFailedUserExistsFromModel();
     void signupFailedPasswordMismatchFromModel();
 
 private:

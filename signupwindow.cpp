@@ -34,6 +34,12 @@ void SignUpWindow::signupFailedNotAllFields()
     ui->signupLabel->setText("Enter All Fields:");
 }
 
+/// \brief SignUpWindow::signupFailedUserExists
+void SignUpWindow::signupFailedUserExists()
+{
+    ui->signupLabel->setText("User Already Exists:");
+}
+
 /// \brief SignUpWindow::signupFailedPasswordMismatch
 void SignUpWindow::signupFailedPasswordMismatch()
 {

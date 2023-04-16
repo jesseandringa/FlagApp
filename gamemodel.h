@@ -9,6 +9,7 @@
 #include <QStringList>
 #include <cmath>
 #include <string>
+#include <map>
 
 using std::string;
 
@@ -30,7 +31,7 @@ private:
     int guessNumber;
     string guessedCountry;
     bool won;
-    std::map<std::pair<string,string>, int[6]> userData;
+    std::map<std::pair<string,string>, std::array<int, 6>> usersData;
 
 public slots:
     void newGuessSlot(std::string guess);

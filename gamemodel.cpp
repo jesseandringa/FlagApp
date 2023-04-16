@@ -17,6 +17,8 @@ GameModel::GameModel(QObject *parent)
     for(int i = 0; i< allowedGuesses + 1; i++){
         whereTheGamesEnded[i] = 0;
     }
+
+    usersData[std::make_pair("user", "pass")] = {0,0,0,0,0,0};
 }
 
 ///slot to start logic to see if guess is correct
@@ -106,9 +108,18 @@ void GameModel::signupAttempt(QString user, QString pass, QString passCheck)
     {
         currentUser.first = username;
         currentUser.second = password;
-        emit signupSuccess();
 
-        cout << currentUser.second << endl;
+        auto iter = usersData.find(currentUser);
+        //The user exists
+        if(iter != usersData.end())
+        {
+            emit signupFailUserExists();
+        }
+        else
+        {
+            usersData[currentUser] = {0,0,0,0,0,0};
+            emit signupSuccess();
+        }
     }
 }
 

@@ -25,6 +25,8 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(this, &MainWindow::checkSignupAttempt, &model,&GameModel::signupAttempt);
     connect(&model, &GameModel::signupFailNotAllFields, this, &MainWindow::signupFailedNotAllFields);
     connect(this, &MainWindow::signupFailedNotAllFieldsFromModel, &signupWindow, &SignUpWindow::signupFailedNotAllFields);
+    connect(&model, &GameModel::signupFailUserExists, this, &MainWindow::signupFailedUserExists);
+    connect(this, &MainWindow::signupFailedUserExistsFromModel, &signupWindow, &SignUpWindow::signupFailedUserExists);
     connect(&model, &GameModel::signupFailPasswordMismatch, this, &MainWindow::signupFailedPassWordMismatch);
     connect(this, &MainWindow::signupFailedPasswordMismatchFromModel, &signupWindow, &SignUpWindow::signupFailedPasswordMismatch);
     connect(&model, &GameModel::signupSuccess, this, &MainWindow::signupSuccess);
@@ -100,6 +102,12 @@ void MainWindow::signupFailedNotAllFields()
     emit signupFailedNotAllFieldsFromModel();
 }
 
+/// \brief MainWindow::signupFailedUserExists
+void MainWindow::signupFailedUserExists()
+{
+    emit signupFailedUserExistsFromModel();
+}
+
 /// \brief MainWindow::signupFailedPassWordMismatch
 /// Relays signal from gamemodel to signupwindow.
 void MainWindow::signupFailedPassWordMismatch()
@@ -107,6 +115,7 @@ void MainWindow::signupFailedPassWordMismatch()
     emit signupFailedPasswordMismatchFromModel();
 }
 
+/// \brief MainWindow::signupSuccess
 void MainWindow::signupSuccess()
 {
     signupWindow.close();
