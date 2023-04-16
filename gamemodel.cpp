@@ -26,12 +26,15 @@ GameModel::GameModel(QObject *parent)
 void GameModel::newGuessSlot(std::string guess)
 {
     double distance = 0;
+    QString direction;
     //Need QString to use .toLower();
     QString guessStr = QString::fromStdString(guess);
     QString countryStr = QString::fromStdString(country);
     if (guessStr.toLower() == countryStr.toLower()){
         //win
-    } else {
+
+    }
+    else {
         //Below is reading from file to see if they were wrong, what country they might have guessed and how far:
         QFile file(":/distanceData/country_latitude_and_longitude.csv");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -48,13 +51,34 @@ void GameModel::newGuessSlot(std::string guess)
                 float xCoordinateGuess = fields[1].toFloat();
                 float yCoordinateGuess = fields[2].toFloat();
                 distance = std::sqrt(std::pow((xCoordinateGuess - xCoordCountry), 2) + std::pow((yCoordinateGuess - yCoordCountry), 2));
+
+                double xDistance = xCoordinateGuess - xCoordCountry;
+                double yDistance = yCoordinateGuess - yCoordCountry;
+                //Want to think about this somemore, and how we want to do our directions, prob set boundries on what we qualify as southwest vs south or west.
+                //i.e. if the difference between y<10polar points then maybe just call it west instead of southwest.
+                if (xDistance > 0){
+                    //left
+                }
+                else if (xDistance <= 0){
+                    //right
+                }
+                if(yDistance > 0){
+                    //down
+                }
+                else if (yDistance <= 0){
+                    //up
+                }
                 //Supposed conversion factor from polar coord distance to miles.
                 distance = distance * 69.09;
 
             }
         }
+        //Lose case
+        if (guessNumber == 4){
+            cout << "game over" << endl;
+        }
     }
-
-    emit sendUIGuessNumAndStr(guess, guessNumber, distance);
+    //will also pass in direction string when implemented
+    emit sendUIGuessInfo(guess, guessNumber, distance);
     guessNumber++;
 }

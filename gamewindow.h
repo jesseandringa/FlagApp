@@ -27,7 +27,7 @@ public:
 
 private slots:
     void on_currentGuess_returnPressed();
-    void receiveCurrentGuessAndStr(std::string guess, int guessNum, double distance);
+    void receiveCurrentGuessInfo(std::string guess, int guessNum, double distance);
     void on_guessButton_clicked();
 
 private:

@@ -38,7 +38,7 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
 
-    connect(&model, &GameModel::sendUIGuessNumAndStr, this, &GameWindow::receiveCurrentGuessAndStr);
+    connect(&model, &GameModel::sendUIGuessInfo, this, &GameWindow::receiveCurrentGuessInfo);
 }
 
 GameWindow::~GameWindow()
@@ -88,7 +88,7 @@ void GameWindow::on_guessButton_clicked()
     }
 }
 
-void GameWindow::receiveCurrentGuessAndStr(std::string guess, int guessNum, double distance){
+void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance){
     //if distance == 0, maybe do something else? 0 meaning that the guess was not found in resource
     QString guessStr = QString::fromStdString(guess);
     QString distanceStr = QString::number(distance);
