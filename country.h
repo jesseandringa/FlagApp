@@ -26,6 +26,7 @@ public:
 
     static std::vector<Country> loadCountries(int difficulty);
     static void shuffleCountries(std::vector<Country>& countryVector);
+    static void loadCountryNamesAndDistances();
 };
 
 #endif // COUNTRY_H

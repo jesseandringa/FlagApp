@@ -105,3 +105,13 @@ void Country::shuffleCountries(std::vector<Country> &countryVector)
     std::default_random_engine rng(rd());
     std::shuffle(countryVector.begin(), countryVector.end(), rng);
 }
+
+void Country::loadCountryNamesAndDistances()
+{
+    QString filename = ":/distanceData/country_latitude_and_longitude.csv";
+    // Parse the chosen csv
+    QFile file(filename);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QByteArray jsonData = file.readAll();
+    file.close();
+}
