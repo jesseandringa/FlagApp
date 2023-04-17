@@ -103,8 +103,12 @@ std::vector<Country> Country::loadCountries(int difficulty)
         Country country(countryName, flagFilename, factsVector);
         countryVector.push_back(country);
     }
-    if(countryVector.size()>0){
-        loadCountryNameAndLocation(countryVector[0].name);
+
+    //add the longitude and latitude for each country.
+    for (int i = 0; i<countryVector.size(); i++){
+        Country temp = loadCountryNameAndLocation(countryVector[i].name);
+        countryVector[i].longitude = temp.longitude;
+        countryVector[i].latitude = temp.latitude;
     }
     shuffleCountries(countryVector);
     return countryVector;
@@ -129,9 +133,9 @@ Country Country::loadCountryNameAndLocation(QString name)
     file.open(QIODevice::ReadOnly | QIODevice::Text);
     std::vector<QString> fileData;
     QTextStream in(&file);
-//get all countries datas
     QString line = "";
 
+    //find line with country data in it
     while(!in.atEnd()){
         line = in.readLine();
         QList countryData = line.split(",");
