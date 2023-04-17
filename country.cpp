@@ -125,6 +125,9 @@ void Country::shuffleCountries(std::vector<Country> &countryVector)
     std::shuffle(countryVector.begin(), countryVector.end(), rng);
 }
 
+///\brief searches .csv file for country name to get long and lat data
+/// \param : name of country to find
+/// \returns Country with name and long and lat data.
 Country Country::loadCountryNameAndLocation(QString name)
 {
     QString filename = ":/distanceData/country_latitude_and_longitude.csv";
@@ -135,7 +138,7 @@ Country Country::loadCountryNameAndLocation(QString name)
     QTextStream in(&file);
     QString line = "";
 
-    //find line with country data in it
+    //find country in  file
     while(!in.atEnd()){
         line = in.readLine();
         QList countryData = line.split(",");
@@ -145,11 +148,11 @@ Country Country::loadCountryNameAndLocation(QString name)
         }
     }
     file.close();
-
+    //parse countries data and return it
     QList countryData = line.split(",");
     double longi = countryData[2].toDouble();
     double lat = countryData[1].toDouble();
-    Country country(name, longi,lat);
+    Country country(name,longi,lat);
 
     return country;
 }
