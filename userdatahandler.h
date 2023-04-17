@@ -9,23 +9,29 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QFile>
+#include<QIODevice>
 #include <iostream>
 #include <QString>
 #include <QObject>
+#include <map>
+
+using std::map;
+using std::string;
+using std::pair;
+using std::array;
 
 class UserDataHandler : public QObject
 {
     Q_OBJECT
 public:
-    int totalGames;
-    int totalWinPercentage;
-    int winPercentagePerGuess[5];
-    int losePercentage;
 
     explicit UserDataHandler(QObject *parent = nullptr);
 
 signals:
 
+private:
+    void serializeUserDataToJSON(map<pair<string,string>, array<int, 6>> usersMap);
+    void saveData(const QString &json, QString fileName);
 };
 
 #endif // USERDATAHANDLER_H
