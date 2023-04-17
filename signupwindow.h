@@ -17,6 +17,9 @@ public:
     ~SignUpWindow();
 public slots:
     void signUpAttemptSlot();
+    void signupFailedNotAllFields();
+    void signupFailedUserExists();
+    void signupFailedPasswordMismatch();
 
 signals:
     void signUpAttemptSignal(std::tuple<QString, QString, QString>);

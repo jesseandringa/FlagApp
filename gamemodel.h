@@ -9,6 +9,7 @@
 #include <QStringList>
 #include <cmath>
 #include <string>
+#include <map>
 
 using std::string;
 
@@ -20,7 +21,7 @@ public:
 
 private:
     const int allowedGuesses = 5;
-    QString username;
+    std::pair<string,string> currentUser;
     int gamesPlayed;  // total games this user has played
     int whereTheGamesEnded[6]; // index 0 would represent first guess correct... index 5 would be they didn't get it
     //These three below should be selected on startup of game, they are compared to for checking the users guess! not implemented fully:
@@ -30,12 +31,19 @@ private:
     int guessNumber;
     string guessedCountry;
     bool won;
+    std::map<std::pair<string,string>, std::array<int, 6>> usersData;
+
 public slots:
     void newGuessSlot(std::string guess);
+    void signupAttempt(QString user, QString pass, QString passCheck);
 
 
 signals:
     void sendUIGuessInfo(std::string guess, int guessNum, double distance);
+    void signupFailNotAllFields();
+    void signupFailUserExists();
+    void signupFailPasswordMismatch();
+    void signupSuccess();
 };
 
 #endif // GAMEMODEL_H

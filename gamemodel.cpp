@@ -4,10 +4,10 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+using std::string;
 
 GameModel::GameModel(QObject *parent)
     : QObject{parent},
-      username(""),
       gamesPlayed(0),
       country(""),
       guessNumber(0),
@@ -17,6 +17,8 @@ GameModel::GameModel(QObject *parent)
     for(int i = 0; i< allowedGuesses + 1; i++){
         whereTheGamesEnded[i] = 0;
     }
+
+    usersData[std::make_pair("user", "pass")] = {0,0,0,0,0,0};
 }
 
 ///slot to start logic to see if guess is correct
@@ -82,3 +84,49 @@ void GameModel::newGuessSlot(std::string guess)
     emit sendUIGuessInfo(guess, guessNumber, distance);
     guessNumber++;
 }
+
+/// \brief signupCheck
+/// Tries to sign up a new user.  If something goes wrong an appropriate emit will occur.
+/// \param username
+/// \param password
+/// \param passwordCheck
+void GameModel::signupAttempt(QString user, QString pass, QString passCheck)
+{
+    string username = user.toStdString();
+    string password = pass.toStdString();
+    string passwordCheck = passCheck.toStdString();
+
+    if(username.length() == 0 || password.length() == 0 || passwordCheck.length() == 0)
+    {
+        emit signupFailNotAllFields();
+    }
+    else if(password != passwordCheck)
+    {
+        emit signupFailPasswordMismatch();
+    }
+    else
+    {
+        currentUser.first = username;
+        currentUser.second = password;
+
+        auto iter = usersData.find(currentUser);
+        //The user exists
+        if(iter != usersData.end())
+        {
+            emit signupFailUserExists();
+        }
+        else
+        {
+            usersData[currentUser] = {0,0,0,0,0,0};
+            emit signupSuccess();
+        }
+    }
+}
+
+
+
+
+
+
+
+

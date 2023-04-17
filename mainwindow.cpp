@@ -21,7 +21,15 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
 
     connect(ui->signupButton, &QPushButton::clicked, this, &MainWindow::signupButtonClicked);
-    connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signUpAttempt);
+    connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signupAttempt);
+    connect(this, &MainWindow::checkSignupAttempt, &model,&GameModel::signupAttempt);
+    connect(&model, &GameModel::signupFailNotAllFields, this, &MainWindow::signupFailedNotAllFields);
+    connect(this, &MainWindow::signupFailedNotAllFieldsFromModel, &signupWindow, &SignUpWindow::signupFailedNotAllFields);
+    connect(&model, &GameModel::signupFailUserExists, this, &MainWindow::signupFailedUserExists);
+    connect(this, &MainWindow::signupFailedUserExistsFromModel, &signupWindow, &SignUpWindow::signupFailedUserExists);
+    connect(&model, &GameModel::signupFailPasswordMismatch, this, &MainWindow::signupFailedPassWordMismatch);
+    connect(this, &MainWindow::signupFailedPasswordMismatchFromModel, &signupWindow, &SignUpWindow::signupFailedPasswordMismatch);
+    connect(&model, &GameModel::signupSuccess, this, &MainWindow::signupSuccess);
 }
 
 MainWindow::~MainWindow()
@@ -71,15 +79,46 @@ void MainWindow::hardDifficultyClicked()
     gameWindow.show();
 }
 
+/// \brief MainWindow::signupButtonClicked
+/// Let the user sign in
 void MainWindow::signupButtonClicked()
 {
     signupWindow.show();
 }
 
-void MainWindow::signUpAttempt(std::tuple<QString, QString, QString> temp)
+/// \brief MainWindow::signupAttempt
+/// Relays signal from the signupwindow to the gameModel
+/// \param temp
+void MainWindow::signupAttempt(std::tuple<QString, QString, QString> temp)
 {
-    QString check = std::get<0>(temp);
-    std::cout << check.toStdString() << std::endl;
-    signupWindow.close();
+    auto[username, password, passwordCheck] = temp;
+    emit checkSignupAttempt(username, password, passwordCheck);
 }
 
+/// \brief MainWindow::signupFailedNotAllFields
+/// Relays signal from gamemodel to the signupwindow.
+void MainWindow::signupFailedNotAllFields()
+{
+    emit signupFailedNotAllFieldsFromModel();
+}
+
+/// \brief MainWindow::signupFailedUserExists
+void MainWindow::signupFailedUserExists()
+{
+    emit signupFailedUserExistsFromModel();
+}
+
+/// \brief MainWindow::signupFailedPassWordMismatch
+/// Relays signal from gamemodel to signupwindow.
+void MainWindow::signupFailedPassWordMismatch()
+{
+    emit signupFailedPasswordMismatchFromModel();
+}
+
+/// \brief MainWindow::signupSuccess
+void MainWindow::signupSuccess()
+{
+    signupWindow.close();
+    ui->signupButton->setVisible(false);
+    ui->loginButton->setVisible(false);
+}

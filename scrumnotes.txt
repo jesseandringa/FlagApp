@@ -117,9 +117,9 @@ Scrum Questions
 	Sean: can't get connects to work, think its a constructor thing 
 	Ethan:
 	
-#####################
+#######################
 ## Saturday 04/15/23 ##
-#####################
+#######################
 
 Notes:
 
@@ -131,7 +131,7 @@ Scrum Questions
 	Jesse:
 	Eddie:
 	Sean: 
-	Ethan:
+	Ethan: 
 
 2. What will you do today?
 	
@@ -140,7 +140,7 @@ Scrum Questions
 	Jesse:
 	Eddie:
 	Sean: 
-	Ethan:
+	Ethan: Work on getting a user to sign up and figure out what the connections between signup window and model will look like.
 
 3. Is anything in your way?
 	
@@ -149,5 +149,40 @@ Scrum Questions
 	Jesse:
 	Eddie:
 	Sean: 
-	Ethan:
+	Ethan: No.
 
+
+#######################
+## Sunday 04/16/23 ##
+#######################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan: Got the first connections between the sign up window and the model working with the main window as a mediator.
+
+2. What will you do today?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:  Get the sign up window ui and implementation finished.  Start working on serializing and 
+deserializing the localUserData.txt.
+
+3. Is anything in your way?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan: No.
