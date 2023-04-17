@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <random>
 #include <vector>
+#include <QTextStream>
 
 using std::string;
 
@@ -20,13 +21,18 @@ public:
     QString name;
     QString flagFilename;
     std::vector<QString> facts;
+    double longitude;
+    double latitude;
 
     Country(QString name, QString flagFilename, std::vector<QString> facts);
+    Country(QString name, double lon, double lat);
+
+
     void shuffleFacts();
 
     static std::vector<Country> loadCountries(int difficulty);
     static void shuffleCountries(std::vector<Country>& countryVector);
-    static void loadCountryNamesAndDistances();
+    static Country loadCountryNameAndLocation(QString name);
 };
 
 #endif // COUNTRY_H

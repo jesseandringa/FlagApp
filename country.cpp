@@ -16,9 +16,21 @@
 Country::Country(QString name, QString flagFilename, std::vector<QString> facts) :
     name(name),
     flagFilename(flagFilename),
-    facts(facts)
+    facts(facts),
+    longitude(0),
+    latitude(0)
 {
     shuffleFacts();
+}
+
+//data to load about distances from each country
+Country::Country(QString name, double lon, double lat):
+    name(name),
+    flagFilename(""),
+    longitude(lon),
+    latitude(lat)
+{
+
 }
 
 /// \brief Country::shuffleFacts
@@ -91,6 +103,9 @@ std::vector<Country> Country::loadCountries(int difficulty)
         Country country(countryName, flagFilename, factsVector);
         countryVector.push_back(country);
     }
+    if(countryVector.size()>0){
+        loadCountryNameAndLocation(countryVector[0].name);
+    }
     shuffleCountries(countryVector);
     return countryVector;
 }
@@ -106,12 +121,31 @@ void Country::shuffleCountries(std::vector<Country> &countryVector)
     std::shuffle(countryVector.begin(), countryVector.end(), rng);
 }
 
-void Country::loadCountryNamesAndDistances()
+Country Country::loadCountryNameAndLocation(QString name)
 {
     QString filename = ":/distanceData/country_latitude_and_longitude.csv";
     // Parse the chosen csv
     QFile file(filename);
     file.open(QIODevice::ReadOnly | QIODevice::Text);
-    QByteArray jsonData = file.readAll();
+    std::vector<QString> fileData;
+    QTextStream in(&file);
+//get all countries datas
+    QString line = "";
+
+    while(!in.atEnd()){
+        line = in.readLine();
+        QList countryData = line.split(",");
+        int x = QString::compare(countryData[3],name, Qt::CaseInsensitive);
+        if(x == 0){
+            break;
+        }
+    }
     file.close();
+
+    QList countryData = line.split(",");
+    double longi = countryData[2].toDouble();
+    double lat = countryData[1].toDouble();
+    Country country(name, longi,lat);
+
+    return country;
 }
