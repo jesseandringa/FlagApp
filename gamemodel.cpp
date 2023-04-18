@@ -46,17 +46,26 @@ void GameModel::newGuessSlot(std::string guess)
         double yDistance = guessedCountry.latitude - country.latitude;
         //Want to think about this somemore, and how we want to do our directions, prob set boundries on what we qualify as southwest vs south or west.
         //i.e. if the difference between y<10polar points then maybe just call it west instead of southwest.
+        bool west = false;
+        bool east = false;
+        bool north = false;
+        bool south = false;
+
         if (xDistance > 0){
-            //left
+            //left "West"
+            west = true;
         }
         else if (xDistance <= 0){
             //right
+            east = true;
         }
         if(yDistance > 0){
             //down
+            south = true;
         }
         else if (yDistance <= 0){
             //up
+            north = true;
         }
         //Supposed conversion factor from polar coord distance to miles.
         distance = distance * 69.09;

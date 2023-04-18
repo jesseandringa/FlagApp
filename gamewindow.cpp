@@ -19,22 +19,6 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Would probably go off the difficulty of the game to select from a certain file, and rand1-12 for which flag is being quizzed (Sean)
-    ui->distanceLine1->setReadOnly(true);
-    ui->distanceLine2->setReadOnly(true);
-    ui->distanceLine3->setReadOnly(true);
-    ui->distanceLine4->setReadOnly(true);
-    ui->distanceLine5->setReadOnly(true);
-    ui->guessLine1->setReadOnly(true);
-    ui->guessLine2->setReadOnly(true);
-    ui->guessLine3->setReadOnly(true);
-    ui->guessLine4->setReadOnly(true);
-    ui->guessLine5->setReadOnly(true);
-
-
-    QPixmap image(":/flags/FlagImagesHard/liechtenstein.jpg");
-    ui->flagImageLabel->setPixmap(image.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
-
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
     connect(this, &GameWindow::newGame, &model, &GameModel::newGameStartedSlot);
