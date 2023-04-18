@@ -28,10 +28,14 @@ public:
     explicit UserDataHandler(QObject *parent = nullptr);
 
 signals:
+    void userMapDeserialized(map<pair<string,string>, array<int, 6>>);
 
 private:
+    QString USER_DATA_PATH = ":/resources/localUserData/localUserData.txt";
+
     void serializeUserDataToJSON(map<pair<string,string>, array<int, 6>> usersMap);
-    void saveData(const QString &json, QString fileName);
+    void saveData(const QString &json);
+    void deserializeJsonToUsersMap();
 };
 
 #endif // USERDATAHANDLER_H
