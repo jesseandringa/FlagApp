@@ -186,3 +186,37 @@ deserializing the localUserData.txt.
 	Eddie:
 	Sean: 
 	Ethan: No.
+
+#######################
+## Monday 04/17/23 ##
+#######################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan: Implemented serializing usersData to a json file and finished signing up a user.
+
+2. What will you do today?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan:  Work on making a way for a user to log in.
+
+3. Is anything in your way?
+	
+	Sam:
+	Kevin:
+	Jesse:
+	Eddie:
+	Sean: 
+	Ethan: No.
