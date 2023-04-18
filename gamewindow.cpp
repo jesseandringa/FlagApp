@@ -51,6 +51,11 @@ GameWindow::~GameWindow()
 /// resets ui when new game is created.. send signal to reset model
 void GameWindow::initNewGame(int difficulty)
 {
+    ui->hintLabel1->setText("");
+    ui->hintLabel2->setText("");
+    ui->hintLabel3->setText("");
+    ui->hintLabel4->setText("");
+    ui->hintLabel5->setText("");
     emit newGame(difficulty);
 }
 
