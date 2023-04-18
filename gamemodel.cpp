@@ -16,14 +16,58 @@ GameModel::GameModel(QObject *parent)
 {
 }
 
+string GameModel::getArrowDirection(double xDistance, double yDistance)
+{
+    string xDir = "";
+    string yDir = "";
+    int ratio = 2;
+    string arrowDir = "";
+
+    //what directions is the correct country
+    if(xDistance > 0){
+        xDir = "west";
+    }
+    else{
+        xDir = "east";
+    }
+    if(yDistance > 0){
+        yDir = "south";
+    }
+    else{
+        yDir = "north";
+    }
+
+    //is the ration great enough to have a "southwest" etc or is it just "south"
+    if(abs(xDistance) >= abs(yDistance)){
+            //if ratio isn't met
+        if(abs(xDistance/ratio) > abs(yDistance)){
+            arrowDir = xDir;
+        }
+        else{
+            arrowDir = yDir + xDir;
+        }
+    }
+    else{
+        if(abs(yDistance/ratio) > abs(xDistance)){
+            arrowDir = yDir;
+        }
+        else{
+            arrowDir = yDir + xDir;
+        }
+    }
+
+    return arrowDir;
+}
+
 ///slot to start logic to see if guess is correct
 /// also to see how far guess is off
 /// also to see what direction etc.
 /// tells view what hint to display next, or if won or lost game
 void GameModel::newGuessSlot(std::string guess)
 {
+    double conversion = 69.09;
     double distance = 0;
-    QString direction;
+    /*QString*/ /*direction*/;
     //Need QString to use .toLower();
     QString guessStr = QString::fromStdString(guess);
 //    QString countryStr = QString::fromStdString(country);
@@ -42,33 +86,16 @@ void GameModel::newGuessSlot(std::string guess)
         }
         distance = std::sqrt(std::pow((guessedCountry.longitude - country.longitude), 2) + std::pow((guessedCountry.latitude - country.latitude), 2));
 
-        double xDistance = guessedCountry.longitude - country.longitude;
-        double yDistance = guessedCountry.latitude - country.latitude;
+        double xDistance = (guessedCountry.longitude - country.longitude)*conversion;
+        double yDistance = (guessedCountry.latitude - country.latitude)*conversion;
         //Want to think about this somemore, and how we want to do our directions, prob set boundries on what we qualify as southwest vs south or west.
         //i.e. if the difference between y<10polar points then maybe just call it west instead of southwest.
-        bool west = false;
-        bool east = false;
-        bool north = false;
-        bool south = false;
 
-        if (xDistance > 0){
-            //left "West"
-            west = true;
-        }
-        else if (xDistance <= 0){
-            //right
-            east = true;
-        }
-        if(yDistance > 0){
-            //down
-            south = true;
-        }
-        else if (yDistance <= 0){
-            //up
-            north = true;
-        }
+        string arrowDirection = GameModel::getArrowDirection(xDistance,yDistance);
+
         //Supposed conversion factor from polar coord distance to miles.
-        distance = distance * 69.09;
+        distance = distance * conversion;
+
 
 
 
