@@ -21,7 +21,7 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: Brainstormed game design concepts and completed the team formation requirments for class.
-	Kevin:
+	Kevin: Brainstormed concepts/filled project board
 	Jesse: Brainstormed and picked an idea.
 	Eddie:
 	Sean: chose an idea with group and confirmed with professor.
@@ -31,7 +31,7 @@ Scrum Questions
 	
 	Sam: Set up the repo for the assignment, and the seperate repo for the project board. 
 		Identified priority tasks that need to be completed first.
-	Kevin:
+	Kevin: Select a job from our project task and research it.
 	Jesse: Set up repo, create the ui for the main window of the app, created a story board for the project.
 	Eddie:
 	Sean: I looked through what we had and added and familiarized myself. Also added flag image files.
@@ -40,7 +40,7 @@ Scrum Questions
 3. Is anything in your way?
 	
 	Sam: A few people from the team have fallen ill so we will be short handed until people are feeling well again.
-	Kevin:
+	Kevin: Negative space ranger.
 	Jesse: No.
 	Eddie:
 	Sean: I was feeling sick on lab day.
@@ -59,7 +59,7 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin:
+	Kevin: Started open window UI 
 	Jesse: Started the main apps UI
 	Eddie:
 	Sean: Added flags images
@@ -68,7 +68,7 @@ Scrum Questions
 2. What will you do today?
 	
 	Sam: Implement a class for loading and using country information from a json file
-	Kevin:
+	Kevin: Continue working on a more complete inital window.
 	Jesse: get the UI more complete. Get a understanding of how we will calculate distances between countries. 
 	Eddie:
 	Sean: Look into the api for google maps esc. things and look at ui for history box.
@@ -77,7 +77,7 @@ Scrum Questions
 3. Is anything in your way?
 	
 	Sam: No.
-	Kevin:
+	Kevin: no.
 	Jesse: no. 
 	Eddie:
 	Sean: no.
@@ -93,7 +93,7 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin:
+	Kevin: Research about box2d trying to get a feel
 	Jesse:
 	Eddie:
 	Sean: Slighty looked over progress, not as much work done as wanted
@@ -102,7 +102,7 @@ Scrum Questions
 2. What will you do today?
 	
 	Sam:
-	Kevin:
+	Kevin: Research about box2d/project setup
 	Jesse:
 	Eddie:
 	Sean: Actually work well on the history box of guesses
@@ -111,7 +111,7 @@ Scrum Questions
 3. Is anything in your way?
 	
 	Sam:
-	Kevin:
+	Kevin: no.
 	Jesse:
 	Eddie:
 	Sean: can't get connects to work, think its a constructor thing 
@@ -127,25 +127,25 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin:
+	Kevin: box2d stuff/ misc work towards project
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Start up history box and distance math for model between guess and answer.
 	Ethan: 
 
 2. What will you do today?
 	
 	Sam:
-	Kevin:
+	Kevin: Think about how the layout will look and what we're looking for. 
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Finish the history box code roughly and do direction math.
 	Ethan: Work on getting a user to sign up and figure out what the connections between signup window and model will look like.
 
 3. Is anything in your way?
 	
 	Sam:
-	Kevin:
+	Kevin: no. 
 	Jesse:
 	Eddie:
 	Sean: 
@@ -162,29 +162,29 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin:
+	Kevin: Created study/help windows and started ui
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Finished the history box for guesses and worked on direction math.
 	Ethan: Got the first connections between the sign up window and the model working with the main window as a mediator.
 
 2. What will you do today?
 	
 	Sam:
-	Kevin:
+	Kevin: Not working today.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Nothing.
 	Ethan:  Get the sign up window ui and implementation finished.  Start working on serializing and 
 deserializing the localUserData.txt.
 
 3. Is anything in your way?
 	
 	Sam:
-	Kevin:
+	Kevin: no.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: No.
 	Ethan: No.
 
 #######################
@@ -197,26 +197,26 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin:
+	Kevin: Study window/help window creation and ui setup
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Nothing.
 	Ethan: Implemented serializing usersData to a json file and finished signing up a user.
 
 2. What will you do today?
 	
 	Sam:
-	Kevin:
+	Kevin: Same thing.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Read up on our progress for sprint one.
 	Ethan:  Work on making a way for a user to log in.
 
 3. Is anything in your way?
 	
 	Sam:
-	Kevin:
+	Kevin: Looking up physics engine/design work for UI.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: no.
 	Ethan: No.
