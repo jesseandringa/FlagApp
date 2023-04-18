@@ -7,6 +7,7 @@
 #include "signupwindow.h"
 #include "studywindow.h"
 #include "loginwindow.h"
+#include "userdatahandler.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -59,5 +60,6 @@ private:
     SignUpWindow signupWindow;
     LoginWindow loginwindow;
     StudyWindow studyWindow;
+    UserDataHandler userdatahandler;
 };
 #endif // MAINWINDOW_H

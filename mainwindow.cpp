@@ -22,24 +22,23 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
 
     connect(ui->signupButton, &QPushButton::clicked, this, &MainWindow::signupButtonClicked);
     connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signupAttempt);
-    connect(this, &MainWindow::checkSignupAttempt, &model,&GameModel::signupAttempt);
-    connect(&model, &GameModel::signupFailNotAllFields, this, &MainWindow::signupFailedNotAllFields);
+    connect(this, &MainWindow::checkSignupAttempt, &userdatahandler, &UserDataHandler::signupAttempt);
+    connect(&userdatahandler, &UserDataHandler::signupFailNotAllFields, this, &MainWindow::signupFailedNotAllFields);
     connect(this, &MainWindow::signupFailedNotAllFieldsFromModel, &signupWindow, &SignUpWindow::signupFailedNotAllFields);
-    connect(&model, &GameModel::signupFailUserExists, this, &MainWindow::signupFailedUserExists);
+    connect(&userdatahandler, &UserDataHandler::signupFailUserExists, this, &MainWindow::signupFailedUserExists);
     connect(this, &MainWindow::signupFailedUserExistsFromModel, &signupWindow, &SignUpWindow::signupFailedUserExists);
-    connect(&model, &GameModel::signupFailPasswordMismatch, this, &MainWindow::signupFailedPassWordMismatch);
+    connect(&userdatahandler, &UserDataHandler::signupFailPasswordMismatch, this, &MainWindow::signupFailedPassWordMismatch);
     connect(this, &MainWindow::signupFailedPasswordMismatchFromModel, &signupWindow, &SignUpWindow::signupFailedPasswordMismatch);
-    connect(&model, &GameModel::signupSuccess, this, &MainWindow::signupSuccess);
+    connect(&userdatahandler, &UserDataHandler::signupSuccess, this, &MainWindow::signupSuccess);
 
     connect(ui->loginButton, &QPushButton::clicked, this, &MainWindow::loginButtonClicked);
     connect(&loginwindow, &LoginWindow::loginAttempt, this, &MainWindow::loginAttemptSlot);
-    connect(this, &MainWindow::loginAttempt, &model, &GameModel::loginAttempt);
-    connect(&model, &GameModel::loginFailedNotAllFields, this, &MainWindow::loginFailedNotALlFieldsSlot);
+    connect(this, &MainWindow::loginAttempt, &userdatahandler, &UserDataHandler::loginAttempt);
+    connect(&userdatahandler, &UserDataHandler::loginFailedNotAllFields, this, &MainWindow::loginFailedNotALlFieldsSlot);
     connect(this, &MainWindow::loginFailedNotAllFields, &loginwindow, &LoginWindow::loginFailedNotAllFieldsSlot);
-    connect(&model, &GameModel::loginFailedDNE, this, &MainWindow::loginFailedUserDNESlot);
+    connect(&userdatahandler, &UserDataHandler::loginFailedDNE, this, &MainWindow::loginFailedUserDNESlot);
     connect(this, &MainWindow::loginFailedUserDNE, &loginwindow, &LoginWindow::loginFailedUserDNESlot);
-    connect(&model, &GameModel::loginSuccessful, this, &MainWindow::loginSuccessfulSlot);
-
+    connect(&userdatahandler, &UserDataHandler::loginSuccessful, this, &MainWindow::loginSuccessfulSlot);
 }
 
 MainWindow::~MainWindow()

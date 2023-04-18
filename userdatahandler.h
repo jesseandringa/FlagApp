@@ -13,6 +13,10 @@
 #include <iostream>
 #include <QString>
 #include <QObject>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QTextStream>
+#include <QDir>
 #include <map>
 
 using std::map;
@@ -27,14 +31,28 @@ public:
 
     explicit UserDataHandler(QObject *parent = nullptr);
 
+public slots:
+    void signupAttempt(QString user, QString pass, QString passCheck);
+    void loginAttempt(QString user, QString pass);
 signals:
-    void userMapDeserialized(map<pair<string,string>, array<int, 6>>);
+    void userMapDeserialized(map<pair<string,string>, array<int, 6>> usersData);
+
+    void signupFailNotAllFields();
+    void signupFailUserExists();
+    void signupFailPasswordMismatch();
+    void signupSuccess();
+
+    void loginFailedNotAllFields();
+    void loginFailedDNE();
+    void loginSuccessful();
 
 private:
-    QString USER_DATA_PATH = ":/resources/localUserData/localUserData.txt";
+    QString USER_DATA_PATH;
+    std::pair<string,string> currentUser;
+    std::map<std::pair<string,string>, std::array<int, 6>> usersData;
 
-    void serializeUserDataToJSON(map<pair<string,string>, array<int, 6>> usersMap);
-    void saveData(const QString &json);
+    void serializeUserDataToJSON();
+    void saveData(QJsonDocument* doc);
     void deserializeJsonToUsersMap();
 };
 

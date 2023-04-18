@@ -22,7 +22,6 @@ public:
 
 private:
     const int allowedGuesses = 5;
-    std::pair<string,string> currentUser;
     int gamesPlayed;  // total games this user has played
     //These three below should be selected on startup of game, they are compared to for checking the users guess! not implemented fully:
     Country country;
@@ -32,24 +31,14 @@ private:
     string guessedCountry;
     std::vector<Country> countries;
     bool won;
-    std::map<std::pair<string,string>, std::array<int, 6>> usersData;
 
 public slots:
     void newGuessSlot(std::string guess);
-    void signupAttempt(QString user, QString pass, QString passCheck);
-    void loginAttempt(QString user, QString pass);
     void newGameStartedSlot(int difficulty);
 
 
 signals:
     void sendUIGuessInfo(std::string guess, int guessNum, double distance);
-    void signupFailNotAllFields();
-    void signupFailUserExists();
-    void signupFailPasswordMismatch();
-    void signupSuccess();
-    void loginFailedNotAllFields();
-    void loginFailedDNE();
-    void loginSuccessful();
     void newCountryPicked(QString filepath, QString fact1);
 };
 

@@ -6,17 +6,22 @@
 UserDataHandler::UserDataHandler(QObject *parent)
     : QObject{parent}
 {
+    QString temp = QDir::currentPath();
+    QDir relativePath(temp);
+    USER_DATA_PATH = relativePath.filePath("localUserData.txt");
+
+    deserializeJsonToUsersMap();
 }
 
 /// \brief UserDataHandler::serializeUserDataToJSON
 /// Serializes the local user data to json and saves it in the localUserData.txt in resources.
 /// \param usersMap
-void UserDataHandler::serializeUserDataToJSON(map<pair<string,string>, array<int, 6>> usersMap)
+void UserDataHandler::serializeUserDataToJSON()
 {
     QJsonObject users;
 
     int userNum = 0;
-    for(auto user = usersMap.begin(); user != usersMap.end(); user++)
+    for(auto user = usersData.begin(); user != usersData.end(); user++)
     {
         QJsonObject tempUser;
         tempUser["username"] = QString::fromStdString(user->first.first);
@@ -38,9 +43,9 @@ void UserDataHandler::serializeUserDataToJSON(map<pair<string,string>, array<int
     }
 
     QJsonDocument doc(users);
-    QString json = doc.toJson();
+    //QString json = doc.toJson();
 
-    saveData(json);
+    saveData(&doc);
 }
 
 /// \brief userDataHandler::saveData
@@ -48,16 +53,20 @@ void UserDataHandler::serializeUserDataToJSON(map<pair<string,string>, array<int
 /// in output cout not opening correctly error if filenmae doesnt work;
 /// \param json
 /// \param fileName
-void UserDataHandler::saveData(const QString &json)
+void UserDataHandler::saveData(QJsonDocument* doc)
 {
     QFile file(USER_DATA_PATH);
-    if (!file.open(QIODevice::WriteOnly))
+    if (file.open(QIODevice::Truncate | QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        QString temp = doc->toJson();
+        out << temp;
+        file.close();
+    }
+    else
     {
         std::cout << "not opening correctly" << std::endl;
     }
-    QTextStream out(&file);
-    out << json;
-    file.close();
 }
 
 void UserDataHandler::deserializeJsonToUsersMap()
@@ -91,5 +100,73 @@ void UserDataHandler::deserializeJsonToUsersMap()
         }
     }
 
-    emit userMapDeserialized(temp);
+    usersData = temp;
+}
+
+/// \brief UserDataHandler::signupCheck
+/// Tries to sign up a new user.  If something goes wrong an appropriate emit will occur.
+/// \param username
+/// \param password
+/// \param passwordCheck
+void UserDataHandler::signupAttempt(QString user, QString pass, QString passCheck)
+{
+    string username = user.toStdString();
+    string password = pass.toStdString();
+    string passwordCheck = passCheck.toStdString();
+
+    if(username.length() == 0 || password.length() == 0 || passwordCheck.length() == 0)
+    {
+        emit signupFailNotAllFields();
+    }
+    else if(password != passwordCheck)
+    {
+        emit signupFailPasswordMismatch();
+    }
+    else
+    {
+        currentUser.first = username;
+        currentUser.second = password;
+
+        auto iter = usersData.find(currentUser);
+        //The user exists
+        if(iter != usersData.end())
+        {
+            emit signupFailUserExists();
+        }
+        else
+        {
+            usersData[currentUser] = {0,0,0,0,0,0};
+            serializeUserDataToJSON();
+            emit signupSuccess();
+        }
+    }
+}
+
+/// \brief UserDataHandler::loginAttempt
+/// Implimentation to see if a user log in attempt is successful.
+/// It will tell the main window when it knows.
+/// \param user
+/// \param pass
+void UserDataHandler::loginAttempt(QString user, QString pass)
+{
+    if(user.length() == 0 || pass.length() == 0)
+    {
+        emit loginFailedNotAllFields();
+    }
+    else
+    {
+        currentUser.first = user.toStdString();
+        currentUser.second = pass.toStdString();
+
+        auto iter = usersData.find(currentUser);
+        //The user does not exists
+        if(iter == usersData.end())
+        {
+            emit loginFailedDNE();
+        }
+        else
+        {
+            emit loginSuccessful();
+        }
+    }
 }

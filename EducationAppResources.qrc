@@ -45,7 +45,5 @@
     <qresource prefix="/distanceData">
         <file>country_latitude_and_longitude.csv</file>
     </qresource>
-    <qresource prefix="/localUserData">
-        <file>localUserData.txt</file>
-    </qresource>
+    <qresource prefix="/localUserData"/>
 </RCC>
