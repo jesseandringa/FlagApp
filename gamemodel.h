@@ -10,6 +10,7 @@
 #include <cmath>
 #include <string>
 #include <map>
+#include "country.h"
 
 using std::string;
 
@@ -29,6 +30,7 @@ private:
     float yCoordCountry;
     int guessNumber;
     string guessedCountry;
+    std::vector<Country> countries;
     bool won;
     std::map<std::pair<string,string>, std::array<int, 6>> usersData;
 
@@ -36,6 +38,7 @@ public slots:
     void newGuessSlot(std::string guess);
     void signupAttempt(QString user, QString pass, QString passCheck);
     void loginAttempt(QString user, QString pass);
+    void newGameStartedSlot(int difficulty);
 
 
 signals:

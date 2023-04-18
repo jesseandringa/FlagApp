@@ -147,6 +147,11 @@ void GameModel::loginAttempt(QString user, QString pass)
     }
 }
 
+void GameModel::newGameStartedSlot(int difficulty)
+{
+    countries = Country::loadCountries(difficulty);
+}
+
 
 
 
