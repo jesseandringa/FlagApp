@@ -34,6 +34,7 @@ private:
     Ui::GameWindow *ui;
 signals:
     void newGuess(std::string currGuess);
+    void newGame(int difficulty);
 
 };
 

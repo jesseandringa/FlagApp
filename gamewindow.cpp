@@ -37,7 +37,7 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
-
+    connect(this, &GameWindow::newGame, &model, &GameModel::newGameStartedSlot);
     connect(&model, &GameModel::sendUIGuessInfo, this, &GameWindow::receiveCurrentGuessInfo);
 }
 
@@ -47,13 +47,10 @@ GameWindow::~GameWindow()
 }
 
 ///SLOT
-/// resets ui when new game is created
+/// resets ui when new game is created.. send signal to reset model
 void GameWindow::initNewGame(int difficulty)
 {
-
-    // load countries
-    countries = Country::loadCountries(difficulty);
-
+    emit newGame(difficulty);
 }
 
 
