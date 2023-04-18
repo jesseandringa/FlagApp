@@ -144,6 +144,7 @@ void GameModel::newGameStartedSlot(int difficulty)
 {
     countries = Country::loadCountries(difficulty);
     country = countries[0];
+    emit newCountryPicked(country.flagFilename, country.facts[0]);
 }
 
 

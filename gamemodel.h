@@ -50,6 +50,7 @@ signals:
     void loginFailedNotAllFields();
     void loginFailedDNE();
     void loginSuccessful();
+    void newCountryPicked(QString filepath, QString fact1);
 };
 
 #endif // GAMEMODEL_H
