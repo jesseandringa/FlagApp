@@ -130,7 +130,7 @@ Scrum Questions
 	Kevin: box2d stuff/ misc work towards project
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Start up history box and distance math for model between guess and answer.
 	Ethan: 
 
 2. What will you do today?
@@ -139,7 +139,7 @@ Scrum Questions
 	Kevin: Think about how the layout will look and what we're looking for. 
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Finish the history box code roughly and do direction math.
 	Ethan: Work on getting a user to sign up and figure out what the connections between signup window and model will look like.
 
 3. Is anything in your way?
@@ -165,7 +165,7 @@ Scrum Questions
 	Kevin: Created study/help windows and started ui
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Finished the history box for guesses and worked on direction math.
 	Ethan: Got the first connections between the sign up window and the model working with the main window as a mediator.
 
 2. What will you do today?
@@ -174,7 +174,7 @@ Scrum Questions
 	Kevin: Not working today.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Nothing.
 	Ethan:  Get the sign up window ui and implementation finished.  Start working on serializing and 
 deserializing the localUserData.txt.
 
@@ -184,7 +184,7 @@ deserializing the localUserData.txt.
 	Kevin: no.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: No.
 	Ethan: No.
 
 #######################
@@ -200,7 +200,7 @@ Scrum Questions
 	Kevin: Study window/help window creation and ui setup
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Nothing.
 	Ethan: Implemented serializing usersData to a json file and finished signing up a user.
 
 2. What will you do today?
@@ -209,7 +209,7 @@ Scrum Questions
 	Kevin: Same thing.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: Read up on our progress for sprint one.
 	Ethan:  Work on making a way for a user to log in.
 
 3. Is anything in your way?
@@ -218,5 +218,5 @@ Scrum Questions
 	Kevin: Looking up physics engine/design work for UI.
 	Jesse:
 	Eddie:
-	Sean: 
+	Sean: no.
 	Ethan: No.
