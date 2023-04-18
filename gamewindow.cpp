@@ -39,6 +39,7 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
     connect(this, &GameWindow::newGame, &model, &GameModel::newGameStartedSlot);
     connect(&model, &GameModel::sendUIGuessInfo, this, &GameWindow::receiveCurrentGuessInfo);
+    connect(&model, &GameModel::newCountryPicked, this, &GameWindow::setUIforNewCountry);
 }
 
 GameWindow::~GameWindow()
@@ -83,6 +84,16 @@ void GameWindow::on_guessButton_clicked()
         ui->currentGuess->setText("");
         emit newGuess(guessStr);
     }
+}
+
+void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
+{
+    //set flag
+    QPixmap flag(filepath);
+    ui->flagImageLabel->setPixmap(flag.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
+
+    //set fact1
+    ui->hintLabel1->setText(fact1);
 }
 
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance){
