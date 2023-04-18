@@ -6,6 +6,7 @@
 #include "gamewindow.h"
 #include "signupwindow.h"
 #include "studywindow.h"
+#include "loginwindow.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -27,13 +28,19 @@ public slots:
     void easyDifficultyClicked();
     void mediumDifficultyClicked();
     void hardDifficultyClicked();
-    void signupButtonClicked();
 
+    void signupButtonClicked();
     void signupAttempt(std::tuple<QString, QString, QString> temp);
     void signupFailedNotAllFields();
     void signupFailedUserExists();
     void signupFailedPassWordMismatch();
     void signupSuccess();
+
+    void loginButtonClicked();
+    void loginAttemptSlot(QString username, QString password);
+    void loginFailedNotALlFieldsSlot();
+    void loginFailedUserDNESlot();
+    void loginSuccessfulSlot();
 
 signals:
     void startGame(int difficulty);
@@ -42,10 +49,15 @@ signals:
     void signupFailedUserExistsFromModel();
     void signupFailedPasswordMismatchFromModel();
 
+    void loginAttempt(QString, QString);
+    void loginFailedNotAllFields();
+    void loginFailedUserDNE();
+
 private:
     Ui::MainWindow *ui;
     GameWindow gameWindow;
     SignUpWindow signupWindow;
+    LoginWindow loginwindow;
     StudyWindow studyWindow;
 };
 #endif // MAINWINDOW_H

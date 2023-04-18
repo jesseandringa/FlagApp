@@ -14,11 +14,6 @@ GameModel::GameModel(QObject *parent)
       guessedCountry(""),
       won (false)
 {
-    for(int i = 0; i< allowedGuesses + 1; i++){
-        whereTheGamesEnded[i] = 0;
-    }
-
-    usersData[std::make_pair("user", "pass")] = {0,0,0,0,0,0};
 }
 
 ///slot to start logic to see if guess is correct
@@ -123,8 +118,34 @@ void GameModel::signupAttempt(QString user, QString pass, QString passCheck)
     }
 }
 
+/// \brief GameModel::loginAttempt
+/// Implimentation to see if a user log in attempt is successful.
+/// It will tell the main window when it knows.
+/// \param user
+/// \param pass
+void GameModel::loginAttempt(QString user, QString pass)
+{
+    if(user.length() == 0 || pass.length() == 0)
+    {
+        emit loginFailedNotAllFields();
+    }
+    else
+    {
+        currentUser.first = user.toStdString();
+        currentUser.second = pass.toStdString();
 
-
+        auto iter = usersData.find(currentUser);
+        //The user does not exists
+        if(iter == usersData.end())
+        {
+            emit loginFailedDNE();
+        }
+        else
+        {
+            emit loginSuccessful();
+        }
+    }
+}
 
 
 

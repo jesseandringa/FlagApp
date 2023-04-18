@@ -30,6 +30,16 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(&model, &GameModel::signupFailPasswordMismatch, this, &MainWindow::signupFailedPassWordMismatch);
     connect(this, &MainWindow::signupFailedPasswordMismatchFromModel, &signupWindow, &SignUpWindow::signupFailedPasswordMismatch);
     connect(&model, &GameModel::signupSuccess, this, &MainWindow::signupSuccess);
+
+    connect(ui->loginButton, &QPushButton::clicked, this, &MainWindow::loginButtonClicked);
+    connect(&loginwindow, &LoginWindow::loginAttempt, this, &MainWindow::loginAttemptSlot);
+    connect(this, &MainWindow::loginAttempt, &model, &GameModel::loginAttempt);
+    connect(&model, &GameModel::loginFailedNotAllFields, this, &MainWindow::loginFailedNotALlFieldsSlot);
+    connect(this, &MainWindow::loginFailedNotAllFields, &loginwindow, &LoginWindow::loginFailedNotAllFieldsSlot);
+    connect(&model, &GameModel::loginFailedDNE, this, &MainWindow::loginFailedUserDNESlot);
+    connect(this, &MainWindow::loginFailedUserDNE, &loginwindow, &LoginWindow::loginFailedUserDNESlot);
+    connect(&model, &GameModel::loginSuccessful, this, &MainWindow::loginSuccessfulSlot);
+
 }
 
 MainWindow::~MainWindow()
@@ -121,4 +131,38 @@ void MainWindow::signupSuccess()
     signupWindow.close();
     ui->signupButton->setVisible(false);
     ui->loginButton->setVisible(false);
+}
+
+/// \brief MainWindow::loginButtonPressed
+/// Makes the loginwindow visible.
+void MainWindow::loginButtonClicked()
+{
+    loginwindow.show();
+}
+
+/// \brief LoginWindow::loginAttemptSlot
+/// Passes username and password along to the model.
+/// \param username
+/// \param password
+void MainWindow::loginAttemptSlot(QString username, QString password)
+{
+    emit loginAttempt(username, password);
+}
+
+/// \brief MainWindow::loginFailedNotALlFieldsSlot
+void MainWindow::loginFailedNotALlFieldsSlot()
+{
+    emit loginFailedNotAllFields();
+}
+
+/// \brief MainWindow::loginFailedUserDNESlot
+void MainWindow::loginFailedUserDNESlot()
+{
+    emit loginFailedUserDNE();
+}
+
+/// \brief MainWindow::loginSuccessfulSlot
+void MainWindow::loginSuccessfulSlot()
+{
+    loginwindow.close();
 }

@@ -13,6 +13,7 @@ SOURCES += \
     gamemodel.cpp \
     gamewindow.cpp \
     helpwindow.cpp \
+    loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     signupwindow.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     gamemodel.h \
     gamewindow.h \
     helpwindow.h \
+    loginwindow.h \
     mainwindow.h \
     signupwindow.h \
     studywindow.h \
@@ -32,6 +34,7 @@ HEADERS += \
 FORMS += \
     gamewindow.ui \
     helpwindow.ui \
+    loginwindow.ui \
     mainwindow.ui \
     signupwindow.ui \
     studywindow.ui

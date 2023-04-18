@@ -23,7 +23,6 @@ private:
     const int allowedGuesses = 5;
     std::pair<string,string> currentUser;
     int gamesPlayed;  // total games this user has played
-    int whereTheGamesEnded[6]; // index 0 would represent first guess correct... index 5 would be they didn't get it
     //These three below should be selected on startup of game, they are compared to for checking the users guess! not implemented fully:
     string country = "";
     float xCoordCountry;
@@ -36,6 +35,7 @@ private:
 public slots:
     void newGuessSlot(std::string guess);
     void signupAttempt(QString user, QString pass, QString passCheck);
+    void loginAttempt(QString user, QString pass);
 
 
 signals:
@@ -44,6 +44,9 @@ signals:
     void signupFailUserExists();
     void signupFailPasswordMismatch();
     void signupSuccess();
+    void loginFailedNotAllFields();
+    void loginFailedDNE();
+    void loginSuccessful();
 };
 
 #endif // GAMEMODEL_H
