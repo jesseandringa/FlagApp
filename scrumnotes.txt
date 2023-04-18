@@ -25,7 +25,7 @@ Scrum Questions
 	Jesse: Brainstormed and picked an idea.
 	Eddie:
 	Sean: chose an idea with group and confirmed with professor.
-	Ethan:
+	Ethan: Sick Day.
 
 2. What will you do today?
 	
@@ -35,7 +35,7 @@ Scrum Questions
 	Jesse: Set up repo, create the ui for the main window of the app, created a story board for the project.
 	Eddie:
 	Sean: I looked through what we had and added and familiarized myself. Also added flag image files.
-	Ethan:
+	Ethan: Sick day.
 
 3. Is anything in your way?
 	
@@ -44,7 +44,7 @@ Scrum Questions
 	Jesse: No.
 	Eddie:
 	Sean: I was feeling sick on lab day.
-	Ethan:
+	Ethan: My health.
 
 #######################
 ## Thursday 04/13/23 ##
@@ -63,7 +63,7 @@ Scrum Questions
 	Jesse: Started the main apps UI
 	Eddie:
 	Sean: Added flags images
-	Ethan:
+	Ethan: Sick Day.
 
 2. What will you do today?
 	
@@ -94,28 +94,28 @@ Scrum Questions
 
 	Sam: 
 	Kevin:
-	Jesse: Decided on having a file with long and lat of each country to get distances
+	Jesse:
 	Eddie:
 	Sean: Slighty looked over progress, not as much work done as wanted
-	Ethan:
+	Ethan: Started playing with having the user sign in and saving users data.
 
 2. What will you do today?
 	
 	Sam:
 	Kevin:
-	Jesse:	implement a load long and lat data from file
+	Jesse:
 	Eddie:
 	Sean: Actually work well on the history box of guesses
-	Ethan:
+	Ethan: Nothing.
 
 3. Is anything in your way?
 	
 	Sam:
 	Kevin:
-	Jesse: . 
+	Jesse:
 	Eddie:
 	Sean: can't get connects to work, think its a constructor thing 
-	Ethan:
+	Ethan: Time.
 	
 #######################
 ## Saturday 04/15/23 ##
@@ -128,16 +128,16 @@ Scrum Questions
 
 	Sam: 
 	Kevin:
-	Jesse:	coded a load data for long and lat info, given a cerain country name. 
+	Jesse:
 	Eddie:
 	Sean: 
-	Ethan: 
+	Ethan: Nothing.
 
 2. What will you do today?
 	
 	Sam:
 	Kevin:
-	Jesse: Nothing
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan: Work on getting a user to sign up and figure out what the connections between signup window and model will look like.
@@ -146,7 +146,7 @@ Scrum Questions
 	
 	Sam:
 	Kevin:
-	Jesse: No. 
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan: No.
@@ -163,7 +163,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin:
-	Jesse: Nothing.
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan: Got the first connections between the sign up window and the model working with the main window as a mediator.
@@ -172,7 +172,7 @@ Scrum Questions
 	
 	Sam:
 	Kevin:
-	Jesse: Refactored some file loading functionality. 
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan:  Get the sign up window ui and implementation finished.  Start working on serializing and 
@@ -182,7 +182,7 @@ deserializing the localUserData.txt.
 	
 	Sam:
 	Kevin:
-	Jesse: No.
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan: No.
@@ -198,7 +198,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin:
-	Jesse: Refactored some file loading functionality. 
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan: Implemented serializing usersData to a json file and finished signing up a user.
@@ -207,7 +207,7 @@ Scrum Questions
 	
 	Sam:
 	Kevin:
-	Jesse: Refactored more of the laoding functionality to be just in model and not UI
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan:  Work on making a way for a user to log in.
@@ -216,42 +216,7 @@ Scrum Questions
 	
 	Sam:
 	Kevin:
-	Jesse: no. 
-	Eddie:
-	Sean: 
-	Ethan: No.
-	
-	
-#######################
-## Tuesday 04/18/23 ##
-#######################
-
-Notes:
-
-Scrum Questions
-1. What did you do yesterday?
-
-	Sam: 
-	Kevin:
-	Jesse: Refactored more of the laoding functionality to be just in model and not UI
-	Eddie:
-	Sean: 
-	Ethan: Implemented serializing usersData to a json file and finished signing up a user.
-
-2. What will you do today?
-	
-	Sam:
-	Kevin:
-	Jesse: Got Ui to load image and fact 1 and model to hold country data
-	Eddie:
-	Sean: 
-	Ethan:  Work on making a way for a user to log in.
-
-3. Is anything in your way?
-	
-	Sam:
-	Kevin:
-	Jesse: no. 
+	Jesse:
 	Eddie:
 	Sean: 
 	Ethan: No.
