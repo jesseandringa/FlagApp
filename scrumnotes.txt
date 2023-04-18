@@ -25,7 +25,7 @@ Scrum Questions
 	Jesse: Brainstormed and picked an idea.
 	Eddie:
 	Sean: chose an idea with group and confirmed with professor.
-	Ethan:
+	Ethan: Sick Day.
 
 2. What will you do today?
 	
@@ -35,7 +35,7 @@ Scrum Questions
 	Jesse: Set up repo, create the ui for the main window of the app, created a story board for the project.
 	Eddie:
 	Sean: I looked through what we had and added and familiarized myself. Also added flag image files.
-	Ethan:
+	Ethan: Sick Day.
 
 3. Is anything in your way?
 	
@@ -44,7 +44,7 @@ Scrum Questions
 	Jesse: No.
 	Eddie:
 	Sean: I was feeling sick on lab day.
-	Ethan:
+	Ethan: My health.
 
 #######################
 ## Thursday 04/13/23 ##
@@ -63,7 +63,7 @@ Scrum Questions
 	Jesse: Started the main apps UI
 	Eddie:
 	Sean: Added flags images
-	Ethan:
+	Ethan: Sick Day.
 
 2. What will you do today?
 	
@@ -97,7 +97,7 @@ Scrum Questions
 	Jesse:
 	Eddie:
 	Sean: Slighty looked over progress, not as much work done as wanted
-	Ethan:
+	Ethan: Conceptualize and research for saving user data/login info.
 
 2. What will you do today?
 	
@@ -106,7 +106,7 @@ Scrum Questions
 	Jesse:
 	Eddie:
 	Sean: Actually work well on the history box of guesses
-	Ethan:
+	Ethan: Nothing.
 
 3. Is anything in your way?
 	
@@ -115,7 +115,7 @@ Scrum Questions
 	Jesse:
 	Eddie:
 	Sean: can't get connects to work, think its a constructor thing 
-	Ethan:
+	Ethan: Time.
 	
 #######################
 ## Saturday 04/15/23 ##
@@ -131,7 +131,7 @@ Scrum Questions
 	Jesse:
 	Eddie:
 	Sean: Start up history box and distance math for model between guess and answer.
-	Ethan: 
+	Ethan: Nothing.
 
 2. What will you do today?
 	
