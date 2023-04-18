@@ -26,6 +26,7 @@ public:
 
     Country(QString name, QString flagFilename, std::vector<QString> facts);
     Country(QString name, double lon, double lat);
+    Country();
 
 
     void shuffleFacts();

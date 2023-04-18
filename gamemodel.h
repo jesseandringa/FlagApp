@@ -25,7 +25,7 @@ private:
     std::pair<string,string> currentUser;
     int gamesPlayed;  // total games this user has played
     //These three below should be selected on startup of game, they are compared to for checking the users guess! not implemented fully:
-    string country = "";
+    Country country;
     float xCoordCountry;
     float yCoordCountry;
     int guessNumber;
