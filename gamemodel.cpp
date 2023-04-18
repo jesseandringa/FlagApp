@@ -32,21 +32,6 @@ void GameModel::newGuessSlot(std::string guess)
 
     }
     else {
-        //Below is reading from file to see if they were wrong, what country they might have guessed and how far:
-//        QFile file(":/distanceData/country_latitude_and_longitude.csv");
-//        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-//            return;
-
-//        while (!file.atEnd()) {
-//            QByteArray line = file.readLine();
-//            //Convert guess to same type, so can use tolower not sure if this is ideal..
-//            QByteArray guessArray(guess.c_str(), guess.length());
-
-//            if(line.toLower().contains(guessArray.toLower())){
-
-//                QStringList fields = QString(line).split(",");
-//                float xCoordinateGuess = fields[1].toFloat();
-//                float yCoordinateGuess = fields[2].toFloat();
 
         Country guessedCountry = Country::loadCountryNameAndLocation(guessStr);
         //if current country hasn't gotten x,y coords yet
