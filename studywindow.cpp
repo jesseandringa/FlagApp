@@ -16,3 +16,25 @@ StudyWindow::~StudyWindow()
 {
     delete ui;
 }
+
+void StudyWindow::on_nextCountryArrow_pressed()
+{
+    currentCountry++;
+    ui->studyHintLabel1->setText("");
+    ui->studyHintLabel2->setText("");
+    ui->studyHintLabel3->setText("");
+    ui->studyHintLabel4->setText("");
+    ui->studyHintLabel5->setText("");
+}
+
+
+void StudyWindow::on_prevCountryArrow_pressed()
+{
+    currentCountry--;
+    ui->studyHintLabel1->setText("");
+    ui->studyHintLabel2->setText("");
+    ui->studyHintLabel3->setText("");
+    ui->studyHintLabel4->setText("");
+    ui->studyHintLabel5->setText("");
+}
+

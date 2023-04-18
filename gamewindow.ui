@@ -170,6 +170,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="hintLabel2_2">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>300</y>
+      <width>639</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hint 2:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
