@@ -107,29 +107,34 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->hintLabel2->setText("Hint 2: " + hints[1]);
         ui->guessLine1->setText(guessStr);
         ui->distanceLine1->setText(distanceStr + " Miles");
+        ui->arrowLabel1->setText(arrowDir);
     }
     else if(guessNum == 1)
     {
         ui->hintLabel3->setText("Hint 3: " + hints[2]);
         ui->guessLine2->setText(guessStr);
         ui->distanceLine2->setText(distanceStr + " Miles");
+        ui->arrowLabel2->setText(arrowDir);
     }
     else if(guessNum == 2)
     {
         ui->hintLabel4->setText("Hint 4: " + hints[3]);
         ui->guessLine3->setText(guessStr);
         ui->distanceLine3->setText(distanceStr + " Miles");
+        ui->arrowLabel3->setText(arrowDir);
     }
     else if(guessNum == 3)
     {
         ui->hintLabel5->setText("Hint 5: " + hints[4]);
         ui->guessLine4->setText(guessStr);
         ui->distanceLine4->setText(distanceStr + " Miles");
+        ui->arrowLabel4->setText(arrowDir);
     }
     else if(guessNum == 4)
     {
         ui->guessLine5->setText(guessStr);
         ui->distanceLine5->setText(distanceStr + " Miles");
+        ui->arrowLabel5->setText(arrowDir);
     }
 }
 
