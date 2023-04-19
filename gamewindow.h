@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <iostream>
+#include "QtWidgets/qlistwidget.h"
 #include "country.h"
 #include "gamemodel.h"
 
@@ -37,6 +38,9 @@ private slots:
     void on_QuitButton_clicked();
 
     void on_currentGuess_textChanged(const QString &arg1);
+
+
+    void on_suggList_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::GameWindow *ui;

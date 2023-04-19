@@ -141,6 +141,7 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
 
     //set fact1
     ui->hintLabel1->setText("Hint 1: " + fact1);
+    ui->scrollArea->setVisible(false);
 }
 
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
@@ -251,6 +252,7 @@ void GameWindow::on_currentGuess_textChanged(const QString &arg1)
 
 void GameWindow::addSuggestions(std::vector<string> suggestions)
 {
+    ui->scrollArea->setVisible(true);
     ui->suggList->clear();
     //put new suggestions in
     for(int i = 0; i<suggestions.size(); i++){
@@ -267,13 +269,22 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
     else{
         sugCount = ui->suggList->count();
     }
-    int scrollBoxHeight = 0;
-    for(int i = 0; i< sugCount; i++){
-        scrollBoxHeight+=25;
-    }
-    QRect sizeofBox(369,169,481,scrollBoxHeight);
-    ui->scrollArea->setGeometry(sizeofBox);
+    int scrollBoxHeight = sugCount * 19;
+
+    QRect sizeOfBox(369,169,481,scrollBoxHeight);
+//    ui->suggList->setGeometry(sizeOfBox);
+    ui->scrollArea->setGeometry(sizeOfBox);
+
 
 }
 
+
+
+
+void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
+{
+    QString countryName = item->text();
+    ui->currentGuess->setText(countryName);
+    ui->currentGuess->setFocus();
+}
 
