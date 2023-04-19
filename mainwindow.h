@@ -50,6 +50,7 @@ public slots:
     void statsReceived(array<int,6> stats);
 
     void countryFinishedSlot(int finishPosition);
+    void difficultyFinished();
 
 signals:
     void startGame(int difficulty);

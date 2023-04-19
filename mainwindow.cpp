@@ -70,6 +70,8 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
 
     connect(&model, &GameModel::countryFinished, this, &MainWindow::countryFinishedSlot);
     connect(this, &MainWindow::countryFinished, &userdatahandler, &UserDataHandler::countryFinished);
+
+    connect(&model, &GameModel::backToMain, this, &MainWindow::difficultyFinished);
 }
 
 MainWindow::~MainWindow()
@@ -113,21 +115,21 @@ void MainWindow::backButtonClicked()
 
 void MainWindow::easyDifficultyClicked()
 {
-    this->close();
+    this->hide();
     gameWindow.initNewGame(0);
     gameWindow.show();
 }
 
 void MainWindow::mediumDifficultyClicked()
 {
-    this->close();
+    this->hide();
     gameWindow.initNewGame(1);
     gameWindow.show();
 }
 
 void MainWindow::hardDifficultyClicked()
 {
-    this->close();
+    this->hide();
     gameWindow.initNewGame(2);
     gameWindow.show();
 }
@@ -242,4 +244,12 @@ void MainWindow::statsReceived(std::array<int, 6> stats)
 void MainWindow::countryFinishedSlot(int finishPosition)
 {
     emit countryFinished(finishPosition);
+}
+
+/// \brief MainWindow::difficultyFinished
+/// Hide game window and reveal main window.
+void MainWindow::difficultyFinished()
+{
+    this->show();
+    gameWindow.hide();
 }
