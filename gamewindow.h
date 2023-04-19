@@ -36,6 +36,8 @@ private slots:
 
     void on_QuitButton_clicked();
 
+    void on_currentGuess_textChanged(const QString &arg1);
+
 private:
     Ui::GameWindow *ui;
     void hideWinScreen();
@@ -45,6 +47,7 @@ signals:
     void newGuess(std::string currGuess);
     void newGame(int difficulty);
     void nextCountry();
+    void userTypingAndNeedsSuggestions(string currentText);
 
 };
 

@@ -32,8 +32,9 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     // Start new round after winning (Sam)
     connect(this, &GameWindow::nextCountry, &model, &GameModel::playNextCountry);
 
-    //connect for bad guesses checking
+    //connect for typing and guesses
     connect(&model, &GameModel::invalidGuess, this, &GameWindow::invalidGuessSlot);
+    connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
 }
 
 GameWindow::~GameWindow()
@@ -181,6 +182,7 @@ void GameWindow::on_nextFlag_clicked()
     emit nextCountry();
 }
 
+///\brief when guess is not a country don't count guess and shake box?
 void GameWindow::invalidGuessSlot()
 {
     ////shake the text box because invalid country guess
@@ -206,5 +208,14 @@ void GameWindow::hideWinScreen()
 void GameWindow::on_QuitButton_clicked()
 {
     QCoreApplication::quit();
+}
+
+///\brief When user is typing. look at current string and give user suggestions
+void GameWindow::on_currentGuess_textChanged(const QString &arg1)
+{
+    string input = arg1.QString::toStdString();
+    emit userTypingAndNeedsSuggestions(input);
+
+
 }
 

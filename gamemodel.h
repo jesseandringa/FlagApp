@@ -33,6 +33,7 @@ private:
     string guessedCountry;
     std::vector<Country> countries;
     bool won;
+    std::vector<string> countriesNames;
     static string getArrowDirection(double xDirection, double yDirection);
     void resetRound();
 
@@ -41,6 +42,7 @@ public slots:
     void newGuessSlot(std::string guess);
     void newGameStartedSlot(int difficulty);
     void playNextCountry();
+    void getSuggestionsForUserSlot(string currentText);
 
 
 signals:

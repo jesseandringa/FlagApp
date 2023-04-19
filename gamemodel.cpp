@@ -155,6 +155,12 @@ void GameModel::playNextCountry()
     emit newCountryPicked(country.flagFilename, country.facts[guessNumber]);
 }
 
+void GameModel::getSuggestionsForUserSlot(string currentText)
+{
+    //do somethign
+//    cout<<"not implemented suggestions"<<endl;
+}
+
 
 
 
