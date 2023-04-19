@@ -135,6 +135,7 @@ void Country::shuffleCountries(std::vector<Country> &countryVector)
 Country Country::loadCountryNameAndLocation(QString name)
 {
     QString filename = ":/distanceData/country_latitude_and_longitude.csv";
+    bool exists = false;
     // Parse the chosen csv
     QFile file(filename);
     file.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -148,6 +149,7 @@ Country Country::loadCountryNameAndLocation(QString name)
         QList countryData = line.split(",");
         int x = QString::compare(countryData[3],name, Qt::CaseInsensitive);
         if(x == 0){
+            exists = true;
             break;
         }
     }
@@ -158,30 +160,28 @@ Country Country::loadCountryNameAndLocation(QString name)
     double lat = countryData[1].toDouble();
     Country country(name,longi,lat);
 
-    return country;
+    //return country if found
+    if(exists){
+        return country;
+    }
+    //return empty country if not found
+    else{
+        Country noCountry("",0,0);
+        return noCountry;
+    }
+
 }
 
 bool Country::isInvalidGuess(string guess)
 {
-    QString filename = ":/distanceData/country_latitude_and_longitude.csv";
-    bool isInvalid = true;
-    QString guessStr = QString::fromStdString(guess);
-    // Parse the chosen csv
-    QFile file(filename);
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-    std::vector<QString> fileData;
-    QTextStream in(&file);
-    QString line = "";
+    QString quessStr = QString::fromStdString(guess);
+    Country blankCountry = loadCountryNameAndLocation(quessStr);
 
-    //find country in  file
-    while(!in.atEnd()){
-        line = in.readLine();
-        QList countryData = line.split(",");
-        int x = QString::compare(countryData[3],guessStr, Qt::CaseInsensitive);
-        if(x == 0){
-            isInvalid = false;
-            break;
-        }
+    //if the country has name
+    if(blankCountry.name.length() > 0){
+        return false;
     }
-    return isInvalid;
+    else{
+        return true;
+    }
 }
