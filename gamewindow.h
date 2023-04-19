@@ -30,6 +30,7 @@ private slots:
     void receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints);
     void on_guessButton_clicked();
     void setUIforNewCountry(QString filepath, QString fact1);
+    void winScreen();
 
 private:
     Ui::GameWindow *ui;

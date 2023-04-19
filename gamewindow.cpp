@@ -19,11 +19,21 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->winLabel->setVisible(false);
+    ui->winLabel->setEnabled(false);
+    ui->nextFlag->setVisible(false);
+    ui->nextFlag->setEnabled(false);
+    ui->newGame->setVisible(false);
+    ui->newGame->setEnabled(false);
+
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
     connect(this, &GameWindow::newGame, &model, &GameModel::newGameStartedSlot);
     connect(&model, &GameModel::sendUIGuessInfo, this, &GameWindow::receiveCurrentGuessInfo);
     connect(&model, &GameModel::newCountryPicked, this, &GameWindow::setUIforNewCountry);
+
+    //When player guesses correct, change ui to reflect win
+    connect(&model, &GameModel::sendWin, this, &GameWindow::winScreen);
 }
 
 GameWindow::~GameWindow()
@@ -119,5 +129,22 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->guessLine5->setText(guessStr);
         ui->distanceLine5->setText(distanceStr + " Miles");
     }
+}
+
+void GameWindow::winScreen(){
+    foreach (QWidget *widget, this->findChildren<QWidget *>()) {
+        widget->setVisible(false);
+    }
+    ui->frame_2->setVisible(true);
+    ui->frame_3->setVisible(true);
+    ui->winLabel->setVisible(true);
+    ui->winLabel->setEnabled(true);
+    ui->horizontalFrame->setVisible(true);
+    ui->horizontalFrame->setEnabled(true);
+    ui->nextFlag->setVisible(true);
+    ui->nextFlag->setEnabled(true);
+    ui->newGame->setVisible(true);
+    ui->newGame->setEnabled(true);
+
 }
 
