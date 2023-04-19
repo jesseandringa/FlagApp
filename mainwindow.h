@@ -29,6 +29,7 @@ public slots:
     void easyDifficultyClicked();
     void mediumDifficultyClicked();
     void hardDifficultyClicked();
+    void backButtonClicked();
 
     void signupButtonClicked();
     void signupAttemptSlot(std::tuple<QString, QString, QString> temp);
