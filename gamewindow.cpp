@@ -6,13 +6,6 @@
 using std::cout;
 using std::endl;
 
-//default constructor ------not sure if we need this
-//GameWindow::GameWindow(QWidget *parent) :
-//    QWidget(parent),
-//    ui(new Ui::GameWindow)
-//{ui->setupUi(this);}
-
-
 GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameWindow)
@@ -60,6 +53,25 @@ void GameWindow::initNewGame(int difficulty)
     emit newGame(difficulty);
 }
 
+/// \brief GameWindow::makeWidgetsVisibleAndEnabled
+/// Recursively make all widgets in the game window visible and enabled.
+/// \param widget
+void GameWindow::makeWidgetsVisibleAndEnabled(QWidget *widget)
+{
+    // Set visibility and enable state for widget
+    widget->setVisible(true);
+    widget->setEnabled(true);
+
+    // Recursively iterate through child widgets and set visibility and enable state
+    const QObjectList &children = widget->children();
+    for (QObject *child : children) {
+        QWidget *childWidget = qobject_cast<QWidget *>(child);
+        if (childWidget) {
+            makeWidgetsVisibleAndEnabled(childWidget);
+        }
+    }
+}
+
 
 ///\brief SLOT when user guesses country
 /// sees if text is in it
@@ -69,7 +81,6 @@ void GameWindow::on_currentGuess_returnPressed()
 {
     userGuessed();
 }
-
 
 void GameWindow::on_guessButton_clicked()
 {
@@ -86,6 +97,12 @@ void GameWindow::userGuessed(){
     }
 }
 
+/// \brief GameWindow::setUIforNewCountry
+/// Load the ui with the country flag and first hint
+/// \param filepath
+/// filepath to the country flag image being loaded to the ui
+/// \param fact1
+/// The first fact displayed as hint 1
 void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
 {
     //set flag
@@ -138,6 +155,8 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     }
 }
 
+/// \brief GameWindow::winScreen
+/// Display a `you win` screen when the correct country is guessed.
 void GameWindow::winScreen(){
     foreach (QWidget *widget, this->findChildren<QWidget *>()) {
         widget->setVisible(false);
@@ -171,23 +190,17 @@ void GameWindow::invalidGuessSlot()
 /// Hide visibility of the win screen and make the game window visible again.
 void GameWindow::hideWinScreen()
 {
-    cout << "hiding win screen" << endl;
-    foreach (QWidget *widget, this->findChildren<QWidget *>()) {
-        widget->setVisible(true);
-    }
-    ui->frame_2->setVisible(false);
-    ui->frame_3->setVisible(false);
+    makeWidgetsVisibleAndEnabled(this);
+
+    // Hide win screen widgets
     ui->winLabel->setVisible(false);
     ui->winLabel->setEnabled(false);
-    ui->horizontalFrame->setVisible(false);
-    ui->horizontalFrame->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
     ui->QuitButton->setVisible(false);
     ui->QuitButton->setEnabled(false);
 }
 
-///
 /// \brief GameWindow::on_QuitButton_clicked
 /// Give the user the option to quit the game after a correct guess.
 void GameWindow::on_QuitButton_clicked()
