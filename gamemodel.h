@@ -32,11 +32,8 @@ private:
     string guessedCountry;
     std::vector<Country> countries;
     bool won;
-<<<<<<< HEAD
-=======
-    std::map<std::pair<string,string>, std::array<int, 6>> usersData;
     static string getArrowDirection(double xDirection, double yDirection);
->>>>>>> d1089c60f61dee6c515cee48d300893f43e59613
+
 
 public slots:
     void newGuessSlot(std::string guess);
