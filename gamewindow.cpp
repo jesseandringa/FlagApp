@@ -19,22 +19,6 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Would probably go off the difficulty of the game to select from a certain file, and rand1-12 for which flag is being quizzed (Sean)
-    ui->distanceLine1->setReadOnly(true);
-    ui->distanceLine2->setReadOnly(true);
-    ui->distanceLine3->setReadOnly(true);
-    ui->distanceLine4->setReadOnly(true);
-    ui->distanceLine5->setReadOnly(true);
-    ui->guessLine1->setReadOnly(true);
-    ui->guessLine2->setReadOnly(true);
-    ui->guessLine3->setReadOnly(true);
-    ui->guessLine4->setReadOnly(true);
-    ui->guessLine5->setReadOnly(true);
-
-
-    QPixmap image(":/flags/FlagImagesHard/liechtenstein.jpg");
-    ui->flagImageLabel->setPixmap(image.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
-
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
     connect(this, &GameWindow::newGame, &model, &GameModel::newGameStartedSlot);
@@ -51,11 +35,11 @@ GameWindow::~GameWindow()
 /// resets ui when new game is created.. send signal to reset model
 void GameWindow::initNewGame(int difficulty)
 {
-    ui->hintLabel1->setText("");
-    ui->hintLabel2->setText("");
-    ui->hintLabel3->setText("");
-    ui->hintLabel4->setText("");
-    ui->hintLabel5->setText("");
+    ui->hintLabel1->setText("Hint 1:");
+    ui->hintLabel2->setText("Hint 2:");
+    ui->hintLabel3->setText("Hint 3:");
+    ui->hintLabel4->setText("Hint 4:");
+    ui->hintLabel5->setText("Hint 5:");
     emit newGame(difficulty);
 }
 
@@ -98,7 +82,7 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
     ui->flagImageLabel->setPixmap(flag.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
 
     //set fact1
-    ui->hintLabel1->setText(fact1);
+    ui->hintLabel1->setText("Hint 1: " + fact1);
 }
 
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance){

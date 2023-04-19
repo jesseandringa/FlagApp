@@ -21,30 +21,27 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: Brainstormed game design concepts and completed the team formation requirments for class.
-	Kevin:
+	Kevin: Brainstormed concepts/filled project board
 	Jesse: Brainstormed and picked an idea.
-	Eddie:
 	Sean: chose an idea with group and confirmed with professor.
-	Ethan: Sick Day.
+	Ethan: Sick day.
 
 2. What will you do today?
 	
 	Sam: Set up the repo for the assignment, and the seperate repo for the project board. 
 		Identified priority tasks that need to be completed first.
-	Kevin:
+	Kevin: Select a job from our project task and research it.
 	Jesse: Set up repo, create the ui for the main window of the app, created a story board for the project.
-	Eddie:
 	Sean: I looked through what we had and added and familiarized myself. Also added flag image files.
 	Ethan: Sick day.
 
 3. Is anything in your way?
 	
 	Sam: A few people from the team have fallen ill so we will be short handed until people are feeling well again.
-	Kevin:
+	Kevin: Negative space ranger.
 	Jesse: No.
-	Eddie:
 	Sean: I was feeling sick on lab day.
-	Ethan: My health.
+	Ethan: Sick day.
 
 #######################
 ## Thursday 04/13/23 ##
@@ -58,29 +55,26 @@ how to adjust our game design and UI for a better game experience.
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin:
+	Sam: Figured out final game logic and design
+	Kevin: Started open window UI 
 	Jesse: Started the main apps UI
-	Eddie:
 	Sean: Added flags images
-	Ethan: Sick Day.
+	Ethan: Sick day.
 
 2. What will you do today?
 	
-	Sam: Implement a class for loading and using country information from a json file
-	Kevin:
+	Sam: Implement a class for loading and using country information from a json file.
+	Kevin: Continue working on a more complete inital window.
 	Jesse: get the UI more complete. Get a understanding of how we will calculate distances between countries. 
-	Eddie:
 	Sean: Look into the api for google maps esc. things and look at ui for history box.
 	Ethan: Figure out how user data will be stored and loaded locally.
 
 3. Is anything in your way?
 	
 	Sam: No.
-	Kevin:
-	Jesse: no. 
-	Eddie:
-	Sean: no.
+	Kevin: No.
+	Jesse: No. 
+	Sean: No.
 	Ethan: Need more research into using Json in Qt creator.
 
 #####################
@@ -89,33 +83,33 @@ Scrum Questions
 
 Notes:
 
+Had a quick meeting to discuss plans for the weekend. We had a pretty decent head start during the 
+week so we will focus on other classes over the weekend.
+
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin:
-	Jesse:
-	Eddie:
+	Sam: Narrowed down some of the game logic decision.
+	Kevin: Research about box2d trying to get a feel
+	Jesse: Day off.
 	Sean: Slighty looked over progress, not as much work done as wanted
-	Ethan: Started playing with having the user sign in and saving users data.
+	Ethan: Nothing.
 
 2. What will you do today?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
+	Sam: Day off.
+	Kevin: Research about box2d/project setup
+	Jesse: Day off.
 	Sean: Actually work well on the history box of guesses
-	Ethan: Nothing.
+	Ethan: Nothing
 
 3. Is anything in your way?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: can't get connects to work, think its a constructor thing 
-	Ethan: Time.
+	Sam: No.
+	Kevin: No.
+	Jesse: No.
+	Sean: Can't get connects to work, think its a constructor thing 
+	Ethan: Time
 	
 #######################
 ## Saturday 04/15/23 ##
@@ -126,29 +120,26 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin:
+	Sam: Day off
+	Kevin: box2d stuff/ misc work towards project
 	Jesse:
-	Eddie:
-	Sean: 
-	Ethan: Nothing.
+	Sean: Start up history box and distance math for model between guess and answer.
+	Ethan: 
 
 2. What will you do today?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
+	Sam: Day off.
+	Kevin: Think about how the layout will look and what we're looking for. 
+	Jesse: Day off.
+	Sean: Finish the history box code roughly and do direction math.
 	Ethan: Work on getting a user to sign up and figure out what the connections between signup window and model will look like.
 
 3. Is anything in your way?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
+	Sam: No.
+	Kevin: No. 
+	Jesse: No.
+	Sean: No.
 	Ethan: No.
 
 
@@ -161,30 +152,27 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
+	Sam: Day off
+	Kevin: Created study/help windows and started ui
+	Jesse: Day off
+	Sean: Finished the history box for guesses and worked on direction math.
 	Ethan: Got the first connections between the sign up window and the model working with the main window as a mediator.
 
 2. What will you do today?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
-	Ethan:  Get the sign up window ui and implementation finished.  Start working on serializing and 
+	Sam: Day off
+	Kevin: Not working today.
+	Jesse: Day off
+	Sean: Nothing.
+	Ethan: Get the sign up window ui and implementation finished.  Start working on serializing and 
 deserializing the localUserData.txt.
 
 3. Is anything in your way?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
+	Sam: No.
+	Kevin: No.
+	Jesse: No.
+	Sean: No.
 	Ethan: No.
 
 #######################
@@ -196,27 +184,24 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
+	Sam: Day off.
+	Kevin: Study window/help window creation and ui setup
+	Jesse: Day off.
+	Sean: Nothing.
 	Ethan: Implemented serializing usersData to a json file and finished signing up a user.
 
 2. What will you do today?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
+	Sam: Clean up and organize files.
+	Kevin: Same thing.
+	Jesse: Look into Google API use for distance calculations.
+	Sean: Read up on our progress for sprint one.
 	Ethan:  Work on making a way for a user to log in.
 
 3. Is anything in your way?
 	
-	Sam:
-	Kevin:
-	Jesse:
-	Eddie:
-	Sean: 
+	Sam: Merge conflicts.
+	Kevin: Looking up physics engine/design work for UI.
+	Jesse: No.
+	Sean: No.
 	Ethan: No.

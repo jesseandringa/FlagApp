@@ -16,3 +16,5 @@ StudyWindow::~StudyWindow()
 {
     delete ui;
 }
+
+

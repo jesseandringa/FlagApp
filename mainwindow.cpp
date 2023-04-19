@@ -59,6 +59,7 @@ void MainWindow::playButtonClicked()
 void MainWindow::studyButtonClicked()
 {
     this->close();
+    //have the countries load into a an array in study
     studyWindow.show();
 }
 

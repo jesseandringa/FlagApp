@@ -45,11 +45,11 @@
     <enum>Qt::LeftArrow</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="flagImageLabel">
+  <widget class="QLabel" name="StudyFlagLabel">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>40</y>
+     <x>110</x>
+     <y>30</y>
      <width>361</width>
      <height>201</height>
     </rect>
@@ -61,13 +61,49 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>50</x>
      <y>260</y>
-     <width>401</width>
+     <width>511</width>
      <height>191</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout"/>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="studyHintLabel1">
+      <property name="text">
+       <string>Hint 1:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="studyHintLabel2">
+      <property name="text">
+       <string>Hint 2:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="studyHintLabel3">
+      <property name="text">
+       <string>Hint 3:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="studyHintLabel4">
+      <property name="text">
+       <string>Hint 4:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="studyHintLabel5">
+      <property name="text">
+       <string>Hint 5:</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

@@ -11,6 +11,7 @@
 #include <string>
 #include <map>
 #include "country.h"
+#include <cstdlib>
 
 using std::string;
 
@@ -31,6 +32,7 @@ private:
     string guessedCountry;
     std::vector<Country> countries;
     bool won;
+    static string getArrowDirection(double xDirection, double yDirection);
 
 public slots:
     void newGuessSlot(std::string guess);
