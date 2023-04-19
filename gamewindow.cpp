@@ -258,6 +258,22 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
         QListWidgetItem *suggItem = new QListWidgetItem(suggestionStr);
         ui->suggList->addItem(suggItem);
     }
+
+    //set height for scroll area
+    int sugCount = 0;
+    if(ui->suggList->count() > 3){
+        sugCount = 3;
+    }
+    else{
+        sugCount = ui->suggList->count();
+    }
+    int scrollBoxHeight = 0;
+    for(int i = 0; i< sugCount; i++){
+        scrollBoxHeight+=25;
+    }
+    QRect sizeofBox(369,169,481,scrollBoxHeight);
+    ui->scrollArea->setGeometry(sizeofBox);
+
 }
 
 
