@@ -41,7 +41,7 @@ public slots:
 
 
 signals:
-    void sendUIGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints);
+    void sendUIGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDir);
     void newCountryPicked(QString filepath, QString fact1);
     void sendWin();
 };
