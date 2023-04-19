@@ -483,9 +483,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="newGame">
+      <widget class="QPushButton" name="QuitButton">
        <property name="text">
-        <string>New Game</string>
+        <string>Quit</string>
        </property>
       </widget>
      </item>

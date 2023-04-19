@@ -34,6 +34,8 @@ private slots:
     void on_nextFlag_clicked();
     void invalidGuessSlot();
 
+    void on_QuitButton_clicked();
+
 private:
     Ui::GameWindow *ui;
     void hideWinScreen();
