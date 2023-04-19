@@ -34,12 +34,8 @@ public slots:
     void signupAttempt(QString username, QString password, QString passwordCheck);
     void loginAttempt(QString user, QString pass);
 
-    void firstGuessCorrect();
-    void secondGuessCorrect();
-    void thirdGuessCorrect();
-    void fourthGuessCorrect();
-    void fifthGuessCorrect();
-    void noGuessCorrect();
+    void countryFinished(int finishPosition);
+
 signals:
     void userMapDeserialized(map<pair<QString,QString>, array<int, 6>> usersData);
 

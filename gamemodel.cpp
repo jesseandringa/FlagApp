@@ -81,13 +81,16 @@ void GameModel::newGuessSlot(std::string guess)
         emit invalidGuess();
         return;
     }
+
     double conversion = 69.09;
     double distance = 0;
     string arrowDirection = "";
     /*QString*/ /*direction*/;
     //Need QString to use .toLower();
     QString guessStr = QString::fromStdString(guess);
-    if (guessStr.toLower() == country.name.toLower()){
+    if (guessStr.toLower() == country.name.toLower())
+    {
+        emit countryFinished(guessNumber);
         emit sendWin();
     }
     else
@@ -119,6 +122,7 @@ void GameModel::newGuessSlot(std::string guess)
             //Lose case
             if (guessNumber == 4)
             {
+                emit countryFinished(guessNumber + 1);
                 cout << "game over" << endl;
             }
 

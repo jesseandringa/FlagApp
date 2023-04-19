@@ -45,6 +45,8 @@ public slots:
     void loginFailedUserDNESlot();
     void loginSuccessfulSlot();
 
+    void countryFinishedSlot(int finishPosition);
+
 signals:
     void startGame(int difficulty);
     void checkSignupAttempt(QString,QString,QString);
@@ -56,6 +58,8 @@ signals:
     void loginAttempt(QString, QString);
     void loginFailedNotAllFields();
     void loginFailedUserDNE();
+
+    void countryFinished(int finishPosition);
 
 private:
     Ui::MainWindow *ui;

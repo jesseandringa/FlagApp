@@ -58,6 +58,9 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(&userdatahandler, &UserDataHandler::loginFailedDNE, this, &MainWindow::loginFailedUserDNESlot);
     connect(this, &MainWindow::loginFailedUserDNE, &loginwindow, &LoginWindow::loginFailedUserDNESlot);
     connect(&userdatahandler, &UserDataHandler::loginSuccessful, this, &MainWindow::loginSuccessfulSlot);
+
+    connect(&model, &GameModel::countryFinished, this, &MainWindow::countryFinishedSlot);
+    connect(this, &MainWindow::countryFinished, &userdatahandler, &UserDataHandler::countryFinished);
 }
 
 MainWindow::~MainWindow()
@@ -203,4 +206,11 @@ void MainWindow::loginFailedUserDNESlot()
 void MainWindow::loginSuccessfulSlot()
 {
     loginwindow.close();
+}
+
+/// \brief MainWindow::countryFinishedSlot
+/// \param finishPosition
+void MainWindow::countryFinishedSlot(int finishPosition)
+{
+    emit countryFinished(finishPosition);
 }

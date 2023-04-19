@@ -172,33 +172,9 @@ void UserDataHandler::loginAttempt(QString username, QString password)
 }
 
 /// \brief UserDataHandler::firstGuessCorrect
-void UserDataHandler::firstGuessCorrect()
+void UserDataHandler::countryFinished(int finishPosition)
 {
-    usersData[currentUser][0]++;
-}
-/// \brief UserDataHandler::secondGuessCorrect
-void UserDataHandler::secondGuessCorrect()
-{
-    usersData[currentUser][1]++;
-}
-/// \brief UserDataHandler::thirdGuessCorrect
-void UserDataHandler::thirdGuessCorrect()
-{
-    usersData[currentUser][2]++;
-}
-/// \brief UserDataHandler::fourthGuessCorrect
-void UserDataHandler::fourthGuessCorrect()
-{
-    usersData[currentUser][3]++;
-}
-/// \brief UserDataHandler::fifthGuessCorrect
-void UserDataHandler::fifthGuessCorrect()
-{
-    usersData[currentUser][4]++;
+    usersData[currentUser][finishPosition]++;
+    serializeUserDataToJSON();
 }
 
-/// \brief UserDataHandler::noGuessCorrect
-void UserDataHandler::noGuessCorrect()
-{
-    usersData[currentUser][5]++;
-}
