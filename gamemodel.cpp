@@ -144,6 +144,10 @@ void GameModel::newGuessSlot(std::string guess)
 /// 2 - hard
 void GameModel::newGameStartedSlot(int difficulty)
 {
+    roundNumber = 0;
+    guessNumber = 0;
+    guessedCountry = "";
+
     countries = Country::loadCountries(difficulty);
     country = countries[roundNumber];
     emit newCountryPicked(country.flagFilename, country.facts[guessNumber]);
@@ -156,6 +160,11 @@ void GameModel::playNextCountry()
 {
     resetRound();
     roundNumber++;
+    if(roundNumber == countries.size())
+    {
+        emit backToMain();
+        return;
+    }
     country = countries[roundNumber];
     emit newCountryPicked(country.flagFilename, country.facts[guessNumber]);
 }

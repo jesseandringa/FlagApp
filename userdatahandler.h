@@ -34,6 +34,8 @@ public slots:
     void signupAttempt(QString username, QString password, QString passwordCheck);
     void loginAttempt(QString user, QString pass);
 
+    void statsRequest();
+
     void countryFinished(int finishPosition);
 
 signals:
@@ -48,6 +50,8 @@ signals:
     void loginFailedNotAllFields();
     void loginFailedDNE();
     void loginSuccessful();
+
+    void sendStats(array<int, 6>);
 
 private:
     QString USER_DATA_PATH;

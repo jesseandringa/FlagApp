@@ -36,6 +36,7 @@ public:
     static Country loadCountryNameAndLocation(QString name);
     static bool isInvalidGuess(std::string guess);
     static std::vector<string> getAllCountryNames();
+    static std::vector<Country> loadAllCountries();
 
 
 };

@@ -53,6 +53,61 @@ void Country::shuffleFacts()
     std::shuffle(facts.begin(), facts.end(), rng);
 }
 
+std::vector<Country> Country::loadAllCountries()
+{
+   QString filename = ":/facts/easy_facts.json";
+    QString flagFilenamePrefix = ":/flags/FlagImages/";
+    std::vector<Country> countryVector;
+    int totalFiles = 3;
+
+    while (totalFiles != 0){
+
+        if (totalFiles == 2){
+            filename = ":/facts/medium_facts.json";
+            flagFilenamePrefix = ":/flags/FlagImagesMedium/";
+        }
+
+        if (totalFiles == 1){
+            filename = ":/facts/hard_facts.json";
+            flagFilenamePrefix = ":/flags/FlagImagesHard/";
+        }
+
+        // Parse the chosen json
+        QFile file(filename);
+        file.open(QIODevice::ReadOnly | QIODevice::Text);
+        QByteArray jsonData = file.readAll();
+        file.close();
+
+        // Parse JSON data
+        QJsonDocument doc = QJsonDocument::fromJson(jsonData);
+        QJsonObject obj = doc.object();
+
+        // Iterate over countries and facts
+        for (const QString& countryName : obj.keys()) {
+            QJsonObject countryObj = obj.value(countryName).toObject();
+            QJsonValue factsVal = countryObj.value("facts");
+
+            // Convert QJsonArray to std::vector<QString>
+            QJsonArray factsArray = factsVal.toArray();
+            std::vector<QString> factsVector;
+            for (int i = 0; i < factsArray.size(); i++) {
+                QJsonValue factVal = factsArray.at(i);
+                if (factVal.isString()) {
+                    QString fact = factVal.toString();
+                    factsVector.push_back(fact);
+                }
+            }
+
+            // Create country object with parsed data
+            QString flagFilename = flagFilenamePrefix + countryName + ".jpg";
+            Country country(countryName, flagFilename, factsVector);
+            countryVector.push_back(country);
+        }
+        totalFiles--;
+    }
+    return countryVector;
+}
+
 /// \brief Country::loadCountries
 /// Static method used to read Country objects from the fact .json files.
 /// \param difficulty

@@ -15,6 +15,8 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->mediumButton->setVisible(false);
     ui->hardButton->setVisible(false);
     ui->backButton->setVisible(false);
+    ui->statsButton->setVisible(false);
+    ui->statsButton->setEnabled(false);
 
     ui->easyButton->setStyleSheet("color: white;");
     ui->mediumButton->setStyleSheet("color: white;");
@@ -25,6 +27,8 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->backButton->setStyleSheet("color: white;");
     ui->signupButton->setStyleSheet("color: white;");
     ui->loginButton->setStyleSheet("color: white;");
+    ui->statsButton->setStyleSheet("color: white;");
+
 
 
 
@@ -59,8 +63,15 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(this, &MainWindow::loginFailedUserDNE, &loginwindow, &LoginWindow::loginFailedUserDNESlot);
     connect(&userdatahandler, &UserDataHandler::loginSuccessful, this, &MainWindow::loginSuccessfulSlot);
 
+    connect(ui->statsButton, &QPushButton::clicked, this, &MainWindow::statsClicked);
+    connect(this, &MainWindow::getStats, &userdatahandler, &UserDataHandler::statsRequest);
+    connect(&userdatahandler, &UserDataHandler::sendStats, this, &MainWindow::statsReceived);
+    connect(this, &MainWindow::sendStats, &statswindow, &StatsWindow::receiveStats);
+
     connect(&model, &GameModel::countryFinished, this, &MainWindow::countryFinishedSlot);
     connect(this, &MainWindow::countryFinished, &userdatahandler, &UserDataHandler::countryFinished);
+
+    connect(&model, &GameModel::backToMain, this, &MainWindow::difficultyFinished);
 }
 
 MainWindow::~MainWindow()
@@ -82,7 +93,7 @@ void MainWindow::playButtonClicked()
 void MainWindow::studyButtonClicked()
 {
     this->close();
-    //have the countries load into a an array in study
+    studyWindow.loadCountries();
     studyWindow.show();
 }
 
@@ -104,21 +115,21 @@ void MainWindow::backButtonClicked()
 
 void MainWindow::easyDifficultyClicked()
 {
-    this->close();
+    this->hide();
     gameWindow.initNewGame(0);
     gameWindow.show();
 }
 
 void MainWindow::mediumDifficultyClicked()
 {
-    this->close();
+    this->hide();
     gameWindow.initNewGame(1);
     gameWindow.show();
 }
 
 void MainWindow::hardDifficultyClicked()
 {
-    this->close();
+    this->hide();
     gameWindow.initNewGame(2);
     gameWindow.show();
 }
@@ -172,6 +183,8 @@ void MainWindow::signupSuccessSlot()
     signupWindow.close();
     ui->signupButton->setVisible(false);
     ui->loginButton->setVisible(false);
+    ui->statsButton->setVisible(true);
+    ui->statsButton->setEnabled(true);
 }
 
 /// \brief MainWindow::loginButtonPressed
@@ -206,6 +219,24 @@ void MainWindow::loginFailedUserDNESlot()
 void MainWindow::loginSuccessfulSlot()
 {
     loginwindow.close();
+    ui->signupButton->setVisible(false);
+    ui->loginButton->setVisible(false);
+    ui->statsButton->setVisible(true);
+    ui->statsButton->setEnabled(true);
+}
+
+/// \brief MainWindow::statsClicked
+void MainWindow::statsClicked()
+{
+    emit getStats();
+}
+
+/// \brief MainWindow::statsReceived
+/// \param stats
+void MainWindow::statsReceived(std::array<int, 6> stats)
+{
+    emit sendStats(stats);
+    statswindow.show();
 }
 
 /// \brief MainWindow::countryFinishedSlot
@@ -213,4 +244,12 @@ void MainWindow::loginSuccessfulSlot()
 void MainWindow::countryFinishedSlot(int finishPosition)
 {
     emit countryFinished(finishPosition);
+}
+
+/// \brief MainWindow::difficultyFinished
+/// Hide game window and reveal main window.
+void MainWindow::difficultyFinished()
+{
+    this->show();
+    gameWindow.hide();
 }

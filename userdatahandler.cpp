@@ -171,6 +171,12 @@ void UserDataHandler::loginAttempt(QString username, QString password)
     }
 }
 
+/// \brief UserDataHandler::statsRequest
+void UserDataHandler::statsRequest()
+{
+    emit sendStats(usersData[currentUser]);
+}
+
 /// \brief UserDataHandler::firstGuessCorrect
 void UserDataHandler::countryFinished(int finishPosition)
 {
