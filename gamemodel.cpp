@@ -181,10 +181,8 @@ void GameModel::getSuggestionsForUserSlot(string currentText)
             }
         }
     }
-    //TODO: display these
-    for (auto name : suggestions){
-        cout<<name<<endl;
-    }
+    emit newSuggestions(suggestions);
+
 
 
 }

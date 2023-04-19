@@ -35,6 +35,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     //connect for typing and guesses
     connect(&model, &GameModel::invalidGuess, this, &GameWindow::invalidGuessSlot);
     connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
+    connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
 }
 
 GameWindow::~GameWindow()
@@ -247,4 +248,14 @@ void GameWindow::on_currentGuess_textChanged(const QString &arg1)
 
 
 }
+
+void GameWindow::addSuggestions(std::vector<string> suggestions)
+{
+    for(int i = 0; i<suggestions.size(); i++){
+        QString suggestionStr = QString::fromStdString(suggestions[i]);
+        QListWidgetItem *suggItem = new QListWidgetItem(suggestionStr);
+        ui->listWidget->addItem(suggItem);
+    }
+}
+
 
