@@ -20,6 +20,8 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->QuitButton->setVisible(false);
     ui->QuitButton->setEnabled(false);
 
+
+
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
     connect(this, &GameWindow::newGame, &model, &GameModel::newGameStartedSlot);
