@@ -6,7 +6,7 @@
 using std::cout;
 using std::endl;
 
-GameWindow::GameWindow(GameModel &model,QWidget *parent) :
+GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameWindow)
 {
@@ -77,7 +77,6 @@ void GameWindow::makeWidgetsVisibleAndEnabled(QWidget *widget)
 ///\brief SLOT when user guesses country
 /// sees if text is in it
 ///sends signal to model with text
-///
 void GameWindow::on_currentGuess_returnPressed()
 {
     userGuessed();
@@ -96,6 +95,35 @@ void GameWindow::userGuessed(){
         ui->currentGuess->setText("");
         emit newGuess(guessStr);
     }
+}
+
+/// \brief GameWindow::clearHintsAndGuesses
+/// Empty the hints and guess history from the previous round.
+void GameWindow::clearHintsAndGuesses()
+{
+    // Clear guess history
+    ui->guessLine1->clear();
+    ui->guessLine2->clear();
+    ui->guessLine3->clear();
+    ui->guessLine4->clear();
+    ui->guessLine5->clear();
+    ui->distanceLine1->clear();
+    ui->distanceLine2->clear();
+    ui->distanceLine3->clear();
+    ui->distanceLine4->clear();
+    ui->distanceLine5->clear();
+    ui->arrowLabel1->setText("<-");
+    ui->arrowLabel2->setText("<-");
+    ui->arrowLabel3->setText("<-");
+    ui->arrowLabel4->setText("<-");
+    ui->arrowLabel5->setText("<-");
+
+    // Clear all hints
+    ui->hintLabel1->clear();
+    ui->hintLabel2->setText("Hint 2: ");
+    ui->hintLabel3->setText("Hint 3: ");
+    ui->hintLabel4->setText("Hint 4: ");
+    ui->hintLabel5->setText("Hint 5: ");
 }
 
 /// \brief GameWindow::setUIforNewCountry
@@ -179,6 +207,7 @@ void GameWindow::winScreen(){
 void GameWindow::on_nextFlag_clicked()
 {
     hideWinScreen();
+    clearHintsAndGuesses();
     emit nextCountry();
 }
 
