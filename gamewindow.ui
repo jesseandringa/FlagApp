@@ -505,7 +505,7 @@
        <height>69</height>
       </rect>
      </property>
-     <widget class="QListWidget" name="listWidget">
+     <widget class="QListWidget" name="suggList">
       <property name="geometry">
        <rect>
         <x>-5</x>
