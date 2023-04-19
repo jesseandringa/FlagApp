@@ -72,8 +72,7 @@ void GameModel::newGuessSlot(std::string guess)
     QString guessStr = QString::fromStdString(guess);
 //    QString countryStr = QString::fromStdString(country);
     if (guessStr.toLower() == country.name.toLower()){
-        //win
-
+        emit sendWin();
     }
     else
     {
@@ -107,7 +106,10 @@ void GameModel::newGuessSlot(std::string guess)
                 cout << "game over" << endl;
             }
 
-            //will also pass in direction string when implemented
+
+            if (distance == 0){
+
+            }
             emit sendUIGuessInfo(guess, guessNumber, distance, country.facts);
             guessNumber++;
         }

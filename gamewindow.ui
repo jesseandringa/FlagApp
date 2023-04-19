@@ -104,6 +104,9 @@
     <property name="text">
      <string>Flag Image</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="topLabel">
     <property name="geometry">
@@ -170,17 +173,28 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="hintLabel2_2">
+   <widget class="QLabel" name="winLabel">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>300</y>
-      <width>639</width>
-      <height>48</height>
+      <x>310</x>
+      <y>-10</y>
+      <width>281</width>
+      <height>111</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Hint 2:</string>
+     <string>You Win!</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -443,6 +457,35 @@
     <property name="text">
      <string>Guess</string>
     </property>
+   </widget>
+   <widget class="QFrame" name="horizontalFrame">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>-10</y>
+      <width>254</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="layoutNewGame">
+     <property name="spacing">
+      <number>50</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="nextFlag">
+       <property name="text">
+        <string>Next Flag</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="newGame">
+       <property name="text">
+        <string>New Game</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
