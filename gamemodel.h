@@ -29,15 +29,18 @@ private:
     float xCoordCountry;
     float yCoordCountry;
     int guessNumber;
+    int roundNumber;
     string guessedCountry;
     std::vector<Country> countries;
     bool won;
     static string getArrowDirection(double xDirection, double yDirection);
+    void resetRound();
 
 
 public slots:
     void newGuessSlot(std::string guess);
     void newGameStartedSlot(int difficulty);
+    void playNextCountry();
 
 
 signals:

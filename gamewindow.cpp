@@ -34,6 +34,9 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
 
     //When player guesses correct, change ui to reflect win
     connect(&model, &GameModel::sendWin, this, &GameWindow::winScreen);
+
+    // Start new round after winning (Sam)
+    connect(this, &GameWindow::nextCountry, &model, &GameModel::playNextCountry);
 }
 
 GameWindow::~GameWindow()
@@ -63,7 +66,6 @@ void GameWindow::on_currentGuess_returnPressed()
 
     QString currentGuess ="";
     if(ui->currentGuess->text()!=""){
-        cout<<"hit reutrn"<<endl;
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
         ui->currentGuess->setText("");
@@ -77,7 +79,6 @@ void GameWindow::on_guessButton_clicked()
 {
     QString currentGuess ="";
     if(ui->currentGuess->text()!=""){
-        cout<<"hit guess button"<<endl;
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
         ui->currentGuess->setText("");
@@ -145,6 +146,32 @@ void GameWindow::winScreen(){
     ui->nextFlag->setEnabled(true);
     ui->newGame->setVisible(true);
     ui->newGame->setEnabled(true);
+}
 
+/// \brief GameWindow::on_nextFlag_clicked
+/// Start the game again with the next flag.
+void GameWindow::on_nextFlag_clicked()
+{
+    hideWinScreen();
+    emit nextCountry();
+}
+
+/// \brief GameWindow::hideWinScreen
+/// Hide visibility of the win screen and make the game window visible again.
+void GameWindow::hideWinScreen()
+{
+    foreach (QWidget *widget, this->findChildren<QWidget *>()) {
+        widget->setVisible(true);
+    }
+    ui->frame_2->setVisible(false);
+    ui->frame_3->setVisible(false);
+    ui->winLabel->setVisible(false);
+    ui->winLabel->setEnabled(false);
+    ui->horizontalFrame->setVisible(false);
+    ui->horizontalFrame->setEnabled(false);
+    ui->nextFlag->setVisible(false);
+    ui->nextFlag->setEnabled(false);
+    ui->newGame->setVisible(false);
+    ui->newGame->setEnabled(false);
 }
 

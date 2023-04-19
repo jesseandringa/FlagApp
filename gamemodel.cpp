@@ -8,11 +8,12 @@ using std::string;
 
 GameModel::GameModel(QObject *parent)
     : QObject{parent},
-      gamesPlayed(0),
-      country(),
-      guessNumber(0),
-      guessedCountry(""),
-      won (false)
+    gamesPlayed(0),
+    country(),
+    guessNumber(0),
+    roundNumber(0),
+    guessedCountry(""),
+    won (false)
 {
 }
 
@@ -59,6 +60,16 @@ string GameModel::getArrowDirection(double xDistance, double yDistance)
     return arrowDir;
 }
 
+///
+/// \brief GameModel::resetRound
+/// Reset game model instance variables at the start of the round
+void GameModel::resetRound()
+{
+    won = false;
+    guessedCountry = "";
+    guessNumber = 0;
+}
+
 ///slot to start logic to see if guess is correct
 /// also to see how far guess is off
 /// also to see what direction etc.
@@ -70,7 +81,6 @@ void GameModel::newGuessSlot(std::string guess)
     /*QString*/ /*direction*/;
     //Need QString to use .toLower();
     QString guessStr = QString::fromStdString(guess);
-//    QString countryStr = QString::fromStdString(country);
     if (guessStr.toLower() == country.name.toLower()){
         emit sendWin();
     }
@@ -116,11 +126,28 @@ void GameModel::newGuessSlot(std::string guess)
     }
 }
 
+/// \brief GameModel::newGameStartedSlot
+/// Begin the game by loading in the country data
+/// \param difficulty
+/// 0 - easy
+/// 1 - medium
+/// 2 - hard
 void GameModel::newGameStartedSlot(int difficulty)
 {
     countries = Country::loadCountries(difficulty);
-    country = countries[0];
-    emit newCountryPicked(country.flagFilename, country.facts[0]);
+    country = countries[roundNumber];
+    emit newCountryPicked(country.flagFilename, country.facts[guessNumber]);
+}
+
+///
+/// \brief GameModel::playNextCountry
+/// Iterate the game to the next country
+void GameModel::playNextCountry()
+{
+    resetRound();
+    roundNumber++;
+    country = countries[roundNumber];
+    emit newCountryPicked(country.flagFilename, country.facts[guessNumber]);
 }
 
 

@@ -31,12 +31,16 @@ private slots:
     void on_guessButton_clicked();
     void setUIforNewCountry(QString filepath, QString fact1);
     void winScreen();
+    void on_nextFlag_clicked();
 
 private:
     Ui::GameWindow *ui;
+    void hideWinScreen();
+
 signals:
     void newGuess(std::string currGuess);
     void newGame(int difficulty);
+    void nextCountry();
 
 };
 
