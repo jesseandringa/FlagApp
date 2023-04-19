@@ -96,11 +96,12 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
     ui->hintLabel1->setText("Hint 1: " + fact1);
 }
 
-void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints)
+void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
 {
     //if distance == 0, maybe do something else? 0 meaning that the guess was not found in resource
     QString guessStr = QString::fromStdString(guess);
     QString distanceStr = QString::number(distance);
+    QString arrowDir = QString::fromStdString(arrowDirection);
     if(guessNum == 0)
     {
         ui->hintLabel2->setText("Hint 2: " + hints[1]);

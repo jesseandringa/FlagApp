@@ -78,6 +78,7 @@ void GameModel::newGuessSlot(std::string guess)
 {
     double conversion = 69.09;
     double distance = 0;
+    string arrowDirection = "";
     /*QString*/ /*direction*/;
     //Need QString to use .toLower();
     QString guessStr = QString::fromStdString(guess);
@@ -102,7 +103,7 @@ void GameModel::newGuessSlot(std::string guess)
             //Want to think about this somemore, and how we want to do our directions, prob set boundries on what we qualify as southwest vs south or west.
             //i.e. if the difference between y<10polar points then maybe just call it west instead of southwest.
 
-            string arrowDirection = GameModel::getArrowDirection(xDistance,yDistance);
+            arrowDirection = GameModel::getArrowDirection(xDistance,yDistance);
 
             //Supposed conversion factor from polar coord distance to miles.
             distance = distance * conversion;
@@ -120,7 +121,7 @@ void GameModel::newGuessSlot(std::string guess)
             if (distance == 0){
 
             }
-            emit sendUIGuessInfo(guess, guessNumber, distance, country.facts);
+            emit sendUIGuessInfo(guess, guessNumber, distance, country.facts, arrowDirection);
             guessNumber++;
         }
     }

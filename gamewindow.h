@@ -27,7 +27,7 @@ public:
 
 private slots:
     void on_currentGuess_returnPressed();
-    void receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints);
+    void receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string dir);
     void on_guessButton_clicked();
     void setUIforNewCountry(QString filepath, QString fact1);
     void winScreen();
