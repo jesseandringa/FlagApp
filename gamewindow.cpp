@@ -251,6 +251,8 @@ void GameWindow::on_currentGuess_textChanged(const QString &arg1)
 
 void GameWindow::addSuggestions(std::vector<string> suggestions)
 {
+    ui->listWidget->clear();
+    //put new suggestions in
     for(int i = 0; i<suggestions.size(); i++){
         QString suggestionStr = QString::fromStdString(suggestions[i]);
         QListWidgetItem *suggItem = new QListWidgetItem(suggestionStr);
