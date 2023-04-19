@@ -15,6 +15,7 @@ GameModel::GameModel(QObject *parent)
     guessedCountry(""),
     won (false)
 {
+    countriesNames = Country::getAllCountryNames();
 }
 
 string GameModel::getArrowDirection(double xDistance, double yDistance)
@@ -158,7 +159,30 @@ void GameModel::playNextCountry()
 void GameModel::getSuggestionsForUserSlot(string currentText)
 {
     //do somethign
-//    cout<<"not implemented suggestions"<<endl;
+    std::vector<string> suggestions;
+    for (auto name :countriesNames){
+        for(unsigned int i = 0; i<currentText.length(); i++){
+            //convert to lowercase
+            char nameChar =tolower(name[i]);
+            char guessChar =tolower(currentText[i]);
+
+            if(nameChar == guessChar){
+                //if last char of guess still matches add it to vector
+                if(i == currentText.length()-1){
+                    suggestions.push_back(name);
+                }
+            } //if one char doesn't match, dont add it to vector
+            else{
+                break;
+            }
+        }
+    }
+    //TODO: display these
+    for (auto name : suggestions){
+        cout<<name<<endl;
+    }
+
+
 }
 
 

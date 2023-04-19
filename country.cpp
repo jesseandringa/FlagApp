@@ -185,3 +185,29 @@ bool Country::isInvalidGuess(string guess)
         return true;
     }
 }
+
+std::vector<string> Country::getAllCountryNames()
+{
+    QString filename = ":/distanceData/country_latitude_and_longitude.csv";
+    std::vector<string> countries;
+    // Parse the chosen csv
+    QFile file(filename);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    std::vector<QString> fileData;
+    QTextStream in(&file);
+    QString line = "";
+
+    //find country in  file
+    while(!in.atEnd()){
+        line = in.readLine();
+        QList countryData = line.split(",");
+        string countryName = countryData[3].toStdString();
+        if (countryName != "country"){
+            countries.push_back(countryName);
+        }
+
+    }
+    file.close();
+
+    return countries;
+}

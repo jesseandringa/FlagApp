@@ -12,6 +12,7 @@
 #include <map>
 #include "country.h"
 #include <cstdlib>
+#include <cctype>
 
 using std::string;
 
