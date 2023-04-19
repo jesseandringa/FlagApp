@@ -51,6 +51,7 @@ signals:
     void newCountryPicked(QString filepath, QString fact1);
     void sendWin();
     void invalidGuess();
+    void countryFinished(int finishPosition);
 };
 
 #endif // GAMEMODEL_H
