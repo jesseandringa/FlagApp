@@ -47,6 +47,7 @@ signals:
     void sendUIGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDir);
     void newCountryPicked(QString filepath, QString fact1);
     void sendWin();
+    void invalidGuess();
 };
 
 #endif // GAMEMODEL_H

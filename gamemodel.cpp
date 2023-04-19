@@ -76,6 +76,10 @@ void GameModel::resetRound()
 /// tells view what hint to display next, or if won or lost game
 void GameModel::newGuessSlot(std::string guess)
 {
+    if(Country::isInvalidGuess(guess)){
+        emit invalidGuess();
+        return;
+    }
     double conversion = 69.09;
     double distance = 0;
     string arrowDirection = "";

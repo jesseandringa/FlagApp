@@ -37,6 +37,9 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
 
     // Start new round after winning (Sam)
     connect(this, &GameWindow::nextCountry, &model, &GameModel::playNextCountry);
+
+    //connect for bad guesses checking
+    connect(&model, &GameModel::invalidGuess, this, &GameWindow::invalidGuessSlot);
 }
 
 GameWindow::~GameWindow()
@@ -63,20 +66,16 @@ void GameWindow::initNewGame(int difficulty)
 ///
 void GameWindow::on_currentGuess_returnPressed()
 {
-
-    QString currentGuess ="";
-    if(ui->currentGuess->text()!=""){
-        currentGuess = ui->currentGuess->text();
-        string guessStr = currentGuess.toStdString();
-        ui->currentGuess->setText("");
-        emit newGuess(guessStr);
-    }
-
+    userGuessed();
 }
 
 
 void GameWindow::on_guessButton_clicked()
 {
+    userGuessed();
+}
+
+void GameWindow::userGuessed(){
     QString currentGuess ="";
     if(ui->currentGuess->text()!=""){
         currentGuess = ui->currentGuess->text();
@@ -160,6 +159,11 @@ void GameWindow::on_nextFlag_clicked()
 {
     hideWinScreen();
     emit nextCountry();
+}
+
+void GameWindow::invalidGuessSlot()
+{
+    ////shake the text box because invalid country guess
 }
 
 /// \brief GameWindow::hideWinScreen

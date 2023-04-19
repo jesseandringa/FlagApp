@@ -34,6 +34,7 @@ public:
     static std::vector<Country> loadCountries(int difficulty);
     static void shuffleCountries(std::vector<Country>& countryVector);
     static Country loadCountryNameAndLocation(QString name);
+    static bool isInvalidGuess(std::string guess);
 
 
 };

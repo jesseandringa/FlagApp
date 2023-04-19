@@ -160,3 +160,28 @@ Country Country::loadCountryNameAndLocation(QString name)
 
     return country;
 }
+
+bool Country::isInvalidGuess(string guess)
+{
+    QString filename = ":/distanceData/country_latitude_and_longitude.csv";
+    bool isInvalid = true;
+    QString guessStr = QString::fromStdString(guess);
+    // Parse the chosen csv
+    QFile file(filename);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    std::vector<QString> fileData;
+    QTextStream in(&file);
+    QString line = "";
+
+    //find country in  file
+    while(!in.atEnd()){
+        line = in.readLine();
+        QList countryData = line.split(",");
+        int x = QString::compare(countryData[3],guessStr, Qt::CaseInsensitive);
+        if(x == 0){
+            isInvalid = false;
+            break;
+        }
+    }
+    return isInvalid;
+}
