@@ -46,4 +46,7 @@
         <file>country_latitude_and_longitude.csv</file>
     </qresource>
     <qresource prefix="/localUserData"/>
+    <qresource prefix="/backgroundImages">
+        <file>BackgroundImages/earthImage.jpg</file>
+    </qresource>
 </RCC>

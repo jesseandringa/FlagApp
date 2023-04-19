@@ -9,10 +9,24 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
 {
 
     ui->setupUi(this);
+    this->statusBar()->setSizeGripEnabled(false);
+    this->centralWidget()->setStyleSheet("background-image:url(:/backgroundImages/BackgroundImages/earthImage.jpg); background-position: center;");
     ui->easyButton->setVisible(false);
     ui->mediumButton->setVisible(false);
     ui->hardButton->setVisible(false);
     ui->backButton->setVisible(false);
+
+    ui->easyButton->setStyleSheet("color: white;");
+    ui->mediumButton->setStyleSheet("color: white;");
+    ui->hardButton->setStyleSheet("color: white;");
+    ui->playButton->setStyleSheet("color: white;");
+    ui->studyButton->setStyleSheet("color: white;");
+    ui->helpButton->setStyleSheet("color: white;");
+    ui->backButton->setStyleSheet("color: white;");
+    ui->signupButton->setStyleSheet("color: white;");
+    ui->loginButton->setStyleSheet("color: white;");
+
+
 
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
     connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);

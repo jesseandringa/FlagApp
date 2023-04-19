@@ -34,6 +34,8 @@ public:
     static std::vector<Country> loadCountries(int difficulty);
     static void shuffleCountries(std::vector<Country>& countryVector);
     static Country loadCountryNameAndLocation(QString name);
+
+
 };
 
 #endif // COUNTRY_H
