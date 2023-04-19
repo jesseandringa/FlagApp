@@ -19,11 +19,11 @@ class GameWindow : public QWidget
 
 public:
     std::vector<Country> countries;
-//    explicit GameWindow(QWidget *parent = nullptr);
     explicit GameWindow(GameModel &model,QWidget *parent = nullptr);
     ~GameWindow();
 
     void initNewGame(int difficulty);
+    void makeWidgetsVisibleAndEnabled(QWidget *widget);
 
 private slots:
     void on_currentGuess_returnPressed();
