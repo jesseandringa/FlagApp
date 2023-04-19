@@ -23,8 +23,8 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     ui->winLabel->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
-    ui->newGame->setVisible(false);
-    ui->newGame->setEnabled(false);
+    ui->QuitButton->setVisible(false);
+    ui->QuitButton->setEnabled(false);
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
@@ -145,8 +145,8 @@ void GameWindow::winScreen(){
     ui->horizontalFrame->setEnabled(true);
     ui->nextFlag->setVisible(true);
     ui->nextFlag->setEnabled(true);
-    ui->newGame->setVisible(true);
-    ui->newGame->setEnabled(true);
+    ui->QuitButton->setVisible(true);
+    ui->QuitButton->setEnabled(true);
 }
 
 /// \brief GameWindow::on_nextFlag_clicked
@@ -161,6 +161,7 @@ void GameWindow::on_nextFlag_clicked()
 /// Hide visibility of the win screen and make the game window visible again.
 void GameWindow::hideWinScreen()
 {
+    cout << "hiding win screen" << endl;
     foreach (QWidget *widget, this->findChildren<QWidget *>()) {
         widget->setVisible(true);
     }
@@ -172,7 +173,15 @@ void GameWindow::hideWinScreen()
     ui->horizontalFrame->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
-    ui->newGame->setVisible(false);
-    ui->newGame->setEnabled(false);
+    ui->QuitButton->setVisible(false);
+    ui->QuitButton->setEnabled(false);
+}
+
+///
+/// \brief GameWindow::on_QuitButton_clicked
+/// Give the user the option to quit the game after a correct guess.
+void GameWindow::on_QuitButton_clicked()
+{
+    QCoreApplication::quit();
 }
 

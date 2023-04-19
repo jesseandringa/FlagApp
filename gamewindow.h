@@ -33,6 +33,8 @@ private slots:
     void winScreen();
     void on_nextFlag_clicked();
 
+    void on_QuitButton_clicked();
+
 private:
     Ui::GameWindow *ui;
     void hideWinScreen();
