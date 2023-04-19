@@ -20,7 +20,6 @@
 #include <map>
 
 using std::map;
-using std::string;
 using std::pair;
 using std::array;
 
@@ -32,7 +31,7 @@ public:
     explicit UserDataHandler(QObject *parent = nullptr);
 
 public slots:
-    void signupAttempt(QString user, QString pass, QString passCheck);
+    void signupAttempt(QString username, QString password, QString passwordCheck);
     void loginAttempt(QString user, QString pass);
 
     void firstGuessCorrect();
@@ -42,7 +41,7 @@ public slots:
     void fifthGuessCorrect();
     void noGuessCorrect();
 signals:
-    void userMapDeserialized(map<pair<string,string>, array<int, 6>> usersData);
+    void userMapDeserialized(map<pair<QString,QString>, array<int, 6>> usersData);
 
     void signupFailNotAllFields();
     void signupFailUserExists();
@@ -56,8 +55,8 @@ signals:
 
 private:
     QString USER_DATA_PATH;
-    std::pair<string,string> currentUser;
-    std::map<std::pair<string,string>, std::array<int, 6>> usersData;
+    std::pair<QString,QString> currentUser;
+    std::map<std::pair<QString,QString>, std::array<int, 6>> usersData;
 
     void serializeUserDataToJSON();
     void saveData(QJsonDocument* doc);

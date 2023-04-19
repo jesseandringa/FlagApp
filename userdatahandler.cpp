@@ -24,8 +24,8 @@ void UserDataHandler::serializeUserDataToJSON()
     for(auto user = usersData.begin(); user != usersData.end(); user++)
     {
         QJsonObject tempUser;
-        tempUser["username"] = QString::fromStdString(user->first.first);
-        tempUser["password"] = QString::fromStdString(user->first.second);
+        tempUser["username"] = user->first.first;
+        tempUser["password"] = user->first.second;
 
         //QString temp = "{";
         QJsonArray tempArr;
@@ -71,7 +71,7 @@ void UserDataHandler::saveData(QJsonDocument* doc)
 
 void UserDataHandler::deserializeJsonToUsersMap()
 {
-    map<pair<string,string>, array<int, 6>> temp;
+    map<pair<QString,QString>, array<int, 6>> temp;
 
     QFile file(USER_DATA_PATH);
     //read file in if it is readable
@@ -96,7 +96,7 @@ void UserDataHandler::deserializeJsonToUsersMap()
             {
                 tempArray[i] = stats[i].toInt();
             }
-            temp[std::make_pair(username.toStdString(), password.toStdString())] = tempArray;
+            temp[std::make_pair(username, password)] = tempArray;
         }
     }
 
@@ -108,12 +108,8 @@ void UserDataHandler::deserializeJsonToUsersMap()
 /// \param username
 /// \param password
 /// \param passwordCheck
-void UserDataHandler::signupAttempt(QString user, QString pass, QString passCheck)
+void UserDataHandler::signupAttempt(QString username, QString password, QString passwordCheck)
 {
-    string username = user.toStdString();
-    string password = pass.toStdString();
-    string passwordCheck = passCheck.toStdString();
-
     if(username.length() == 0 || password.length() == 0 || passwordCheck.length() == 0)
     {
         emit signupFailNotAllFields();
@@ -122,7 +118,7 @@ void UserDataHandler::signupAttempt(QString user, QString pass, QString passChec
     {
         emit signupFailPasswordMismatch();
     }
-    else if(username.find(" ") || password.find(" "))
+    else if(username.contains(" ") || password.contains(" "))
     {
         emit signupFailSpacesDetected();
     }
@@ -159,8 +155,8 @@ void UserDataHandler::loginAttempt(QString username, QString password)
     }
     else
     {
-        currentUser.first = username.toStdString();
-        currentUser.second = password.toStdString();
+        currentUser.first = username;
+        currentUser.second = password;
 
         auto iter = usersData.find(currentUser);
         //The user does not exists
