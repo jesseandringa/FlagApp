@@ -85,29 +85,39 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
     ui->hintLabel1->setText("Hint 1: " + fact1);
 }
 
-void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance){
+void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints)
+{
     //if distance == 0, maybe do something else? 0 meaning that the guess was not found in resource
     QString guessStr = QString::fromStdString(guess);
     QString distanceStr = QString::number(distance);
-    if(guessNum == 0){
+    if(guessNum == 0)
+    {
+        ui->hintLabel2->setText("Hint 2: " + hints[1]);
         ui->guessLine1->setText(guessStr);
         ui->distanceLine1->setText(distanceStr + " Miles");
     }
-    else if(guessNum == 1){
-         ui->guessLine2->setText(guessStr);
-         ui->distanceLine2->setText(distanceStr + " Miles");
+    else if(guessNum == 1)
+    {
+        ui->hintLabel3->setText("Hint 3: " + hints[2]);
+        ui->guessLine2->setText(guessStr);
+        ui->distanceLine2->setText(distanceStr + " Miles");
     }
-    else if(guessNum == 2){
-         ui->guessLine3->setText(guessStr);
-         ui->distanceLine3->setText(distanceStr + " Miles");
+    else if(guessNum == 2)
+    {
+        ui->hintLabel4->setText("Hint 4: " + hints[3]);
+        ui->guessLine3->setText(guessStr);
+        ui->distanceLine3->setText(distanceStr + " Miles");
     }
-    else if(guessNum == 3){
-         ui->guessLine4->setText(guessStr);
-         ui->distanceLine4->setText(distanceStr + " Miles");
+    else if(guessNum == 3)
+    {
+        ui->hintLabel5->setText("Hint 5: " + hints[4]);
+        ui->guessLine4->setText(guessStr);
+        ui->distanceLine4->setText(distanceStr + " Miles");
     }
-    else if(guessNum == 4){
-         ui->guessLine5->setText(guessStr);
-         ui->distanceLine5->setText(distanceStr + " Miles");
+    else if(guessNum == 4)
+    {
+        ui->guessLine5->setText(guessStr);
+        ui->distanceLine5->setText(distanceStr + " Miles");
     }
 }
 

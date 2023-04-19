@@ -75,38 +75,43 @@ void GameModel::newGuessSlot(std::string guess)
         //win
 
     }
-    else {
+    else
+    {
+        if(guessNumber < 5)
+        {
+            Country guessedCountry = Country::loadCountryNameAndLocation(guessStr);
+            //if current country hasn't gotten x,y coords yet
+            if(country.longitude == 0 && country.latitude == 0){
+                Country temp = Country::loadCountryNameAndLocation(country.name);
+                country.longitude = temp.longitude;
+                country.latitude = temp.latitude;
+            }
+            distance = std::sqrt(std::pow((guessedCountry.longitude - country.longitude), 2) + std::pow((guessedCountry.latitude - country.latitude), 2));
 
-        Country guessedCountry = Country::loadCountryNameAndLocation(guessStr);
-        //if current country hasn't gotten x,y coords yet
-        if(country.longitude == 0 && country.latitude == 0){
-            Country temp = Country::loadCountryNameAndLocation(country.name);
-            country.longitude = temp.longitude;
-            country.latitude = temp.latitude;
-        }
-        distance = std::sqrt(std::pow((guessedCountry.longitude - country.longitude), 2) + std::pow((guessedCountry.latitude - country.latitude), 2));
+            double xDistance = (guessedCountry.longitude - country.longitude)*conversion;
+            double yDistance = (guessedCountry.latitude - country.latitude)*conversion;
+            //Want to think about this somemore, and how we want to do our directions, prob set boundries on what we qualify as southwest vs south or west.
+            //i.e. if the difference between y<10polar points then maybe just call it west instead of southwest.
 
-        double xDistance = (guessedCountry.longitude - country.longitude)*conversion;
-        double yDistance = (guessedCountry.latitude - country.latitude)*conversion;
-        //Want to think about this somemore, and how we want to do our directions, prob set boundries on what we qualify as southwest vs south or west.
-        //i.e. if the difference between y<10polar points then maybe just call it west instead of southwest.
+            string arrowDirection = GameModel::getArrowDirection(xDistance,yDistance);
 
-        string arrowDirection = GameModel::getArrowDirection(xDistance,yDistance);
-
-        //Supposed conversion factor from polar coord distance to miles.
-        distance = distance * conversion;
+            //Supposed conversion factor from polar coord distance to miles.
+            distance = distance * conversion;
 
 
 
 
-        //Lose case
-        if (guessNumber == 4){
-            cout << "game over" << endl;
+            //Lose case
+            if (guessNumber == 4)
+            {
+                cout << "game over" << endl;
+            }
+
+            //will also pass in direction string when implemented
+            emit sendUIGuessInfo(guess, guessNumber, distance, country.facts);
+            guessNumber++;
         }
     }
-    //will also pass in direction string when implemented
-    emit sendUIGuessInfo(guess, guessNumber, distance);
-    guessNumber++;
 }
 
 void GameModel::newGameStartedSlot(int difficulty)
