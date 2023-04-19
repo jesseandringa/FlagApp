@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -194,6 +197,24 @@
      <string>BACK</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="statsButton">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>20</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>STATS</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
@@ -202,7 +223,7 @@
      <x>0</x>
      <y>0</y>
      <width>1013</width>
-     <height>26</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

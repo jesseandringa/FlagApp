@@ -6,7 +6,7 @@
 using std::cout;
 using std::endl;
 
-GameWindow::GameWindow(GameModel &model,QWidget *parent) :
+GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameWindow)
 {
@@ -19,6 +19,8 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     ui->nextFlag->setEnabled(false);
     ui->QuitButton->setVisible(false);
     ui->QuitButton->setEnabled(false);
+
+
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
@@ -35,6 +37,7 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     //connect for typing and guesses
     connect(&model, &GameModel::invalidGuess, this, &GameWindow::invalidGuessSlot);
     connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
+    connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
 }
 
 GameWindow::~GameWindow()
@@ -77,7 +80,6 @@ void GameWindow::makeWidgetsVisibleAndEnabled(QWidget *widget)
 ///\brief SLOT when user guesses country
 /// sees if text is in it
 ///sends signal to model with text
-///
 void GameWindow::on_currentGuess_returnPressed()
 {
     userGuessed();
@@ -96,6 +98,35 @@ void GameWindow::userGuessed(){
         ui->currentGuess->setText("");
         emit newGuess(guessStr);
     }
+}
+
+/// \brief GameWindow::clearHintsAndGuesses
+/// Empty the hints and guess history from the previous round.
+void GameWindow::clearHintsAndGuesses()
+{
+    // Clear guess history
+    ui->guessLine1->clear();
+    ui->guessLine2->clear();
+    ui->guessLine3->clear();
+    ui->guessLine4->clear();
+    ui->guessLine5->clear();
+    ui->distanceLine1->clear();
+    ui->distanceLine2->clear();
+    ui->distanceLine3->clear();
+    ui->distanceLine4->clear();
+    ui->distanceLine5->clear();
+    ui->arrowLabel1->setText("<-");
+    ui->arrowLabel2->setText("<-");
+    ui->arrowLabel3->setText("<-");
+    ui->arrowLabel4->setText("<-");
+    ui->arrowLabel5->setText("<-");
+
+    // Clear all hints
+    ui->hintLabel1->clear();
+    ui->hintLabel2->setText("Hint 2: ");
+    ui->hintLabel3->setText("Hint 3: ");
+    ui->hintLabel4->setText("Hint 4: ");
+    ui->hintLabel5->setText("Hint 5: ");
 }
 
 /// \brief GameWindow::setUIforNewCountry
@@ -179,6 +210,7 @@ void GameWindow::winScreen(){
 void GameWindow::on_nextFlag_clicked()
 {
     hideWinScreen();
+    clearHintsAndGuesses();
     emit nextCountry();
 }
 
@@ -218,4 +250,32 @@ void GameWindow::on_currentGuess_textChanged(const QString &arg1)
 
 
 }
+
+void GameWindow::addSuggestions(std::vector<string> suggestions)
+{
+    ui->suggList->clear();
+    //put new suggestions in
+    for(int i = 0; i<suggestions.size(); i++){
+        QString suggestionStr = QString::fromStdString(suggestions[i]);
+        QListWidgetItem *suggItem = new QListWidgetItem(suggestionStr);
+        ui->suggList->addItem(suggItem);
+    }
+
+    //set height for scroll area
+    int sugCount = 0;
+    if(ui->suggList->count() > 3){
+        sugCount = 3;
+    }
+    else{
+        sugCount = ui->suggList->count();
+    }
+    int scrollBoxHeight = 0;
+    for(int i = 0; i< sugCount; i++){
+        scrollBoxHeight+=25;
+    }
+    QRect sizeofBox(369,169,481,scrollBoxHeight);
+    ui->scrollArea->setGeometry(sizeofBox);
+
+}
+
 

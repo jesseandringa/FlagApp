@@ -64,6 +64,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     signupwindow.cpp \
+    statswindow.cpp \
     studywindow.cpp \
     uiphysics.cpp \
     userdatahandler.cpp
@@ -124,6 +125,7 @@ HEADERS += \
     loginwindow.h \
     mainwindow.h \
     signupwindow.h \
+    statswindow.h \
     studywindow.h \
     uiphysics.h \
     userdatahandler.h
@@ -135,6 +137,7 @@ FORMS += \
     loginwindow.ui \
     mainwindow.ui \
     signupwindow.ui \
+    statswindow.ui \
     studywindow.ui
 
 # Default rules for deployment.

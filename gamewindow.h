@@ -43,6 +43,8 @@ private:
     Ui::GameWindow *ui;
     void hideWinScreen();
     void userGuessed();
+    void clearHintsAndGuesses();
+    void addSuggestions(std::vector<string> suggestions);
 
 signals:
     void newGuess(std::string currGuess);
