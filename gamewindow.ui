@@ -113,7 +113,7 @@
      <rect>
       <x>360</x>
       <y>30</y>
-      <width>171</width>
+      <width>231</width>
       <height>41</height>
      </rect>
     </property>
@@ -197,6 +197,10 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <zorder>winLabel</zorder>
+   <zorder>flagImageLabel</zorder>
+   <zorder>topLabel</zorder>
+   <zorder>verticalLayoutWidget_2</zorder>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
