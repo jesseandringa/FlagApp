@@ -114,14 +114,6 @@ std::vector<Country> Country::loadCountries(int difficulty)
         Country country(countryName, flagFilename, factsVector);
         countryVector.push_back(country);
     }
-
-    //maybe don't do this here: jesse:
-    //add the longitude and latitude for each country.
-//    for (int i = 0; i<countryVector.size(); i++){
-//        Country temp = loadCountryNameAndLocation(countryVector[i].name);
-//        countryVector[i].longitude = temp.longitude;
-//        countryVector[i].latitude = temp.latitude;
-//    }
     shuffleCountries(countryVector);
     return countryVector;
 }
