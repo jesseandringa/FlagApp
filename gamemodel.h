@@ -52,6 +52,7 @@ signals:
     void sendWin();
     void invalidGuess();
     void countryFinished(int finishPosition);
+    void newSuggestions(std::vector<string> suggs);
 };
 
 #endif // GAMEMODEL_H
