@@ -9,7 +9,8 @@ StudyWindow::StudyWindow(QWidget *parent) :
     ui->setupUi(this);
 
     QCommonStyle style;
-    //ui->pushButton->setIcon(style.standardIcon(QStyle::SP_ArrowBack));
+    connect(ui->prevCountryArrow, &QToolButton::clicked, this, &StudyWindow::leftArrowClicked);
+    connect(ui->nextCountryArrow, &QToolButton::clicked, this, &StudyWindow::rightArrowClicked);
 }
 
 StudyWindow::~StudyWindow()
@@ -17,4 +18,35 @@ StudyWindow::~StudyWindow()
     delete ui;
 }
 
+void StudyWindow::loadCountries()
+{
+    countries = Country::loadAllCountries();
+    displayCountry();
+}
 
+void StudyWindow::leftArrowClicked()
+{
+    if (currentCountry == 0){
+        return;
+    }
+    else {
+        currentCountry--;
+        displayCountry();
+    }
+}
+
+void StudyWindow::rightArrowClicked()
+{
+    if (currentCountry == countries.size()){
+        return;
+    }
+    else {
+        currentCountry++;
+        displayCountry();
+    }
+}
+
+void StudyWindow::displayCountry()
+{
+
+}

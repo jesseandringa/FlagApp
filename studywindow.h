@@ -15,13 +15,21 @@ class StudyWindow : public QWidget
 public:
     explicit StudyWindow(QWidget *parent = nullptr);
     ~StudyWindow();
+    void loadCountries();
 
-private slots:
+
+public slots:
+  void leftArrowClicked();
+  void rightArrowClicked();
+
+signals:
 
 private:
     Ui::StudyWindow *ui;
-    static std::vector<Country> loadCountries();
+    std::vector<Country> countries;
+    Country country;
     int currentCountry = 0;
+    void displayCountry();
 };
 
 #endif // STUDYWINDOW_H
