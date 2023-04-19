@@ -48,14 +48,14 @@
   <widget class="QLabel" name="StudyFlagLabel">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>30</y>
-     <width>361</width>
+     <x>140</x>
+     <y>20</y>
+     <width>351</width>
      <height>201</height>
     </rect>
    </property>
    <property name="text">
-    <string>blah blah flag goes here</string>
+    <string/>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
@@ -71,35 +71,35 @@
     <item>
      <widget class="QLabel" name="studyHintLabel1">
       <property name="text">
-       <string>Hint 1:</string>
+       <string>Fact 1:</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel2">
       <property name="text">
-       <string>Hint 2:</string>
+       <string>Fact 2:</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel3">
       <property name="text">
-       <string>Hint 3:</string>
+       <string>Fact 3:</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel4">
       <property name="text">
-       <string>Hint 4:</string>
+       <string>Fact 4:</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel5">
       <property name="text">
-       <string>Hint 5:</string>
+       <string>Fact 5:</string>
       </property>
      </widget>
     </item>
