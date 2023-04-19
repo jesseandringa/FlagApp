@@ -18,6 +18,7 @@ GameWindow::GameWindow(GameModel &model,QWidget *parent) :
     ui(new Ui::GameWindow)
 {
     ui->setupUi(this);
+    ui->currentGuess->setFocus();
 
     ui->winLabel->setVisible(false);
     ui->winLabel->setEnabled(false);
