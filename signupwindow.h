@@ -19,6 +19,7 @@ public slots:
     void signUpAttemptSlot();
     void signupFailedNotAllFields();
     void signupFailedUserExists();
+    void signupFailedSpacesDetected();
     void signupFailedPasswordMismatch();
 
 signals:

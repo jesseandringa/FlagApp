@@ -31,11 +31,12 @@ public slots:
     void hardDifficultyClicked();
 
     void signupButtonClicked();
-    void signupAttempt(std::tuple<QString, QString, QString> temp);
-    void signupFailedNotAllFields();
-    void signupFailedUserExists();
-    void signupFailedPassWordMismatch();
-    void signupSuccess();
+    void signupAttemptSlot(std::tuple<QString, QString, QString> temp);
+    void signupFailedNotAllFieldsSlot();
+    void signupFailedUserExistsSlot();
+    void signupFailedPassWordMismatchSlot();
+    void signupFailedSpacesDetectedSlot();
+    void signupSuccessSlot();
 
     void loginButtonClicked();
     void loginAttemptSlot(QString username, QString password);
@@ -46,9 +47,10 @@ public slots:
 signals:
     void startGame(int difficulty);
     void checkSignupAttempt(QString,QString,QString);
-    void signupFailedNotAllFieldsFromModel();
-    void signupFailedUserExistsFromModel();
-    void signupFailedPasswordMismatchFromModel();
+    void signupFailedNotAllFields();
+    void signupFailedUserExists();
+    void signupFailedSpacesDetected();
+    void signupFailedPasswordMismatch();
 
     void loginAttempt(QString, QString);
     void loginFailedNotAllFields();

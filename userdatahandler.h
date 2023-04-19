@@ -34,12 +34,20 @@ public:
 public slots:
     void signupAttempt(QString user, QString pass, QString passCheck);
     void loginAttempt(QString user, QString pass);
+
+    void firstGuessCorrect();
+    void secondGuessCorrect();
+    void thirdGuessCorrect();
+    void fourthGuessCorrect();
+    void fifthGuessCorrect();
+    void noGuessCorrect();
 signals:
     void userMapDeserialized(map<pair<string,string>, array<int, 6>> usersData);
 
     void signupFailNotAllFields();
     void signupFailUserExists();
     void signupFailPasswordMismatch();
+    void signupFailSpacesDetected();
     void signupSuccess();
 
     void loginFailedNotAllFields();
@@ -54,6 +62,7 @@ private:
     void serializeUserDataToJSON();
     void saveData(QJsonDocument* doc);
     void deserializeJsonToUsersMap();
+
 };
 
 #endif // USERDATAHANDLER_H

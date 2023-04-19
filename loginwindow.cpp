@@ -9,6 +9,8 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->loginPushButton, &QPushButton::clicked, this, &LoginWindow::loginAttemptSlot);
+    connect(ui->username, &QLineEdit::returnPressed, this, &LoginWindow::loginAttemptSlot);
+    connect(ui->password, &QLineEdit::returnPressed, this, &LoginWindow::loginAttemptSlot);
 }
 
 LoginWindow::~LoginWindow()

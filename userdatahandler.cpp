@@ -122,6 +122,10 @@ void UserDataHandler::signupAttempt(QString user, QString pass, QString passChec
     {
         emit signupFailPasswordMismatch();
     }
+    else if(username.find(" ") || password.find(" "))
+    {
+        emit signupFailSpacesDetected();
+    }
     else
     {
         currentUser.first = username;
@@ -145,18 +149,18 @@ void UserDataHandler::signupAttempt(QString user, QString pass, QString passChec
 /// \brief UserDataHandler::loginAttempt
 /// Implimentation to see if a user log in attempt is successful.
 /// It will tell the main window when it knows.
-/// \param user
-/// \param pass
-void UserDataHandler::loginAttempt(QString user, QString pass)
+/// \param username
+/// \param password
+void UserDataHandler::loginAttempt(QString username, QString password)
 {
-    if(user.length() == 0 || pass.length() == 0)
+    if(username.length() == 0 || password.length() == 0)
     {
         emit loginFailedNotAllFields();
     }
     else
     {
-        currentUser.first = user.toStdString();
-        currentUser.second = pass.toStdString();
+        currentUser.first = username.toStdString();
+        currentUser.second = password.toStdString();
 
         auto iter = usersData.find(currentUser);
         //The user does not exists
@@ -169,4 +173,36 @@ void UserDataHandler::loginAttempt(QString user, QString pass)
             emit loginSuccessful();
         }
     }
+}
+
+/// \brief UserDataHandler::firstGuessCorrect
+void UserDataHandler::firstGuessCorrect()
+{
+    usersData[currentUser][0]++;
+}
+/// \brief UserDataHandler::secondGuessCorrect
+void UserDataHandler::secondGuessCorrect()
+{
+    usersData[currentUser][1]++;
+}
+/// \brief UserDataHandler::thirdGuessCorrect
+void UserDataHandler::thirdGuessCorrect()
+{
+    usersData[currentUser][2]++;
+}
+/// \brief UserDataHandler::fourthGuessCorrect
+void UserDataHandler::fourthGuessCorrect()
+{
+    usersData[currentUser][3]++;
+}
+/// \brief UserDataHandler::fifthGuessCorrect
+void UserDataHandler::fifthGuessCorrect()
+{
+    usersData[currentUser][4]++;
+}
+
+/// \brief UserDataHandler::noGuessCorrect
+void UserDataHandler::noGuessCorrect()
+{
+    usersData[currentUser][5]++;
 }

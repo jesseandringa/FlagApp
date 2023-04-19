@@ -21,15 +21,17 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
 
     connect(ui->signupButton, &QPushButton::clicked, this, &MainWindow::signupButtonClicked);
-    connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signupAttempt);
+    connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signupAttemptSlot);
     connect(this, &MainWindow::checkSignupAttempt, &userdatahandler, &UserDataHandler::signupAttempt);
-    connect(&userdatahandler, &UserDataHandler::signupFailNotAllFields, this, &MainWindow::signupFailedNotAllFields);
-    connect(this, &MainWindow::signupFailedNotAllFieldsFromModel, &signupWindow, &SignUpWindow::signupFailedNotAllFields);
-    connect(&userdatahandler, &UserDataHandler::signupFailUserExists, this, &MainWindow::signupFailedUserExists);
-    connect(this, &MainWindow::signupFailedUserExistsFromModel, &signupWindow, &SignUpWindow::signupFailedUserExists);
-    connect(&userdatahandler, &UserDataHandler::signupFailPasswordMismatch, this, &MainWindow::signupFailedPassWordMismatch);
-    connect(this, &MainWindow::signupFailedPasswordMismatchFromModel, &signupWindow, &SignUpWindow::signupFailedPasswordMismatch);
-    connect(&userdatahandler, &UserDataHandler::signupSuccess, this, &MainWindow::signupSuccess);
+    connect(&userdatahandler, &UserDataHandler::signupFailNotAllFields, this, &MainWindow::signupFailedNotAllFieldsSlot);
+    connect(this, &MainWindow::signupFailedNotAllFields, &signupWindow, &SignUpWindow::signupFailedNotAllFields);
+    connect(&userdatahandler, &UserDataHandler::signupFailUserExists, this, &MainWindow::signupFailedUserExistsSlot);
+    connect(this, &MainWindow::signupFailedUserExists, &signupWindow, &SignUpWindow::signupFailedUserExists);
+    connect(&userdatahandler, &UserDataHandler::signupFailPasswordMismatch, this, &MainWindow::signupFailedPassWordMismatchSlot);
+    connect(this, &MainWindow::signupFailedPasswordMismatch, &signupWindow, &SignUpWindow::signupFailedPasswordMismatch);
+    connect(&userdatahandler, &UserDataHandler::signupFailSpacesDetected, this, &MainWindow::signupFailedSpacesDetectedSlot);
+    connect(this, &MainWindow::signupFailedSpacesDetected, &signupWindow, &SignUpWindow::signupFailedSpacesDetected);
+    connect(&userdatahandler, &UserDataHandler::signupSuccess, this, &MainWindow::signupSuccessSlot);
 
     connect(ui->loginButton, &QPushButton::clicked, this, &MainWindow::loginButtonClicked);
     connect(&loginwindow, &LoginWindow::loginAttempt, this, &MainWindow::loginAttemptSlot);
@@ -99,7 +101,7 @@ void MainWindow::signupButtonClicked()
 /// \brief MainWindow::signupAttempt
 /// Relays signal from the signupwindow to the gameModel
 /// \param temp
-void MainWindow::signupAttempt(std::tuple<QString, QString, QString> temp)
+void MainWindow::signupAttemptSlot(std::tuple<QString, QString, QString> temp)
 {
     auto[username, password, passwordCheck] = temp;
     emit checkSignupAttempt(username, password, passwordCheck);
@@ -107,26 +109,33 @@ void MainWindow::signupAttempt(std::tuple<QString, QString, QString> temp)
 
 /// \brief MainWindow::signupFailedNotAllFields
 /// Relays signal from gamemodel to the signupwindow.
-void MainWindow::signupFailedNotAllFields()
+void MainWindow::signupFailedNotAllFieldsSlot()
 {
-    emit signupFailedNotAllFieldsFromModel();
+    emit signupFailedNotAllFields();
 }
 
 /// \brief MainWindow::signupFailedUserExists
-void MainWindow::signupFailedUserExists()
+void MainWindow::signupFailedUserExistsSlot()
 {
-    emit signupFailedUserExistsFromModel();
+    emit signupFailedUserExists();
 }
 
 /// \brief MainWindow::signupFailedPassWordMismatch
 /// Relays signal from gamemodel to signupwindow.
-void MainWindow::signupFailedPassWordMismatch()
+void MainWindow::signupFailedPassWordMismatchSlot()
 {
-    emit signupFailedPasswordMismatchFromModel();
+    emit signupFailedPasswordMismatch();
 }
 
-/// \brief MainWindow::signupSuccess
-void MainWindow::signupSuccess()
+
+/// \brief MainWindow::signupFailedSpacesDetectedSlot
+void MainWindow::signupFailedSpacesDetectedSlot()
+{
+    emit signupFailedSpacesDetected();
+}
+
+/// \brief MainWindow::signupSuccessSlot
+void MainWindow::signupSuccessSlot()
 {
     signupWindow.close();
     ui->signupButton->setVisible(false);

@@ -11,6 +11,9 @@ SignUpWindow::SignUpWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->signupPushButton, &QPushButton::clicked, this, &SignUpWindow::signUpAttemptSlot);
+    connect(ui->username, &QLineEdit::returnPressed, this, &SignUpWindow::signUpAttemptSlot);
+    connect(ui->password, &QLineEdit::returnPressed, this, &SignUpWindow::signUpAttemptSlot);
+    connect(ui->password2, &QLineEdit::returnPressed, this, &SignUpWindow::signUpAttemptSlot);
 }
 
 /// \brief SignUpWindow::~SignUpWindow
@@ -44,4 +47,11 @@ void SignUpWindow::signupFailedUserExists()
 void SignUpWindow::signupFailedPasswordMismatch()
 {
     ui->signupLabel->setText("Password Mismatch:");
+}
+
+
+/// \brief SignUpWindow::signupFailedSpacesDetected
+void SignUpWindow::signupFailedSpacesDetected()
+{
+    ui->signupLabel->setText("No Spaces Allowed:");
 }
