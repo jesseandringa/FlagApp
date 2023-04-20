@@ -48,5 +48,6 @@
     <qresource prefix="/localUserData"/>
     <qresource prefix="/backgroundImages">
         <file>BackgroundImages/earthImage.jpg</file>
+        <file>BackgroundImages/balloonTesting.png</file>
     </qresource>
 </RCC>

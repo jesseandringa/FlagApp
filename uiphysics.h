@@ -14,7 +14,7 @@ public:
     void paintEvent(QPaintEvent *);
 
 public slots:
-    void update();
+    void updateWorld();
 signals:
 
 private:
