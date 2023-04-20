@@ -195,6 +195,9 @@ void GameWindow::winScreen(QString country)
     ui->nextFlag->setVisible(true);
     ui->nextFlag->setEnabled(true);
     ui->topLabel->setText(country);
+
+    ui->guessButton->setEnabled(false);
+    ui->currentGuess->setEnabled(false);
 }
 
 /// \brief GameWindow::winScreen
@@ -206,6 +209,9 @@ void GameWindow::lossScreen(QString country)
     ui->nextFlag->setVisible(true);
     ui->nextFlag->setEnabled(true);
     ui->topLabel->setText(country);
+
+    ui->guessButton->setEnabled(false);
+    ui->currentGuess->setEnabled(false);
 }
 
 /// \brief GameWindow::on_nextFlag_clicked
@@ -232,6 +238,10 @@ void GameWindow::hideWinScreen()
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
     ui->topLabel->setText("Guess the country!");
+
+    ui->guessButton->setEnabled(true);
+    ui->currentGuess->setEnabled(true);
+    ui->currentGuess->setFocus();
 }
 
 
