@@ -69,41 +69,85 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <widget class="QLabel" name="studyHintLabel1_2">
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>FACTS </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QLabel" name="studyHintLabel1">
       <property name="text">
-       <string>Fact 1:</string>
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel2">
       <property name="text">
-       <string>Fact 2:</string>
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel3">
       <property name="text">
-       <string>Fact 3:</string>
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel4">
       <property name="text">
-       <string>Fact 4:</string>
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="studyHintLabel5">
       <property name="text">
-       <string>Fact 5:</string>
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BACK</string>
+   </property>
   </widget>
  </widget>
  <resources/>
