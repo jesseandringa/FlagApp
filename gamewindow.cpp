@@ -17,8 +17,6 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->winLabel->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
-    ui->QuitButton->setVisible(false);
-    ui->QuitButton->setEnabled(false);
 
 
 
@@ -30,6 +28,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
 
     //When player guesses correct, change ui to reflect win
     connect(&model, &GameModel::sendWin, this, &GameWindow::winScreen);
+    connect(&model, &GameModel::sendLoss, this, &GameWindow::lossScreen);
 
     // Start new round after winning (Sam)
     connect(this, &GameWindow::nextCountry, &model, &GameModel::playNextCountry);
@@ -190,20 +189,23 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
 
 /// \brief GameWindow::winScreen
 /// Display a `you win` screen when the correct country is guessed.
-void GameWindow::winScreen(){
-    foreach (QWidget *widget, this->findChildren<QWidget *>()) {
-        widget->setVisible(false);
-    }
-    ui->frame_2->setVisible(true);
-    ui->frame_3->setVisible(true);
+void GameWindow::winScreen(QString country)
+{
     ui->winLabel->setVisible(true);
-    ui->winLabel->setEnabled(true);
-    ui->horizontalFrame->setVisible(true);
-    ui->horizontalFrame->setEnabled(true);
     ui->nextFlag->setVisible(true);
     ui->nextFlag->setEnabled(true);
-    ui->QuitButton->setVisible(true);
-    ui->QuitButton->setEnabled(true);
+    ui->topLabel->setText(country);
+}
+
+/// \brief GameWindow::winScreen
+/// Display a `you win` screen when the correct country is guessed.
+void GameWindow::lossScreen(QString country)
+{
+    ui->winLabel->setText("You Lost!");
+    ui->winLabel->setVisible(true);
+    ui->nextFlag->setVisible(true);
+    ui->nextFlag->setEnabled(true);
+    ui->topLabel->setText(country);
 }
 
 /// \brief GameWindow::on_nextFlag_clicked
@@ -225,23 +227,13 @@ void GameWindow::invalidGuessSlot()
 /// Hide visibility of the win screen and make the game window visible again.
 void GameWindow::hideWinScreen()
 {
-    makeWidgetsVisibleAndEnabled(this);
-
-    // Hide win screen widgets
+    ui->winLabel->setText("You Win!");
     ui->winLabel->setVisible(false);
-    ui->winLabel->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
-    ui->QuitButton->setVisible(false);
-    ui->QuitButton->setEnabled(false);
+    ui->topLabel->setText("Guess the country!");
 }
 
-/// \brief GameWindow::on_QuitButton_clicked
-/// Give the user the option to quit the game after a correct guess.
-void GameWindow::on_QuitButton_clicked()
-{
-    QCoreApplication::quit();
-}
 
 ///\brief When user is typing. look at current string and give user suggestions
 void GameWindow::on_currentGuess_textChanged(const QString &arg1)

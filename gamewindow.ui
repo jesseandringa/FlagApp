@@ -88,7 +88,7 @@
    <widget class="QLabel" name="flagImageLabel">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>30</x>
       <y>70</y>
       <width>251</width>
       <height>141</height>
@@ -172,16 +172,21 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>-10</y>
-      <width>281</width>
-      <height>111</height>
+      <x>70</x>
+      <y>220</y>
+      <width>171</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>30</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255)</string>
     </property>
     <property name="text">
      <string>You Win!</string>
@@ -445,7 +450,7 @@
    <widget class="QPushButton" name="guessButton">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>490</x>
       <y>240</y>
       <width>100</width>
       <height>61</height>
@@ -468,20 +473,6 @@
      <property name="spacing">
       <number>50</number>
      </property>
-     <item>
-      <widget class="QPushButton" name="nextFlag">
-       <property name="text">
-        <string>Next Flag</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="QuitButton">
-       <property name="text">
-        <string>Quit</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
    <widget class="QScrollArea" name="scrollArea">
@@ -516,6 +507,19 @@
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="nextFlag">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>240</y>
+      <width>100</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Next Flag</string>
+    </property>
    </widget>
   </widget>
  </widget>
