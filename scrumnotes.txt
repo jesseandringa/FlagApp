@@ -205,3 +205,66 @@ Scrum Questions
 	Jesse: No.
 	Sean: No.
 	Ethan: No.
+#######################
+## Tuesday 04/18/23 ##
+#######################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: Added a log in window and a way for the user to sign into an existing account.
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan:  Impliment deserailizing the user data and get saving/loading the file connected to login/signup.
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: No.
+	
+########################
+## Wednesday 04/19/23 ##
+########################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: Finished implimenting userDataHandler to work with loggin in and signing up.
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: Connect the userDataHandler to the game model so that it updates every time the user plays a game.  Also add a way
+	users to see their local stats.
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: No.
+
