@@ -248,7 +248,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: Made a small screen for win case in the ui
+	Sean: Made a small screen for win case in the ui.
 	Ethan: Finished implementing userDataHandler to work with login in and signing up.
 
 2. What will you do today?
