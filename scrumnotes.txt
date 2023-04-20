@@ -217,7 +217,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: 
+	Sean: Review what we needed for our sprint submission the next day, documents and whatnot.
 	Ethan: Added a log in window and a way for the user to sign into an existing account.
 
 2. What will you do today?
@@ -225,7 +225,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: 
+	Sean:  Look over the study window with Kevin and begin to look into box2d physics.
 	Ethan:  Implement deserializing the user data and get saving/loading the file connected to login/signup.
 
 3. Is anything in your way?
@@ -233,7 +233,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: 
+	Sean: no.
 	Ethan: No.
 	
 ########################
@@ -248,7 +248,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: 
+	Sean: Made a small screen for win case in the ui
 	Ethan: Finished implementing userDataHandler to work with login in and signing up.
 
 2. What will you do today?
@@ -256,7 +256,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: 
+	Sean: Study box2d and work towards making some sort of animation appear.
 	Ethan: Connect the userDataHandler to the game model so that it updates every time the user plays a game.  Also add a way
 	users to see their local stats.
 
@@ -265,6 +265,6 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: 
+	Sean: Having trouble understanding box2d.
 	Ethan: No.
 
