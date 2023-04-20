@@ -5,7 +5,7 @@
 UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     world(b2Vec2(0.0f, 10.0f)),
     timer(this),
-    image(":/flags/FlagImages/argentina.jpg")
+    image(":/backgroundImages/BackgroundImages/balloonTesting.png")
 {
     // Define the ground body.
     b2BodyDef groundBodyDef;
@@ -50,7 +50,7 @@ UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     body->CreateFixture(&fixtureDef);
     printf("Init world\n");
 
-    connect(&timer, &QTimer::timeout, this, &UIPhysics::update);
+    connect(&timer, &QTimer::timeout, this, &UIPhysics::updateWorld);
     timer.start(10);
 }
 
@@ -62,13 +62,13 @@ void UIPhysics::paintEvent(QPaintEvent *) {
 
 //    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 
-    painter.drawImage((int)(position.x*20), (int)(position.y*20), image);
+    painter.drawImage((int)(position.x*20)+200, (int)(position.y*20), image);
     painter.drawImage(200, 200, image);
 //    qDebug() << image;
     painter.end();
    }
 
-void UIPhysics::update() {
+void UIPhysics::updateWorld() {
     // It is generally best to keep the time step and iterations fixed.
     world.Step(1.0/60.0, 6, 2);
     update();
