@@ -226,7 +226,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: 
 	Sean: 
-	Ethan:  Impliment deserailizing the user data and get saving/loading the file connected to login/signup.
+	Ethan:  Implement deserializing the user data and get saving/loading the file connected to login/signup.
 
 3. Is anything in your way?
 	
@@ -249,7 +249,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: 
 	Sean: 
-	Ethan: Finished implimenting userDataHandler to work with loggin in and signing up.
+	Ethan: Finished implementing userDataHandler to work with login in and signing up.
 
 2. What will you do today?
 	
