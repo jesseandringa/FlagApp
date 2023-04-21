@@ -163,6 +163,7 @@ void MainWindow::hardDifficultyClicked()
 /// Let the user sign in
 void MainWindow::signupButtonClicked()
 {
+    signupWindow.raise();
     signupWindow.show();
 }
 
@@ -216,6 +217,7 @@ void MainWindow::signupSuccessSlot()
 /// Makes the loginwindow visible.
 void MainWindow::loginButtonClicked()
 {
+    loginwindow.raise();
     loginwindow.show();
 }
 
@@ -261,6 +263,7 @@ void MainWindow::statsClicked()
 void MainWindow::statsReceived(std::array<int, 6> stats)
 {
     emit sendStats(stats);
+    statswindow.raise();
     statswindow.show();
 }
 

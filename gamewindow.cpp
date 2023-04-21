@@ -13,12 +13,11 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->setupUi(this);
     ui->currentGuess->setFocus();
 
+    //Only visible at the end of a round
     ui->winLabel->setVisible(false);
     ui->winLabel->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
-
-
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
@@ -37,6 +36,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     connect(&model, &GameModel::invalidGuess, this, &GameWindow::invalidGuessSlot);
     connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
     connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
+
     connect(ui->homeButton, &QPushButton::clicked, this, &GameWindow::backToHomeSlot);
 }
 
@@ -77,22 +77,26 @@ void GameWindow::makeWidgetsVisibleAndEnabled(QWidget *widget)
 }
 
 
-///\brief SLOT when user guesses country
-/// sees if text is in it
-///sends signal to model with text
+/// \brief GameWindow::on_currentGuess_returnPressed
 void GameWindow::on_currentGuess_returnPressed()
 {
     userGuessed();
 }
 
+/// \brief GameWindow::on_guessButton_clicked
 void GameWindow::on_guessButton_clicked()
 {
     userGuessed();
 }
 
-void GameWindow::userGuessed(){
+/// \brief GameWindow::userGuessed
+/// Emits valid input to the model for handling.
+/// Valid input is concidered to be text in currentGuess.
+void GameWindow::userGuessed()
+{
     QString currentGuess ="";
-    if(ui->currentGuess->text()!=""){
+    if(ui->currentGuess->text()!="")
+    {
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
         ui->currentGuess->setText("");
@@ -282,9 +286,6 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
 
 
 }
-
-
-
 
 void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
 {
