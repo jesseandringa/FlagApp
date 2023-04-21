@@ -39,7 +39,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
     connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);
     connect(ui->helpButton, &QPushButton::clicked, this, &MainWindow::helpButtonClicked);
-    connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::backButtonClicked);
+    connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::backHomeFromDifficultySelection);
 
     connect(ui->easyButton, &QPushButton::clicked, this, &MainWindow::easyDifficultyClicked);
     connect(ui->mediumButton, &QPushButton::clicked, this, &MainWindow::mediumDifficultyClicked);
@@ -119,8 +119,8 @@ void MainWindow::helpButtonClicked()
 
 }
 
-/// \brief MainWindow::backFromDifficultySelection
-void MainWindow::backFromDifficultySelection()
+/// \brief MainWindow::backHomeFromDifficultySelection
+void MainWindow::backHomeFromDifficultySelection()
 {
     ui->playButton->setVisible(true);
     ui->studyButton->setVisible(true);
@@ -282,7 +282,7 @@ void MainWindow::difficultyFinished()
 /// \brief Mainwindow::backHomeFromGame
 void MainWindow::backHomeFromGame()
 {
-    backButtonClicked();
+    backHomeFromDifficultySelection();
     this->show();
     gameWindow.hide();
 }
