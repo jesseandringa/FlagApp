@@ -1,8 +1,16 @@
 /// This class will handle saving and loading user game stats.
 /// Stats are local to each machine and will not be stored within the github repo.
+/// The implimentation for logging in and signing up also exists within this class;
+/// in addition there is a slot that is used to update user stats from gameplay.
+/// Written By:
 
 #include "userdatahandler.h"
 
+/// \brief UserDataHandler::UserDataHandler
+/// Constructor
+/// Establishes a relative path to store local data and deserializes any data
+/// that may already exist.
+/// \param parent
 UserDataHandler::UserDataHandler(QObject *parent)
     : QObject{parent}
 {
@@ -14,37 +22,32 @@ UserDataHandler::UserDataHandler(QObject *parent)
 }
 
 /// \brief UserDataHandler::serializeUserDataToJSON
-/// Serializes the local user data to json and saves it in the localUserData.txt in resources.
+/// Serializes the local user data to json and saves it in the localUserData.txt.
 /// \param usersMap
 void UserDataHandler::serializeUserDataToJSON()
 {
-    QJsonObject users;
+    QJsonObject users; //one object with all the users
 
     int userNum = 0;
     for(auto user = usersData.begin(); user != usersData.end(); user++)
     {
         QJsonObject tempUser;
-        tempUser["username"] = user->first.first;
-        tempUser["password"] = user->first.second;
 
-        //QString temp = "{";
-        QJsonArray tempArr;
+        QJsonArray tempArr; //stats
         for(int i = 0; i < 6; i++)
         {
             tempArr.append(user->second[i]);
-            //temp += QString::number(user->second[i]);
-            //temp += ", ";
         }
-        //temp += QString::number(user->second[5]);
-        //temp += "}";
-        tempUser["stats"] = tempArr;
 
+        tempUser["stats"] = tempArr;
+        tempUser["username"] = user->first.first;
+        tempUser["password"] = user->first.second;
+
+        //each "user" in "users" is labeled with userNum.
         users[QString::number(userNum++)] = tempUser;
     }
 
     QJsonDocument doc(users);
-    //QString json = doc.toJson();
-
     saveData(&doc);
 }
 
@@ -69,10 +72,10 @@ void UserDataHandler::saveData(QJsonDocument* doc)
     }
 }
 
+/// \brief UserDataHandler::deserializeJsonToUsersMap
+/// Deserializes the custom JSON for user data into a map.
 void UserDataHandler::deserializeJsonToUsersMap()
 {
-    map<pair<QString,QString>, array<int, 6>> temp;
-
     QFile file(USER_DATA_PATH);
     //read file in if it is readable
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -84,8 +87,9 @@ void UserDataHandler::deserializeJsonToUsersMap()
         QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
         QJsonObject usersObject = doc.object();
 
-        for(QJsonValueRef userRef : usersObject)
+        for(QJsonValueRef userRef : usersObject) //userRef is one user
         {
+            //Extracting data from individual user
             QJsonObject user = userRef.toObject();
             QString username = user.value("username").toString();
             QString password = user.value("password").toString();
@@ -96,11 +100,10 @@ void UserDataHandler::deserializeJsonToUsersMap()
             {
                 tempArray[i] = stats[i].toInt();
             }
-            temp[std::make_pair(username, password)] = tempArray;
+            //add key value pair to the usersData map.
+            usersData[std::make_pair(username, password)] = tempArray;
         }
     }
-
-    usersData = temp;
 }
 
 /// \brief UserDataHandler::signupCheck
@@ -110,14 +113,17 @@ void UserDataHandler::deserializeJsonToUsersMap()
 /// \param passwordCheck
 void UserDataHandler::signupAttempt(QString username, QString password, QString passwordCheck)
 {
+    //Empty field
     if(username.length() == 0 || password.length() == 0 || passwordCheck.length() == 0)
     {
         emit signupFailNotAllFields();
     }
+    //Password verification failed
     else if(password != passwordCheck)
     {
         emit signupFailPasswordMismatch();
     }
+    //Space detected
     else if(username.contains(" ") || password.contains(" "))
     {
         emit signupFailSpacesDetected();
@@ -127,12 +133,13 @@ void UserDataHandler::signupAttempt(QString username, QString password, QString 
         currentUser.first = username;
         currentUser.second = password;
 
-        auto iter = usersData.find(currentUser);
         //The user exists
+        auto iter = usersData.find(currentUser);
         if(iter != usersData.end())
         {
             emit signupFailUserExists();
         }
+        //Successful Signup
         else
         {
             usersData[currentUser] = {0,0,0,0,0,0};
@@ -149,6 +156,7 @@ void UserDataHandler::signupAttempt(QString username, QString password, QString 
 /// \param password
 void UserDataHandler::loginAttempt(QString username, QString password)
 {
+    //Empty field
     if(username.length() == 0 || password.length() == 0)
     {
         emit loginFailedNotAllFields();
@@ -158,12 +166,13 @@ void UserDataHandler::loginAttempt(QString username, QString password)
         currentUser.first = username;
         currentUser.second = password;
 
-        auto iter = usersData.find(currentUser);
         //The user does not exists
+        auto iter = usersData.find(currentUser);
         if(iter == usersData.end())
         {
             emit loginFailedDNE();
         }
+        //Successful Login
         else
         {
             emit loginSuccessful();

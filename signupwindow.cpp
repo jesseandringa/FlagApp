@@ -1,3 +1,6 @@
+/// This class handles the user interface for the signupwindow.
+/// Written By:
+
 #include "signupwindow.h"
 #include "ui_signupwindow.h"
 
@@ -9,6 +12,7 @@ SignUpWindow::SignUpWindow(QWidget *parent) :
     ui(new Ui::SignUpWindow)
 {
     ui->setupUi(this);
+    ui->username->setFocus();
 
     connect(ui->signupPushButton, &QPushButton::clicked, this, &SignUpWindow::signUpAttemptSlot);
     connect(ui->username, &QLineEdit::returnPressed, this, &SignUpWindow::signUpAttemptSlot);
