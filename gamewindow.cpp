@@ -37,6 +37,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     connect(&model, &GameModel::invalidGuess, this, &GameWindow::invalidGuessSlot);
     connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
     connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
+    connect(ui->homeButton, &QPushButton::clicked, this, &GameWindow::backToHomeSlot);
 }
 
 GameWindow::~GameWindow()
@@ -292,3 +293,9 @@ void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
     ui->currentGuess->setFocus();
 }
 
+/// \brief GameWindow::backToHomeSlot
+/// Translates a button click to an emit.
+void GameWindow::backToHomeSlot()
+{
+    emit backToHome();
+}

@@ -11,6 +11,7 @@ StudyWindow::StudyWindow(QWidget *parent) :
     QCommonStyle style;
     connect(ui->prevCountryArrow, &QToolButton::clicked, this, &StudyWindow::leftArrowClicked);
     connect(ui->nextCountryArrow, &QToolButton::clicked, this, &StudyWindow::rightArrowClicked);
+    connect(ui->backButton, &QPushButton::clicked, this, &StudyWindow::backClicked);
 }
 
 StudyWindow::~StudyWindow()
@@ -57,4 +58,11 @@ void StudyWindow::displayCountry()
     ui->studyHintLabel4->setText("\u2022 " + country.facts[3]);
     ui->studyHintLabel5->setText("\u2022 " + country.facts[4]);
 
+}
+
+/// \brief StudyWindow::backClicked
+/// Translates a button click to a signal that can be recieved in the mainwindow.
+void StudyWindow::backClicked()
+{
+    emit backToHome();
 }

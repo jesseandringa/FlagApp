@@ -36,6 +36,7 @@ private slots:
     void lossScreen(QString country);
     void on_nextFlag_clicked();
     void invalidGuessSlot();
+    void backToHomeSlot();
 
     void on_currentGuess_textChanged(const QString &arg1);
 
@@ -54,6 +55,7 @@ signals:
     void newGame(int difficulty);
     void nextCountry();
     void userTypingAndNeedsSuggestions(string currentText);
+    void backToHome();
 
 };
 

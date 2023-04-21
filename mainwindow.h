@@ -51,6 +51,8 @@ public slots:
 
     void countryFinishedSlot(int finishPosition);
     void difficultyFinished();
+    void backHomeFromGame();
+    void backHomeFromStudy();
 
 signals:
     void startGame(int difficulty);

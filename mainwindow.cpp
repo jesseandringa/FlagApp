@@ -41,6 +41,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(ui->mediumButton, &QPushButton::clicked, this, &MainWindow::mediumDifficultyClicked);
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
 
+    //signup connections
     connect(ui->signupButton, &QPushButton::clicked, this, &MainWindow::signupButtonClicked);
     connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signupAttemptSlot);
     connect(this, &MainWindow::checkSignupAttempt, &userdatahandler, &UserDataHandler::signupAttempt);
@@ -54,6 +55,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(this, &MainWindow::signupFailedSpacesDetected, &signupWindow, &SignUpWindow::signupFailedSpacesDetected);
     connect(&userdatahandler, &UserDataHandler::signupSuccess, this, &MainWindow::signupSuccessSlot);
 
+    //login connections
     connect(ui->loginButton, &QPushButton::clicked, this, &MainWindow::loginButtonClicked);
     connect(&loginwindow, &LoginWindow::loginAttempt, this, &MainWindow::loginAttemptSlot);
     connect(this, &MainWindow::loginAttempt, &userdatahandler, &UserDataHandler::loginAttempt);
@@ -63,6 +65,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(this, &MainWindow::loginFailedUserDNE, &loginwindow, &LoginWindow::loginFailedUserDNESlot);
     connect(&userdatahandler, &UserDataHandler::loginSuccessful, this, &MainWindow::loginSuccessfulSlot);
 
+    //stats connections
     connect(ui->statsButton, &QPushButton::clicked, this, &MainWindow::statsClicked);
     connect(this, &MainWindow::getStats, &userdatahandler, &UserDataHandler::statsRequest);
     connect(&userdatahandler, &UserDataHandler::sendStats, this, &MainWindow::statsReceived);
@@ -71,7 +74,10 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(&model, &GameModel::countryFinished, this, &MainWindow::countryFinishedSlot);
     connect(this, &MainWindow::countryFinished, &userdatahandler, &UserDataHandler::countryFinished);
 
+    //return to mainwindow connections
     connect(&model, &GameModel::backToMain, this, &MainWindow::difficultyFinished);
+    connect(&gameWindow, &GameWindow::backToHome, this, &MainWindow::backHomeFromGame);
+    connect(&studyWindow, &StudyWindow::backToHome, this, &MainWindow::backHomeFromStudy);
 }
 
 MainWindow::~MainWindow()
@@ -92,7 +98,7 @@ void MainWindow::playButtonClicked()
 
 void MainWindow::studyButtonClicked()
 {
-    this->close();
+    this->hide();
     studyWindow.loadCountries();
     studyWindow.show();
 }
@@ -252,4 +258,18 @@ void MainWindow::difficultyFinished()
 {
     this->show();
     gameWindow.hide();
+}
+
+/// \brief Mainwindow::backToHome
+void MainWindow::backHomeFromGame()
+{
+    backButtonClicked();
+    this->show();
+    gameWindow.hide();
+}
+
+void MainWindow::backHomeFromStudy()
+{
+    this->show();
+    studyWindow.hide();
 }
