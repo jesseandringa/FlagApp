@@ -2,6 +2,11 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 
+/// \brief MainWindow::MainWindow
+/// Constructor.  Sets up part of the mainwindow ui and connections between
+/// the mainwindow and other windows.
+/// \param model
+/// \param parent
 MainWindow::MainWindow (GameModel &model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),
@@ -11,6 +16,8 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->setupUi(this);
     this->statusBar()->setSizeGripEnabled(false);
     this->centralWidget()->setStyleSheet("background-image:url(:/backgroundImages/BackgroundImages/earthImage.jpg); background-position: center;");
+
+    //hide and disable some buttons
     ui->easyButton->setVisible(false);
     ui->mediumButton->setVisible(false);
     ui->hardButton->setVisible(false);
@@ -28,9 +35,6 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->signupButton->setStyleSheet("color: white;");
     ui->loginButton->setStyleSheet("color: white;");
     ui->statsButton->setStyleSheet("color: white;");
-
-
-
 
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
     connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);
@@ -80,22 +84,29 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(&studyWindow, &StudyWindow::backToHome, this, &MainWindow::backHomeFromStudy);
 }
 
+/// \brief MainWindow::~MainWindow
+/// Destructor
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+/// \brief MainWindow::playButtonClicked
+/// Hides the initial button options and reveals difficulty options.
 void MainWindow::playButtonClicked()
 {
     ui->playButton->setVisible(false);
     ui->studyButton->setVisible(false);
     ui->helpButton->setVisible(false);
+
     ui->backButton->setVisible(true);
     ui->easyButton->setVisible(true);
     ui->mediumButton->setVisible(true);
     ui->hardButton->setVisible(true);
 }
 
+/// \brief MainWindow::studyButtonClicked
+/// Loads countries into study window then shows the window.
 void MainWindow::studyButtonClicked()
 {
     this->hide();
@@ -108,17 +119,21 @@ void MainWindow::helpButtonClicked()
 
 }
 
-void MainWindow::backButtonClicked()
+/// \brief MainWindow::backFromDifficultySelection
+void MainWindow::backFromDifficultySelection()
 {
     ui->playButton->setVisible(true);
     ui->studyButton->setVisible(true);
     ui->helpButton->setVisible(true);
+
     ui->backButton->setVisible(false);
     ui->easyButton->setVisible(false);
     ui->mediumButton->setVisible(false);
     ui->hardButton->setVisible(false);
 }
 
+/// \brief MainWindow::easyDifficultyClicked
+/// Starts an easy game
 void MainWindow::easyDifficultyClicked()
 {
     this->hide();
@@ -126,6 +141,8 @@ void MainWindow::easyDifficultyClicked()
     gameWindow.show();
 }
 
+/// \brief MainWindow::mediumDifficultyClicked
+/// Starts a medium game
 void MainWindow::mediumDifficultyClicked()
 {
     this->hide();
@@ -133,6 +150,8 @@ void MainWindow::mediumDifficultyClicked()
     gameWindow.show();
 }
 
+/// \brief MainWindow::hardDifficultyClicked
+/// Starts a hard game
 void MainWindow::hardDifficultyClicked()
 {
     this->hide();
@@ -260,7 +279,7 @@ void MainWindow::difficultyFinished()
     gameWindow.hide();
 }
 
-/// \brief Mainwindow::backToHome
+/// \brief Mainwindow::backHomeFromGame
 void MainWindow::backHomeFromGame()
 {
     backButtonClicked();
@@ -268,6 +287,7 @@ void MainWindow::backHomeFromGame()
     gameWindow.hide();
 }
 
+/// \brief MainWindow::backHomeFromStudy
 void MainWindow::backHomeFromStudy()
 {
     this->show();
