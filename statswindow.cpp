@@ -18,33 +18,31 @@ StatsWindow::~StatsWindow()
 /// \param stats
 void StatsWindow::receiveStats(std::array<int, 6> stats)
 {
-    int gamesPlayed = 0;
+    double gamesPlayed = 0;
     for(int i : stats)
     {
         gamesPlayed += i;
     }
-    ui->gamesPlayed->setText(QString::number(gamesPlayed));
+    ui->gamesPlayed->setText(QString::number(gamesPlayed/12));
 
     int gamesWon = 0;
     for(int i = 0; i < 5; i++)
     {
         gamesWon += stats[i];
     }
-    ui->gamesWon->setText(QString::number(gamesWon));
+    ui->correctGuesses->setText(QString::number(gamesWon));
 
-    ui->gamesLost->setText(QString::number(stats[5]));
+    ui->noCorrectGuess->setText(QString::number(stats[5]));
 
     double tempWins(gamesWon);
     double tempTotal(gamesPlayed);
     double winPercent = tempWins / tempTotal;
-    ui->winPercentage->setText(QString::number(int(winPercent * 100)) + "%");
+    ui->firstGuessRight->setText(QString::number(stats[0]));
 
-    int totalGuesses = 0;
-    for(int i = 0; i < 5; i++)
+    int totalWrongGuesses = 0;
+    for(int i = 0; i < 6; i++)
     {
-        int temp = stats[i];
-        totalGuesses += (temp * (i+1));
+        totalWrongGuesses +=i*stats[i];
     }
-    totalGuesses += stats[5]*(5);
-    ui->totalGuesses->setText(QString::number(totalGuesses));
+    ui->wrongGuesses->setText(QString::number(totalWrongGuesses));
 }

@@ -27,10 +27,10 @@ string GameModel::getArrowDirection(double xDistance, double yDistance)
 
     //what directions is the correct country
     if(xDistance > 0){
-        xDir = "west";
+        xDir = "east";
     }
     else{
-        xDir = "east";
+        xDir = "west";
     }
     if(yDistance > 0){
         yDir = "south";
@@ -91,7 +91,9 @@ void GameModel::newGuessSlot(std::string guess)
     if (guessStr.toLower() == country.name.toLower())
     {
         emit countryFinished(guessNumber);
-        emit sendWin();
+        emit sendWin(country.name.toUpper());
+        emit sendFlagAnimation(country.flagFilename);
+
     }
     else
     {
@@ -123,7 +125,7 @@ void GameModel::newGuessSlot(std::string guess)
             if (guessNumber == 4)
             {
                 emit countryFinished(guessNumber + 1);
-                cout << "game over" << endl;
+                emit sendLoss(country.name.toUpper());
             }
 
 

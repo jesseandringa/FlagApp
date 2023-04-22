@@ -36,21 +36,24 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>40</y>
-     <width>101</width>
+     <y>160</y>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Games Played: </string>
+    <string>Full Games Played: </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="gamesPlayed">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>40</y>
-     <width>101</width>
+     <x>170</x>
+     <y>160</y>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -62,21 +65,24 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>70</y>
-     <width>101</width>
+     <y>100</y>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Games Won:</string>
+    <string>Correct Guesses:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="gamesWon">
+  <widget class="QLabel" name="correctGuesses">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>70</y>
-     <width>101</width>
+     <x>170</x>
+     <y>100</y>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -88,21 +94,24 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>100</y>
-     <width>101</width>
+     <y>130</y>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Games Lost:</string>
+    <string>Wrong Guesses:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="gamesLost">
+  <widget class="QLabel" name="wrongGuesses">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>100</y>
-     <width>101</width>
+     <x>170</x>
+     <y>130</y>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -114,21 +123,24 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>160</y>
-     <width>101</width>
+     <y>70</y>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Total Guesses:</string>
+    <string>No Correct Guess:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="winPercentage">
+  <widget class="QLabel" name="firstGuessRight">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>130</y>
-     <width>101</width>
+     <x>170</x>
+     <y>40</y>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -140,21 +152,24 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>130</y>
-     <width>101</width>
+     <y>40</y>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Win Percentage:</string>
+    <string>First Guess Correct:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="totalGuesses">
+  <widget class="QLabel" name="noCorrectGuess">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>160</y>
-     <width>101</width>
+     <x>170</x>
+     <y>70</y>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>

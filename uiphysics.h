@@ -10,19 +10,28 @@ class UIPhysics : public QWidget
 {
     Q_OBJECT
 public:
+    QImage image;
+    QTimer timer;
+
     explicit UIPhysics(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *);
+    void set();
+
 
 public slots:
     void updateWorld();
+    //void receivePixmap(QPixmap flag);
 signals:
 
 private:
 
     b2World world;
     b2Body* body;
-    QTimer timer;
-    QImage image;
+
+
+
+
+
 };
 
 #endif // UIPHYSICS_H

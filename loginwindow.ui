@@ -36,6 +36,9 @@
     </rect>
    </property>
    <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
     <string>Enter Password</string>
    </property>
   </widget>
@@ -49,6 +52,9 @@
     </rect>
    </property>
    <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
     <string>Enter Username</string>
    </property>
   </widget>

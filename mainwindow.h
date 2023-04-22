@@ -30,7 +30,7 @@ public slots:
     void easyDifficultyClicked();
     void mediumDifficultyClicked();
     void hardDifficultyClicked();
-    void backButtonClicked();
+    void backHomeFromDifficultySelection();
 
     void signupButtonClicked();
     void signupAttemptSlot(std::tuple<QString, QString, QString> temp);
@@ -51,6 +51,8 @@ public slots:
 
     void countryFinishedSlot(int finishPosition);
     void difficultyFinished();
+    void backHomeFromGame();
+    void backHomeFromStudy();
 
 signals:
     void startGame(int difficulty);

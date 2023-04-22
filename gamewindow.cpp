@@ -13,14 +13,12 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->setupUi(this);
     ui->currentGuess->setFocus();
 
+    //Only visible at the end of a round
     ui->winLabel->setVisible(false);
     ui->winLabel->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
-    ui->QuitButton->setVisible(false);
-    ui->QuitButton->setEnabled(false);
-
-
+    ui->flagAnimation->setVisible(false);
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
@@ -30,6 +28,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
 
     //When player guesses correct, change ui to reflect win
     connect(&model, &GameModel::sendWin, this, &GameWindow::winScreen);
+    connect(&model, &GameModel::sendLoss, this, &GameWindow::lossScreen);
 
     // Start new round after winning (Sam)
     connect(this, &GameWindow::nextCountry, &model, &GameModel::playNextCountry);
@@ -38,6 +37,14 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     connect(&model, &GameModel::invalidGuess, this, &GameWindow::invalidGuessSlot);
     connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
     connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
+
+    connect(ui->homeButton, &QPushButton::clicked, this, &GameWindow::backToHomeSlot);
+
+    connect(&model, &GameModel::sendFlagAnimation, this, &GameWindow::receiveFlagAnimation);
+
+    //shake timer when incorrect guess
+    connect(&shakeTimer, &QTimer::timeout, this, &GameWindow::shakeGuessBox);
+    //connect(this, &GameWindow::sendPixmapForAnimation, &UIPhysics, UIPhysics::receivePixMap);
 }
 
 GameWindow::~GameWindow()
@@ -77,22 +84,26 @@ void GameWindow::makeWidgetsVisibleAndEnabled(QWidget *widget)
 }
 
 
-///\brief SLOT when user guesses country
-/// sees if text is in it
-///sends signal to model with text
+/// \brief GameWindow::on_currentGuess_returnPressed
 void GameWindow::on_currentGuess_returnPressed()
 {
     userGuessed();
 }
 
+/// \brief GameWindow::on_guessButton_clicked
 void GameWindow::on_guessButton_clicked()
 {
     userGuessed();
 }
 
-void GameWindow::userGuessed(){
+/// \brief GameWindow::userGuessed
+/// Emits valid input to the model for handling.
+/// Valid input is concidered to be text in currentGuess.
+void GameWindow::userGuessed()
+{
     QString currentGuess ="";
-    if(ui->currentGuess->text()!=""){
+    if(ui->currentGuess->text()!="")
+    {
         currentGuess = ui->currentGuess->text();
         string guessStr = currentGuess.toStdString();
         ui->currentGuess->setText("");
@@ -139,11 +150,15 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
 {
     //set flag
     QPixmap flag(filepath);
+    //emit sendPixmapForAnimation(flag);
     ui->flagImageLabel->setPixmap(flag.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
 
     //set fact1
     ui->hintLabel1->setText("Hint 1: " + fact1);
     ui->scrollArea->setVisible(false);
+    //reset animation
+    ui->flagAnimation->timer.stop();
+    ui->flagAnimation->set();
 }
 
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
@@ -151,59 +166,111 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     //if distance == 0, maybe do something else? 0 meaning that the guess was not found in resource
     QString guessStr = QString::fromStdString(guess);
     QString distanceStr = QString::number(distance);
-    QString arrowDir = QString::fromStdString(arrowDirection);
+
+    //calculate roation of arrow and size of pixmap
+    int angle = getRotationAngle(arrowDirection);
+    QTransform rotationAngle;
+    rotationAngle.rotate(angle);
+    ui->currentGuess->setPlaceholderText("Guess A Country");
+    int scale = 32;
+    if(angle % 90== 0 ) scale = 24;
+    QPixmap arrow(":/new/prefix1/arrowImage.png");
+    arrow = arrow.transformed(rotationAngle);
+
     if(guessNum == 0)
     {
         ui->hintLabel2->setText("Hint 2: " + hints[1]);
         ui->guessLine1->setText(guessStr);
         ui->distanceLine1->setText(distanceStr + " Miles");
-        ui->arrowLabel1->setText(arrowDir);
+        ui->arrowLabel1->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation)); ///ui->arrowLabel1->size()
     }
     else if(guessNum == 1)
     {
         ui->hintLabel3->setText("Hint 3: " + hints[2]);
         ui->guessLine2->setText(guessStr);
         ui->distanceLine2->setText(distanceStr + " Miles");
-        ui->arrowLabel2->setText(arrowDir);
+        ui->arrowLabel2->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 2)
     {
         ui->hintLabel4->setText("Hint 4: " + hints[3]);
         ui->guessLine3->setText(guessStr);
         ui->distanceLine3->setText(distanceStr + " Miles");
-        ui->arrowLabel3->setText(arrowDir);
+        ui->arrowLabel3->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 3)
     {
         ui->hintLabel5->setText("Hint 5: " + hints[4]);
         ui->guessLine4->setText(guessStr);
         ui->distanceLine4->setText(distanceStr + " Miles");
-        ui->arrowLabel4->setText(arrowDir);
+        ui->arrowLabel4->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 4)
     {
         ui->guessLine5->setText(guessStr);
         ui->distanceLine5->setText(distanceStr + " Miles");
-        ui->arrowLabel5->setText(arrowDir);
+        ui->arrowLabel5->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
+}
+
+///\brief returns angle to rotate pixmap to point in the right direction of the country to guess
+///\param string direction. "east" "southwest" etc.
+int GameWindow::getRotationAngle(std::string dir){
+
+    int angle = 0;
+    if(dir =="north"){
+        angle = 0;
+    }
+    else if(dir == "northwest"){
+        angle = 45;
+    }
+    else if(dir == "west"){
+        angle = 90;
+    }
+    else if(dir == "southwest"){
+        angle = 135;
+    }
+    else if(dir == "south"){
+        angle = 180;
+    }
+    else if(dir == "southeast"){
+        angle = 225;
+    }
+    else if(dir == "east"){
+        angle = 270;
+    }
+    else{ //northeast
+        angle = 315;
+    }
+
+    return angle;
 }
 
 /// \brief GameWindow::winScreen
 /// Display a `you win` screen when the correct country is guessed.
-void GameWindow::winScreen(){
-    foreach (QWidget *widget, this->findChildren<QWidget *>()) {
-        widget->setVisible(false);
-    }
-    ui->frame_2->setVisible(true);
-    ui->frame_3->setVisible(true);
+void GameWindow::winScreen(QString country)
+{
     ui->winLabel->setVisible(true);
-    ui->winLabel->setEnabled(true);
-    ui->horizontalFrame->setVisible(true);
-    ui->horizontalFrame->setEnabled(true);
     ui->nextFlag->setVisible(true);
     ui->nextFlag->setEnabled(true);
-    ui->QuitButton->setVisible(true);
-    ui->QuitButton->setEnabled(true);
+    ui->topLabel->setText(country);
+
+    ui->guessButton->setEnabled(false);
+    ui->currentGuess->setEnabled(false);
+}
+
+/// \brief GameWindow::winScreen
+/// Display a `you win` screen when the correct country is guessed.
+void GameWindow::lossScreen(QString country)
+{
+    ui->winLabel->setText("You Lost!");
+    ui->winLabel->setVisible(true);
+    ui->nextFlag->setVisible(true);
+    ui->nextFlag->setEnabled(true);
+    ui->topLabel->setText("Country: " + country);
+
+    ui->guessButton->setEnabled(false);
+    ui->currentGuess->setEnabled(false);
 }
 
 /// \brief GameWindow::on_nextFlag_clicked
@@ -219,29 +286,52 @@ void GameWindow::on_nextFlag_clicked()
 void GameWindow::invalidGuessSlot()
 {
     ////shake the text box because invalid country guess
+    ui->currentGuess->setPlaceholderText("Invalid Guess!");
+    left = false;
+    shakeCount = 0;
+
+    shakeTimer.start(50);
+}
+
+void GameWindow::shakeGuessBox(){
+    if(shakeCount>=5){
+        shakeTimer.stop();
+        ui->currentGuess->setGeometry(340,500,481,21);
+        shakeCount = 0;
+        left = false;
+    }
+    else{
+        if(left){ //if box on left
+            ui->currentGuess->setGeometry(343,500,481,21);
+            left = false;
+        }
+        else{
+            ui->currentGuess->setGeometry(337,500,481,21);
+            left = true;
+        }
+        shakeCount++;
+    }
+
 }
 
 /// \brief GameWindow::hideWinScreen
 /// Hide visibility of the win screen and make the game window visible again.
 void GameWindow::hideWinScreen()
 {
-    makeWidgetsVisibleAndEnabled(this);
-
-    // Hide win screen widgets
+    ui->winLabel->setText("You Win!");
     ui->winLabel->setVisible(false);
-    ui->winLabel->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
-    ui->QuitButton->setVisible(false);
-    ui->QuitButton->setEnabled(false);
+    ui->topLabel->setText("Guess the country!");
+
+    ui->guessButton->setEnabled(true);
+    ui->currentGuess->setEnabled(true);
+    ui->currentGuess->setFocus();
+
+    ui->flagImageLabel->setVisible(true);
+    ui->flagAnimation->setVisible(false);
 }
 
-/// \brief GameWindow::on_QuitButton_clicked
-/// Give the user the option to quit the game after a correct guess.
-void GameWindow::on_QuitButton_clicked()
-{
-    QCoreApplication::quit();
-}
 
 ///\brief When user is typing. look at current string and give user suggestions
 void GameWindow::on_currentGuess_textChanged(const QString &arg1)
@@ -273,15 +363,12 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
     }
     int scrollBoxHeight = sugCount * 19;
 
-    QRect sizeOfBox(369,169,481,scrollBoxHeight);
+    QRect sizeOfBox(340,518,481,scrollBoxHeight);
 //    ui->suggList->setGeometry(sizeOfBox);
     ui->scrollArea->setGeometry(sizeOfBox);
 
 
 }
-
-
-
 
 void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
 {
@@ -290,3 +377,18 @@ void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
     ui->currentGuess->setFocus();
 }
 
+/// \brief GameWindow::backToHomeSlot
+/// Translates a button click to an emit.
+void GameWindow::backToHomeSlot()
+{
+    emit backToHome();
+}
+
+void GameWindow::receiveFlagAnimation(QString filepath){
+    QImage image(filepath);
+    ui->flagAnimation->image = image;
+    ui->flagImageLabel->setVisible(false);
+    ui->flagAnimation->setVisible(true);
+    ui->flagAnimation->timer.start(10);
+
+}

@@ -69,7 +69,7 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="studyHintLabel1_2">
+     <widget class="QLabel" name="countryNameLabel">
       <property name="font">
        <font>
         <pointsize>22</pointsize>
@@ -136,7 +136,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
      <x>10</x>

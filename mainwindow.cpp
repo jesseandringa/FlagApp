@@ -2,6 +2,11 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 
+/// \brief MainWindow::MainWindow
+/// Constructor.  Sets up part of the mainwindow ui and connections between
+/// the mainwindow and other windows.
+/// \param model
+/// \param parent
 MainWindow::MainWindow (GameModel &model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),
@@ -11,6 +16,8 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->setupUi(this);
     this->statusBar()->setSizeGripEnabled(false);
     this->centralWidget()->setStyleSheet("background-image:url(:/backgroundImages/BackgroundImages/earthImage.jpg); background-position: center;");
+
+    //hide and disable some buttons
     ui->easyButton->setVisible(false);
     ui->mediumButton->setVisible(false);
     ui->hardButton->setVisible(false);
@@ -29,18 +36,16 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->loginButton->setStyleSheet("color: white;");
     ui->statsButton->setStyleSheet("color: white;");
 
-
-
-
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
     connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);
     connect(ui->helpButton, &QPushButton::clicked, this, &MainWindow::helpButtonClicked);
-    connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::backButtonClicked);
+    connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::backHomeFromDifficultySelection);
 
     connect(ui->easyButton, &QPushButton::clicked, this, &MainWindow::easyDifficultyClicked);
     connect(ui->mediumButton, &QPushButton::clicked, this, &MainWindow::mediumDifficultyClicked);
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
 
+    //signup connections
     connect(ui->signupButton, &QPushButton::clicked, this, &MainWindow::signupButtonClicked);
     connect(&signupWindow, &SignUpWindow::signUpAttemptSignal, this, &MainWindow::signupAttemptSlot);
     connect(this, &MainWindow::checkSignupAttempt, &userdatahandler, &UserDataHandler::signupAttempt);
@@ -54,6 +59,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(this, &MainWindow::signupFailedSpacesDetected, &signupWindow, &SignUpWindow::signupFailedSpacesDetected);
     connect(&userdatahandler, &UserDataHandler::signupSuccess, this, &MainWindow::signupSuccessSlot);
 
+    //login connections
     connect(ui->loginButton, &QPushButton::clicked, this, &MainWindow::loginButtonClicked);
     connect(&loginwindow, &LoginWindow::loginAttempt, this, &MainWindow::loginAttemptSlot);
     connect(this, &MainWindow::loginAttempt, &userdatahandler, &UserDataHandler::loginAttempt);
@@ -63,6 +69,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(this, &MainWindow::loginFailedUserDNE, &loginwindow, &LoginWindow::loginFailedUserDNESlot);
     connect(&userdatahandler, &UserDataHandler::loginSuccessful, this, &MainWindow::loginSuccessfulSlot);
 
+    //stats connections
     connect(ui->statsButton, &QPushButton::clicked, this, &MainWindow::statsClicked);
     connect(this, &MainWindow::getStats, &userdatahandler, &UserDataHandler::statsRequest);
     connect(&userdatahandler, &UserDataHandler::sendStats, this, &MainWindow::statsReceived);
@@ -71,28 +78,38 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(&model, &GameModel::countryFinished, this, &MainWindow::countryFinishedSlot);
     connect(this, &MainWindow::countryFinished, &userdatahandler, &UserDataHandler::countryFinished);
 
+    //return to mainwindow connections
     connect(&model, &GameModel::backToMain, this, &MainWindow::difficultyFinished);
+    connect(&gameWindow, &GameWindow::backToHome, this, &MainWindow::backHomeFromGame);
+    connect(&studyWindow, &StudyWindow::backToHome, this, &MainWindow::backHomeFromStudy);
 }
 
+/// \brief MainWindow::~MainWindow
+/// Destructor
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+/// \brief MainWindow::playButtonClicked
+/// Hides the initial button options and reveals difficulty options.
 void MainWindow::playButtonClicked()
 {
     ui->playButton->setVisible(false);
     ui->studyButton->setVisible(false);
     ui->helpButton->setVisible(false);
+
     ui->backButton->setVisible(true);
     ui->easyButton->setVisible(true);
     ui->mediumButton->setVisible(true);
     ui->hardButton->setVisible(true);
 }
 
+/// \brief MainWindow::studyButtonClicked
+/// Loads countries into study window then shows the window.
 void MainWindow::studyButtonClicked()
 {
-    this->close();
+    this->hide();
     studyWindow.loadCountries();
     studyWindow.show();
 }
@@ -102,17 +119,21 @@ void MainWindow::helpButtonClicked()
 
 }
 
-void MainWindow::backButtonClicked()
+/// \brief MainWindow::backHomeFromDifficultySelection
+void MainWindow::backHomeFromDifficultySelection()
 {
     ui->playButton->setVisible(true);
     ui->studyButton->setVisible(true);
     ui->helpButton->setVisible(true);
+
     ui->backButton->setVisible(false);
     ui->easyButton->setVisible(false);
     ui->mediumButton->setVisible(false);
     ui->hardButton->setVisible(false);
 }
 
+/// \brief MainWindow::easyDifficultyClicked
+/// Starts an easy game
 void MainWindow::easyDifficultyClicked()
 {
     this->hide();
@@ -120,6 +141,8 @@ void MainWindow::easyDifficultyClicked()
     gameWindow.show();
 }
 
+/// \brief MainWindow::mediumDifficultyClicked
+/// Starts a medium game
 void MainWindow::mediumDifficultyClicked()
 {
     this->hide();
@@ -127,6 +150,8 @@ void MainWindow::mediumDifficultyClicked()
     gameWindow.show();
 }
 
+/// \brief MainWindow::hardDifficultyClicked
+/// Starts a hard game
 void MainWindow::hardDifficultyClicked()
 {
     this->hide();
@@ -138,6 +163,7 @@ void MainWindow::hardDifficultyClicked()
 /// Let the user sign in
 void MainWindow::signupButtonClicked()
 {
+    signupWindow.raise();
     signupWindow.show();
 }
 
@@ -191,6 +217,7 @@ void MainWindow::signupSuccessSlot()
 /// Makes the loginwindow visible.
 void MainWindow::loginButtonClicked()
 {
+    loginwindow.raise();
     loginwindow.show();
 }
 
@@ -236,6 +263,7 @@ void MainWindow::statsClicked()
 void MainWindow::statsReceived(std::array<int, 6> stats)
 {
     emit sendStats(stats);
+    statswindow.raise();
     statswindow.show();
 }
 
@@ -252,4 +280,19 @@ void MainWindow::difficultyFinished()
 {
     this->show();
     gameWindow.hide();
+}
+
+/// \brief Mainwindow::backHomeFromGame
+void MainWindow::backHomeFromGame()
+{
+    backHomeFromDifficultySelection();
+    this->show();
+    gameWindow.hide();
+}
+
+/// \brief MainWindow::backHomeFromStudy
+void MainWindow::backHomeFromStudy()
+{
+    this->show();
+    studyWindow.hide();
 }

@@ -6,7 +6,8 @@
 #include "QtWidgets/qlistwidget.h"
 #include "country.h"
 #include "gamemodel.h"
-//#include "uiphysics.h"
+#include <QTimer>
+
 
 using std::cout;
 using std::endl;
@@ -32,14 +33,14 @@ private slots:
     void receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string dir);
     void on_guessButton_clicked();
     void setUIforNewCountry(QString filepath, QString fact1);
-    void winScreen();
+    void winScreen(QString country);
+    void lossScreen(QString country);
     void on_nextFlag_clicked();
     void invalidGuessSlot();
-
-    void on_QuitButton_clicked();
-
+    void backToHomeSlot();
+    void receiveFlagAnimation(QString filepath);
     void on_currentGuess_textChanged(const QString &arg1);
-
+    void shakeGuessBox();
 
     void on_suggList_itemClicked(QListWidgetItem *item);
 
@@ -49,12 +50,18 @@ private:
     void userGuessed();
     void clearHintsAndGuesses();
     void addSuggestions(std::vector<string> suggestions);
+    int getRotationAngle(std::string direction);
+    bool left;
+    int shakeCount;
+    QTimer shakeTimer;
 
 signals:
     void newGuess(std::string currGuess);
     void newGame(int difficulty);
     void nextCountry();
     void userTypingAndNeedsSuggestions(string currentText);
+    void backToHome();
+
 
 };
 

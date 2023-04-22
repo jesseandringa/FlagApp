@@ -21,8 +21,10 @@ public:
 public slots:
   void leftArrowClicked();
   void rightArrowClicked();
+  void backClicked();
 
 signals:
+  void backToHome();
 
 private:
     Ui::StudyWindow *ui;

@@ -11,6 +11,7 @@
 #include <string>
 #include <map>
 #include "country.h"
+
 #include <cstdlib>
 #include <cctype>
 
@@ -49,11 +50,14 @@ public slots:
 signals:
     void sendUIGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDir);
     void newCountryPicked(QString filepath, QString fact1);
-    void sendWin();
+    void sendWin(QString country);
+    void sendLoss(QString country);
     void invalidGuess();
     void countryFinished(int finishPosition);
     void newSuggestions(std::vector<string> suggs);
     void backToMain();
+    void sendFlagAnimation(QString flagfilepath);
+
 };
 
 #endif // GAMEMODEL_H

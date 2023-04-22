@@ -7,6 +7,7 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
+    ui->username->setFocus();
 
     connect(ui->loginPushButton, &QPushButton::clicked, this, &LoginWindow::loginAttemptSlot);
     connect(ui->username, &QLineEdit::returnPressed, this, &LoginWindow::loginAttemptSlot);

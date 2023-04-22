@@ -2,14 +2,22 @@
 #include <QPainter>
 #include <QDebug>
 
+
+/////constructor.
 UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
-    world(b2Vec2(0.0f, 10.0f)),
+    image(":/flags/FlagImages/argentina.jpg"),
     timer(this),
-    image(":/backgroundImages/BackgroundImages/balloonTesting.png")
+    world(b2Vec2(0.0f, 10.0f))
+
 {
+    connect(&timer, &QTimer::timeout, this, &UIPhysics::updateWorld);
+    set();
+}
+
+void UIPhysics::set(){
     // Define the ground body.
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, 20.0f);
+    groundBodyDef.position.Set(0.0f, 25.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -49,21 +57,18 @@ UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     // Add the shape to the body.
     body->CreateFixture(&fixtureDef);
     printf("Init world\n");
-
-    connect(&timer, &QTimer::timeout, this, &UIPhysics::updateWorld);
-    timer.start(10);
 }
 
 void UIPhysics::paintEvent(QPaintEvent *) {
     // Create a painter
     QPainter painter(this);
     b2Vec2 position = body->GetPosition();
-    float angle = body->GetAngle();
+//    float angle = body->GetAngle();
 
 //    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 
-    painter.drawImage((int)(position.x*20)+200, (int)(position.y*20), image);
-    painter.drawImage(200, 200, image);
+    painter.drawImage((int)(position.x*20), (int)(position.y*20), image);
+
 //    qDebug() << image;
     painter.end();
    }

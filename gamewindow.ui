@@ -18,62 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
-     <height>76</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <property name="lineWidth">
-    <number>0</number>
-   </property>
-   <widget class="QLabel" name="gameNameLabel">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>10</y>
-      <width>221</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>30</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Flagger</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>100</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Help</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>-1</x>
-     <y>79</y>
-     <width>901</width>
-     <height>351</height>
+     <width>899</width>
+     <height>687</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -88,10 +34,10 @@
    <widget class="QLabel" name="flagImageLabel">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>70</y>
-      <width>251</width>
-      <height>141</height>
+      <x>10</x>
+      <y>160</y>
+      <width>281</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="text">
@@ -104,8 +50,8 @@
    <widget class="QLabel" name="topLabel">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>30</y>
+      <x>330</x>
+      <y>60</y>
       <width>231</width>
       <height>41</height>
      </rect>
@@ -118,14 +64,17 @@
     <property name="text">
      <string>Guess the country!</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>312</x>
-      <y>70</y>
-      <width>641</width>
-      <height>271</height>
+      <x>300</x>
+      <y>160</y>
+      <width>601</width>
+      <height>281</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -172,16 +121,21 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>-10</y>
-      <width>281</width>
-      <height>111</height>
+      <x>490</x>
+      <y>440</y>
+      <width>171</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>30</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255)</string>
     </property>
     <property name="text">
      <string>You Win!</string>
@@ -190,36 +144,87 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <zorder>winLabel</zorder>
-   <zorder>flagImageLabel</zorder>
-   <zorder>topLabel</zorder>
-   <zorder>verticalLayoutWidget_2</zorder>
-  </widget>
-  <widget class="QFrame" name="frame_3">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>350</y>
-     <width>901</width>
-     <height>291</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>0</number>
-   </property>
+   <widget class="QLabel" name="gameNameLabel">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>0</y>
+      <width>221</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Flagger</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="homeButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Home</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>30</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Help</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="guessButton">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>600</y>
+      <width>100</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Guess</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nextFlag">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>600</y>
+      <width>100</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Next Flag</string>
+    </property>
+   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>0</y>
+      <x>0</x>
+      <y>470</y>
       <width>301</width>
-      <height>291</height>
+      <height>211</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -426,69 +431,11 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLineEdit" name="currentGuess">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>150</y>
-      <width>481</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="placeholderText">
-     <string>Guess a Country</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="guessButton">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>240</y>
-      <width>100</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Guess</string>
-    </property>
-   </widget>
-   <widget class="QFrame" name="horizontalFrame">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>-10</y>
-      <width>254</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="layoutNewGame">
-     <property name="spacing">
-      <number>50</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="nextFlag">
-       <property name="text">
-        <string>Next Flag</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="QuitButton">
-       <property name="text">
-        <string>Quit</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QScrollArea" name="scrollArea">
     <property name="geometry">
      <rect>
-      <x>369</x>
-      <y>169</y>
+      <x>340</x>
+      <y>520</y>
       <width>481</width>
       <height>71</height>
      </rect>
@@ -517,8 +464,55 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QLineEdit" name="currentGuess">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>500</y>
+      <width>481</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Guess a Country</string>
+    </property>
+   </widget>
+   <widget class="UIPhysics" name="flagAnimation" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>281</width>
+      <height>600</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>winLabel</zorder>
+   <zorder>flagImageLabel</zorder>
+   <zorder>topLabel</zorder>
+   <zorder>verticalLayoutWidget_2</zorder>
+   <zorder>gameNameLabel</zorder>
+   <zorder>homeButton</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>guessButton</zorder>
+   <zorder>nextFlag</zorder>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder>scrollArea</zorder>
+   <zorder>currentGuess</zorder>
+   <zorder>flagAnimation</zorder>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>UIPhysics</class>
+   <extends>QWidget</extends>
+   <header>uiphysics.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
