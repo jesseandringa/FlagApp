@@ -27,10 +27,10 @@ string GameModel::getArrowDirection(double xDistance, double yDistance)
 
     //what directions is the correct country
     if(xDistance > 0){
-        xDir = "west";
+        xDir = "east";
     }
     else{
-        xDir = "east";
+        xDir = "west";
     }
     if(yDistance > 0){
         yDir = "south";

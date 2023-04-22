@@ -161,12 +161,21 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     QString guessStr = QString::fromStdString(guess);
     QString distanceStr = QString::number(distance);
     QString arrowDir = QString::fromStdString(arrowDirection);
+    int angle = getRotationAngle(arrowDirection);
+    QTransform rotationAngle;
+    rotationAngle.rotate(angle);
+    ui->currentGuess->setPlaceholderText("Guess A Country");
+    int scale = 32;
+    if(angle % 90== 0 ) scale = 24;
+
     if(guessNum == 0)
     {
         ui->hintLabel2->setText("Hint 2: " + hints[1]);
         ui->guessLine1->setText(guessStr);
         ui->distanceLine1->setText(distanceStr + " Miles");
-        ui->arrowLabel1->setText(arrowDir);
+        QPixmap arrow(":/new/prefix1/arrowImage.png");
+        arrow = arrow.transformed(rotationAngle);
+        ui->arrowLabel1->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation)); ///ui->arrowLabel1->size()
     }
     else if(guessNum == 1)
     {
@@ -174,6 +183,9 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->guessLine2->setText(guessStr);
         ui->distanceLine2->setText(distanceStr + " Miles");
         ui->arrowLabel2->setText(arrowDir);
+        QPixmap arrow(":/new/prefix1/arrowImage.png");
+        arrow = arrow.transformed(rotationAngle);
+        ui->arrowLabel2->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 2)
     {
@@ -181,6 +193,9 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->guessLine3->setText(guessStr);
         ui->distanceLine3->setText(distanceStr + " Miles");
         ui->arrowLabel3->setText(arrowDir);
+        QPixmap arrow(":/new/prefix1/arrowImage.png");
+        arrow = arrow.transformed(rotationAngle);
+        ui->arrowLabel3->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 3)
     {
@@ -188,13 +203,52 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->guessLine4->setText(guessStr);
         ui->distanceLine4->setText(distanceStr + " Miles");
         ui->arrowLabel4->setText(arrowDir);
+        QPixmap arrow(":/new/prefix1/arrowImage.png");
+        arrow =  arrow.transformed(rotationAngle);
+        ui->arrowLabel4->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 4)
     {
         ui->guessLine5->setText(guessStr);
         ui->distanceLine5->setText(distanceStr + " Miles");
         ui->arrowLabel5->setText(arrowDir);
+        QPixmap arrow(":/new/prefix1/arrowImage.png");
+        arrow = arrow.transformed(rotationAngle);
+        ui->arrowLabel5->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
+}
+
+///\brief returns angle to rotate pixmap to point in the right direction of the country to guess
+///\param string direction. "east" "southwest" etc.
+int GameWindow::getRotationAngle(std::string dir){
+
+    int angle = 0;
+    if(dir =="north"){
+        angle = 0;
+    }
+    else if(dir == "northwest"){
+        angle = 45;
+    }
+    else if(dir == "west"){
+        angle = 90;
+    }
+    else if(dir == "southwest"){
+        angle = 135;
+    }
+    else if(dir == "south"){
+        angle = 180;
+    }
+    else if(dir == "southeast"){
+        angle = 225;
+    }
+    else if(dir == "east"){
+        angle = 270;
+    }
+    else{ //northeast
+        angle = 315;
+    }
+
+    return angle;
 }
 
 /// \brief GameWindow::winScreen

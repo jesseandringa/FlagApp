@@ -49,6 +49,7 @@ private:
     void userGuessed();
     void clearHintsAndGuesses();
     void addSuggestions(std::vector<string> suggestions);
+    int getRotationAngle(std::string direction);
 
 signals:
     void newGuess(std::string currGuess);
