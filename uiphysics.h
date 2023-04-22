@@ -15,6 +15,7 @@ public:
 
 public slots:
     void updateWorld();
+    //void receivePixmap(QPixmap flag);
 signals:
 
 private:

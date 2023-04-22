@@ -11,6 +11,7 @@
 #include <string>
 #include <map>
 #include "country.h"
+
 #include <cstdlib>
 #include <cctype>
 
@@ -55,6 +56,8 @@ signals:
     void countryFinished(int finishPosition);
     void newSuggestions(std::vector<string> suggs);
     void backToMain();
+    void sendFlagAnimation();
+
 };
 
 #endif // GAMEMODEL_H

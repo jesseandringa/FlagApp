@@ -6,7 +6,7 @@
 #include "QtWidgets/qlistwidget.h"
 #include "country.h"
 #include "gamemodel.h"
-//#include "uiphysics.h"
+
 
 using std::cout;
 using std::endl;
@@ -37,7 +37,7 @@ private slots:
     void on_nextFlag_clicked();
     void invalidGuessSlot();
     void backToHomeSlot();
-
+    void receiveFlagAnimation();
     void on_currentGuess_textChanged(const QString &arg1);
 
 
@@ -56,6 +56,7 @@ signals:
     void nextCountry();
     void userTypingAndNeedsSuggestions(string currentText);
     void backToHome();
+
 
 };
 

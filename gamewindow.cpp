@@ -18,6 +18,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->winLabel->setEnabled(false);
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
+    ui->flagAnimation->setVisible(false);
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
@@ -38,6 +39,9 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
 
     connect(ui->homeButton, &QPushButton::clicked, this, &GameWindow::backToHomeSlot);
+
+    connect(&model, &GameModel::sendFlagAnimation, this, &GameWindow::receiveFlagAnimation);
+    //connect(this, &GameWindow::sendPixmapForAnimation, &UIPhysics, UIPhysics::receivePixMap);
 }
 
 GameWindow::~GameWindow()
@@ -143,6 +147,7 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
 {
     //set flag
     QPixmap flag(filepath);
+    //emit sendPixmapForAnimation(flag);
     ui->flagImageLabel->setPixmap(flag.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
 
     //set fact1
@@ -213,7 +218,7 @@ void GameWindow::lossScreen(QString country)
     ui->winLabel->setVisible(true);
     ui->nextFlag->setVisible(true);
     ui->nextFlag->setEnabled(true);
-    ui->topLabel->setText(country);
+    ui->topLabel->setText("Country: " + country);
 
     ui->guessButton->setEnabled(false);
     ui->currentGuess->setEnabled(false);
@@ -232,6 +237,7 @@ void GameWindow::on_nextFlag_clicked()
 void GameWindow::invalidGuessSlot()
 {
     ////shake the text box because invalid country guess
+    ui->currentGuess->setPlaceholderText("Invalid Guess!");
 }
 
 /// \brief GameWindow::hideWinScreen
@@ -247,6 +253,9 @@ void GameWindow::hideWinScreen()
     ui->guessButton->setEnabled(true);
     ui->currentGuess->setEnabled(true);
     ui->currentGuess->setFocus();
+
+    ui->flagImageLabel->setVisible(true);
+    ui->flagAnimation->setVisible(false);
 }
 
 
@@ -280,7 +289,7 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
     }
     int scrollBoxHeight = sugCount * 19;
 
-    QRect sizeOfBox(369,169,481,scrollBoxHeight);
+    QRect sizeOfBox(340,518,481,scrollBoxHeight);
 //    ui->suggList->setGeometry(sizeOfBox);
     ui->scrollArea->setGeometry(sizeOfBox);
 
@@ -299,4 +308,9 @@ void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
 void GameWindow::backToHomeSlot()
 {
     emit backToHome();
+}
+
+void GameWindow::receiveFlagAnimation(){
+    ui->flagImageLabel->setVisible(false);
+    ui->flagAnimation->setVisible(true);
 }

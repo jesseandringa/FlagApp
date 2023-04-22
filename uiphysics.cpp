@@ -5,11 +5,11 @@
 UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     world(b2Vec2(0.0f, 10.0f)),
     timer(this),
-    image(":/backgroundImages/BackgroundImages/balloonTesting.png")
+    image(":/flags/FlagImages/argentina.jpg")
 {
     // Define the ground body.
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, 20.0f);
+    groundBodyDef.position.Set(0.0f, 50.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -51,6 +51,7 @@ UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     printf("Init world\n");
 
     connect(&timer, &QTimer::timeout, this, &UIPhysics::updateWorld);
+    //want to receive emit on country data
     timer.start(10);
 }
 
@@ -62,8 +63,8 @@ void UIPhysics::paintEvent(QPaintEvent *) {
 
 //    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 
-    painter.drawImage((int)(position.x*20)+200, (int)(position.y*20), image);
-    painter.drawImage(200, 200, image);
+    painter.drawImage((int)(position.x*20), (int)(position.y*20), image);
+
 //    qDebug() << image;
     painter.end();
    }
