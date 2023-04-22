@@ -153,6 +153,9 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
     //set fact1
     ui->hintLabel1->setText("Hint 1: " + fact1);
     ui->scrollArea->setVisible(false);
+    //reset animation
+    ui->flagAnimation->timer.stop();
+    ui->flagAnimation->set();
 }
 
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
@@ -353,7 +356,11 @@ void GameWindow::backToHomeSlot()
     emit backToHome();
 }
 
-void GameWindow::receiveFlagAnimation(){
+void GameWindow::receiveFlagAnimation(QString filepath){
+    QImage image(filepath);
+    ui->flagAnimation->image = image;
+    ui->flagAnimation->timer.start(10);
     ui->flagImageLabel->setVisible(false);
     ui->flagAnimation->setVisible(true);
+
 }

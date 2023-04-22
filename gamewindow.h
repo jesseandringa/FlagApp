@@ -37,7 +37,7 @@ private slots:
     void on_nextFlag_clicked();
     void invalidGuessSlot();
     void backToHomeSlot();
-    void receiveFlagAnimation();
+    void receiveFlagAnimation(QString filepath);
     void on_currentGuess_textChanged(const QString &arg1);
 
 

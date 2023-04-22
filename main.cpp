@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     MainWindow w(model);
     GameWindow gameWindow(model);
     StudyWindow studyWindow;
-    UIPhysics UIPhysics;
+//    UIPhysics UIPhysics;
     w.show();
     return a.exec();
 }
