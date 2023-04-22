@@ -14,7 +14,6 @@ public:
     QTimer timer;
 
     explicit UIPhysics(QWidget *parent = nullptr);
-//    explicit UIPhysics(QString imgPath = "", QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *);
     void set();
 
