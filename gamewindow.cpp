@@ -160,7 +160,8 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     //if distance == 0, maybe do something else? 0 meaning that the guess was not found in resource
     QString guessStr = QString::fromStdString(guess);
     QString distanceStr = QString::number(distance);
-    QString arrowDir = QString::fromStdString(arrowDirection);
+
+    //calculate roation of arrow and size of pixmap
     int angle = getRotationAngle(arrowDirection);
     QTransform rotationAngle;
     rotationAngle.rotate(angle);
@@ -182,7 +183,6 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->hintLabel3->setText("Hint 3: " + hints[2]);
         ui->guessLine2->setText(guessStr);
         ui->distanceLine2->setText(distanceStr + " Miles");
-        ui->arrowLabel2->setText(arrowDir);
         QPixmap arrow(":/new/prefix1/arrowImage.png");
         arrow = arrow.transformed(rotationAngle);
         ui->arrowLabel2->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
@@ -192,7 +192,6 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->hintLabel4->setText("Hint 4: " + hints[3]);
         ui->guessLine3->setText(guessStr);
         ui->distanceLine3->setText(distanceStr + " Miles");
-        ui->arrowLabel3->setText(arrowDir);
         QPixmap arrow(":/new/prefix1/arrowImage.png");
         arrow = arrow.transformed(rotationAngle);
         ui->arrowLabel3->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
@@ -202,7 +201,6 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->hintLabel5->setText("Hint 5: " + hints[4]);
         ui->guessLine4->setText(guessStr);
         ui->distanceLine4->setText(distanceStr + " Miles");
-        ui->arrowLabel4->setText(arrowDir);
         QPixmap arrow(":/new/prefix1/arrowImage.png");
         arrow =  arrow.transformed(rotationAngle);
         ui->arrowLabel4->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
@@ -211,7 +209,6 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     {
         ui->guessLine5->setText(guessStr);
         ui->distanceLine5->setText(distanceStr + " Miles");
-        ui->arrowLabel5->setText(arrowDir);
         QPixmap arrow(":/new/prefix1/arrowImage.png");
         arrow = arrow.transformed(rotationAngle);
         ui->arrowLabel5->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
