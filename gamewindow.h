@@ -6,6 +6,7 @@
 #include "QtWidgets/qlistwidget.h"
 #include "country.h"
 #include "gamemodel.h"
+#include <QTimer>
 
 
 using std::cout;
@@ -39,7 +40,7 @@ private slots:
     void backToHomeSlot();
     void receiveFlagAnimation(QString filepath);
     void on_currentGuess_textChanged(const QString &arg1);
-
+    void shakeGuessBox();
 
     void on_suggList_itemClicked(QListWidgetItem *item);
 
@@ -50,6 +51,9 @@ private:
     void clearHintsAndGuesses();
     void addSuggestions(std::vector<string> suggestions);
     int getRotationAngle(std::string direction);
+    bool left;
+    int shakeCount;
+    QTimer shakeTimer;
 
 signals:
     void newGuess(std::string currGuess);

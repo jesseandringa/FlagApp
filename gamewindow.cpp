@@ -41,6 +41,9 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     connect(ui->homeButton, &QPushButton::clicked, this, &GameWindow::backToHomeSlot);
 
     connect(&model, &GameModel::sendFlagAnimation, this, &GameWindow::receiveFlagAnimation);
+
+    //shake timer when incorrect guess
+    connect(&shakeTimer, &QTimer::timeout, this, &GameWindow::shakeGuessBox);
     //connect(this, &GameWindow::sendPixmapForAnimation, &UIPhysics, UIPhysics::receivePixMap);
 }
 
@@ -284,6 +287,31 @@ void GameWindow::invalidGuessSlot()
 {
     ////shake the text box because invalid country guess
     ui->currentGuess->setPlaceholderText("Invalid Guess!");
+    left = false;
+    shakeCount = 0;
+
+    shakeTimer.start(50);
+}
+
+void GameWindow::shakeGuessBox(){
+    if(shakeCount>=5){
+        shakeTimer.stop();
+        ui->currentGuess->setGeometry(340,500,481,21);
+        shakeCount = 0;
+        left = false;
+    }
+    else{
+        if(left){ //if box on left
+            ui->currentGuess->setGeometry(343,500,481,21);
+            left = false;
+        }
+        else{
+            ui->currentGuess->setGeometry(337,500,481,21);
+            left = true;
+        }
+        shakeCount++;
+    }
+
 }
 
 /// \brief GameWindow::hideWinScreen
