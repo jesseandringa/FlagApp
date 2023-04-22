@@ -168,14 +168,14 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     ui->currentGuess->setPlaceholderText("Guess A Country");
     int scale = 32;
     if(angle % 90== 0 ) scale = 24;
+    QPixmap arrow(":/new/prefix1/arrowImage.png");
+    arrow = arrow.transformed(rotationAngle);
 
     if(guessNum == 0)
     {
         ui->hintLabel2->setText("Hint 2: " + hints[1]);
         ui->guessLine1->setText(guessStr);
         ui->distanceLine1->setText(distanceStr + " Miles");
-        QPixmap arrow(":/new/prefix1/arrowImage.png");
-        arrow = arrow.transformed(rotationAngle);
         ui->arrowLabel1->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation)); ///ui->arrowLabel1->size()
     }
     else if(guessNum == 1)
@@ -183,8 +183,6 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->hintLabel3->setText("Hint 3: " + hints[2]);
         ui->guessLine2->setText(guessStr);
         ui->distanceLine2->setText(distanceStr + " Miles");
-        QPixmap arrow(":/new/prefix1/arrowImage.png");
-        arrow = arrow.transformed(rotationAngle);
         ui->arrowLabel2->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 2)
@@ -192,8 +190,6 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->hintLabel4->setText("Hint 4: " + hints[3]);
         ui->guessLine3->setText(guessStr);
         ui->distanceLine3->setText(distanceStr + " Miles");
-        QPixmap arrow(":/new/prefix1/arrowImage.png");
-        arrow = arrow.transformed(rotationAngle);
         ui->arrowLabel3->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 3)
@@ -201,16 +197,12 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
         ui->hintLabel5->setText("Hint 5: " + hints[4]);
         ui->guessLine4->setText(guessStr);
         ui->distanceLine4->setText(distanceStr + " Miles");
-        QPixmap arrow(":/new/prefix1/arrowImage.png");
-        arrow =  arrow.transformed(rotationAngle);
         ui->arrowLabel4->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
     else if(guessNum == 4)
     {
         ui->guessLine5->setText(guessStr);
         ui->distanceLine5->setText(distanceStr + " Miles");
-        QPixmap arrow(":/new/prefix1/arrowImage.png");
-        arrow = arrow.transformed(rotationAngle);
         ui->arrowLabel5->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
     }
 }
