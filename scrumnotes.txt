@@ -340,7 +340,7 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin: 
+	Kevin: Was busy yesterday did not work on it
 	Jesse: 
 	Sean: 
 	Ethan: 
@@ -348,7 +348,7 @@ Scrum Questions
 2. What will you do today?
 	
 	Sam: 
-	Kevin: 
+	Kevin: Help windows. 
 	Jesse: 
 	Sean:
 	Ethan: 
@@ -356,7 +356,7 @@ Scrum Questions
 3. Is anything in your way?
 	
 	Sam: 
-	Kevin: 
+	Kevin: no.
 	Jesse: 
 	Sean: 
 	Ethan: 
