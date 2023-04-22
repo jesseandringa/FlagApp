@@ -359,8 +359,8 @@ void GameWindow::backToHomeSlot()
 void GameWindow::receiveFlagAnimation(QString filepath){
     QImage image(filepath);
     ui->flagAnimation->image = image;
-    ui->flagAnimation->timer.start(10);
     ui->flagImageLabel->setVisible(false);
     ui->flagAnimation->setVisible(true);
+    ui->flagAnimation->timer.start(10);
 
 }
