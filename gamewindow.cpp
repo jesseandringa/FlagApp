@@ -45,6 +45,12 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     //shake timer when incorrect guess
     connect(&shakeTimer, &QTimer::timeout, this, &GameWindow::shakeGuessBox);
     //connect(this, &GameWindow::sendPixmapForAnimation, &UIPhysics, UIPhysics::receivePixMap);
+
+    //connect to help window
+    connect(ui->helpButton, &QPushButton::clicked, this, &GameWindow::openHelpWindow);
+
+    //connect from help back to game
+    connect(&gameWindowHelp, &GameWindowHelp::returnToGame, this, &GameWindow::openGameWindow);
 }
 
 GameWindow::~GameWindow()
@@ -391,4 +397,16 @@ void GameWindow::receiveFlagAnimation(QString filepath){
     ui->flagAnimation->setVisible(true);
     ui->flagAnimation->timer.start(10);
 
+}
+
+void GameWindow::openHelpWindow()
+{
+   gameWindowHelp.show();
+   this->close();
+}
+
+void GameWindow::openGameWindow()
+{
+    this->show();
+    gameWindowHelp.close();
 }

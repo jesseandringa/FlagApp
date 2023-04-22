@@ -179,7 +179,7 @@
      <string>Home</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="helpButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -496,7 +496,7 @@
    <zorder>verticalLayoutWidget_2</zorder>
    <zorder>gameNameLabel</zorder>
    <zorder>homeButton</zorder>
-   <zorder>pushButton_2</zorder>
+   <zorder>helpButton</zorder>
    <zorder>guessButton</zorder>
    <zorder>nextFlag</zorder>
    <zorder>verticalLayoutWidget</zorder>
