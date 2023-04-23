@@ -23,10 +23,12 @@ public slots:
     //void receivePixmap(QPixmap flag);
 signals:
 
+public:
+    int count;
 private:
-
     b2World world;
     b2Body* body;
+
 
 
 
