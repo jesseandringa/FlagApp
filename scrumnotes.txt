@@ -280,7 +280,7 @@ Scrum Questions
 	Sam: 
 	Kevin: Helped Sean with inital box2d 
 	Jesse: 
-	Sean: 
+	Sean: Imported the box2d class example to our code and tried to learn from it.
 	Ethan: 
 
 2. What will you do today?
@@ -288,7 +288,7 @@ Scrum Questions
 	Sam: 
 	Kevin: Continue looking at box2d
 	Jesse: 
-	Sean:
+	Sean: Learn more about how to use box2d and work on animation for flag guess.
 	Ethan: 
 
 3. Is anything in your way?
@@ -296,7 +296,7 @@ Scrum Questions
 	Sam: 
 	Kevin: more documentation for box2d
 	Jesse: 
-	Sean: 
+	Sean: no.
 	Ethan: 
 
 ########################
@@ -311,7 +311,7 @@ Scrum Questions
 	Sam: 
 	Kevin: Finished study window continue with box2d and helps 
 	Jesse: 
-	Sean: 
+	Sean: Messed with the ui to get animation widget to appear.
 	Ethan: 
 
 2. What will you do today?
@@ -319,7 +319,7 @@ Scrum Questions
 	Sam: 
 	Kevin: Nothing busy today
 	Jesse: 
-	Sean:
+	Sean: Fiddle more with getting the bouncy flag animation to fit the image and look cleaner.
 	Ethan: 
 
 3. Is anything in your way?
@@ -327,7 +327,7 @@ Scrum Questions
 	Sam: 
 	Kevin: no.
 	Jesse: 
-	Sean: 
+	Sean: Could not figure out how to get correct image to display, Jessie figured it out for me.
 	Ethan: 
 
 ########################
@@ -342,7 +342,7 @@ Scrum Questions
 	Sam: 
 	Kevin: Was busy yesterday did not work on it
 	Jesse: 
-	Sean: 
+	Sean: tried to figure out how to handle data from the game window to the physics.
 	Ethan: 
 
 2. What will you do today?
@@ -350,7 +350,7 @@ Scrum Questions
 	Sam: 
 	Kevin: Help windows. 
 	Jesse: 
-	Sean:
+	Sean: Make flag animation on correct guess, become more familiar with box2d.
 	Ethan: 
 
 3. Is anything in your way?
@@ -358,7 +358,7 @@ Scrum Questions
 	Sam: 
 	Kevin: no.
 	Jesse: 
-	Sean: 
+	Sean: Box2d meters to pixels is confusing.
 	Ethan: 
 
 ########################
@@ -373,7 +373,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean: 
+	Sean: Roughly finished flag animation, want to ask TA more before finalizing it.
 	Ethan: 
 
 2. What will you do today?
@@ -381,7 +381,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: 
-	Sean:
+	Sean: 
 	Ethan: 
 
 3. Is anything in your way?
