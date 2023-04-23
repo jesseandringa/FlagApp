@@ -15,8 +15,15 @@ public:
     explicit GameWindowHelp(QWidget *parent = nullptr);
     ~GameWindowHelp();
 
+public slots:
+    void backButtonClicked();
+
+signals:
+    void returnToGame();
+
 private:
     Ui::GameWindowHelp *ui;
+
 };
 
 #endif // GAMEWINDOWHELP_H

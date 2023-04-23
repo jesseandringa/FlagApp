@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>899</width>
-     <height>687</height>
+     <width>901</width>
+     <height>760</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -179,7 +179,7 @@
      <string>Home</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="helpButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -221,7 +221,7 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>470</y>
       <width>301</width>
       <height>211</height>
@@ -499,7 +499,7 @@
    <zorder>verticalLayoutWidget_2</zorder>
    <zorder>gameNameLabel</zorder>
    <zorder>homeButton</zorder>
-   <zorder>pushButton_2</zorder>
+   <zorder>helpButton</zorder>
    <zorder>guessButton</zorder>
    <zorder>nextFlag</zorder>
    <zorder>verticalLayoutWidget</zorder>

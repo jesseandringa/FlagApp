@@ -6,6 +6,7 @@
 #include "QtWidgets/qlistwidget.h"
 #include "country.h"
 #include "gamemodel.h"
+#include "gamewindowhelp.h"
 #include <QTimer>
 
 
@@ -41,11 +42,13 @@ private slots:
     void receiveFlagAnimation(QString filepath);
     void on_currentGuess_textChanged(const QString &arg1);
     void shakeGuessBox();
-
+    void openHelpWindow();
+    void openGameWindow();
     void on_suggList_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::GameWindow *ui;
+    GameWindowHelp gameWindowHelp;
     void hideWinScreen();
     void userGuessed();
     void clearHintsAndGuesses();

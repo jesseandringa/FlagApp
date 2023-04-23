@@ -50,4 +50,10 @@
         <file>BackgroundImages/earthImage.jpg</file>
         <file>BackgroundImages/balloonTesting.png</file>
     </qresource>
+    <qresource prefix="/HelpWindowImages">
+        <file>HelpWindowImages/feedback.PNG</file>
+        <file>HelpWindowImages/GuessArea.PNG</file>
+        <file>HelpWindowImages/hintarea.PNG</file>
+        <file>HelpWindowImages/maingame.PNG</file>
+    </qresource>
 </RCC>

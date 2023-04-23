@@ -215,7 +215,7 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin: 
+	Kevin: UI cleanup/imaging
 	Jesse: 
 	Sean: Review what we needed for our sprint submission the next day, documents and whatnot.
 	Ethan: Added a log in window and a way for the user to sign into an existing account.
@@ -223,7 +223,7 @@ Scrum Questions
 2. What will you do today?
 	
 	Sam: 
-	Kevin: 
+	Kevin: UI/imaging
 	Jesse: 
 	Sean:  Look over the study window with Kevin and begin to look into box2d physics.
 	Ethan:  Implement deserializing the user data and get saving/loading the file connected to login/signup.
@@ -231,7 +231,7 @@ Scrum Questions
 3. Is anything in your way?
 	
 	Sam: 
-	Kevin: 
+	Kevin: no. 
 	Jesse: 
 	Sean: no.
 	Ethan: No.
@@ -246,7 +246,7 @@ Scrum Questions
 1. What did you do yesterday?
 
 	Sam: 
-	Kevin: 
+	Kevin: Started study window/help windows
 	Jesse: 
 	Sean: Made a small screen for win case in the ui.
 	Ethan: Finished implementing userDataHandler to work with login in and signing up.
@@ -254,7 +254,7 @@ Scrum Questions
 2. What will you do today?
 	
 	Sam: 
-	Kevin: 
+	Kevin: study windows/help windows 
 	Jesse: 
 	Sean: Study box2d and work towards making some sort of animation appear.
 	Ethan: Connect the userDataHandler to the game model so that it updates every time the user plays a game.  Also add a way
@@ -263,8 +263,196 @@ Scrum Questions
 3. Is anything in your way?
 	
 	Sam: 
-	Kevin: 
+	Kevin: Box2D issues
 	Jesse: 
 	Sean: Having trouble understanding box2d.
 	Ethan: No.
+
+########################
+## Thursday 04/20/23 ##
+########################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: Helped Sean with inital box2d 
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: Continue looking at box2d
+	Jesse: 
+	Sean:
+	Ethan: 
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: more documentation for box2d
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+########################
+## Friday 04/21/23 ##
+########################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: Finished study window continue with box2d and helps 
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: Nothing busy today
+	Jesse: 
+	Sean:
+	Ethan: 
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: no.
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+########################
+## Saturday 04/22/23 ##
+########################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: Was busy yesterday did not work on it
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: Help windows. 
+	Jesse: 
+	Sean:
+	Ethan: 
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: no.
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+########################
+## Sunday 04/23/23 ##
+########################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean:
+	Ethan: 
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+
+########################
+## Monday 04/24/23 ##
+########################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean:
+	Ethan: 
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+
+########################
+## Tuesday 04/25/23 ##
+########################
+
+Notes:
+
+Scrum Questions
+1. What did you do yesterday?
+
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: 
+
+2. What will you do today?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean:
+	Ethan: 
+
+3. Is anything in your way?
+	
+	Sam: 
+	Kevin: 
+	Jesse: 
+	Sean: 
+	Ethan: 
 
