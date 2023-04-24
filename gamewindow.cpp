@@ -54,6 +54,11 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
 
     //connect from help back to game
     connect(&gameWindowHelp, &GameWindowHelp::returnToGame, this, &GameWindow::openGameWindow);
+
+    //reset game after going home
+    connect(this, &GameWindow::resetGame, &model, &GameModel::resetRound);
+    connect(this, &GameWindow::resetGame, this, &GameWindow::clearHintsAndGuesses);
+
 }
 
 GameWindow::~GameWindow()
@@ -390,6 +395,7 @@ void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
 /// Translates a button click to an emit.
 void GameWindow::backToHomeSlot()
 {
+    emit resetGame();
     emit backToHome();
 }
 

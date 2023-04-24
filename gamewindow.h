@@ -64,8 +64,7 @@ signals:
     void nextCountry();
     void userTypingAndNeedsSuggestions(string currentText);
     void backToHome();
-
-
+    void resetGame();
 };
 
 #endif // GAMEWINDOW_H

@@ -37,7 +37,7 @@ private:
     bool won;
     std::vector<string> countriesNames;
     static string getArrowDirection(double xDirection, double yDirection);
-    void resetRound();
+
 
 
 public slots:
@@ -45,6 +45,7 @@ public slots:
     void newGameStartedSlot(int difficulty);
     void playNextCountry();
     void getSuggestionsForUserSlot(string currentText);
+    void resetRound();
 
 
 signals:
