@@ -19,6 +19,8 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
     ui->flagAnimation->setVisible(false);
+    ui->guessButton->setStyleSheet("QPushButton {background-color: rgb(50,200,50);} "
+                                   "QPushButton:pressed {background-color: rgb(150,255,150);}");
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
@@ -370,7 +372,7 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
     int scrollBoxHeight = sugCount * 19;
 
     QRect sizeOfBox(340,518,481,scrollBoxHeight);
-//    ui->suggList->setGeometry(sizeOfBox);
+    //    ui->suggList->setGeometry(sizeOfBox);
     ui->scrollArea->setGeometry(sizeOfBox);
 
 
@@ -401,8 +403,8 @@ void GameWindow::receiveFlagAnimation(QString filepath){
 
 void GameWindow::openHelpWindow()
 {
-   gameWindowHelp.show();
-   this->close();
+    gameWindowHelp.show();
+    this->close();
 }
 
 void GameWindow::openGameWindow()
