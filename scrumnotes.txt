@@ -216,7 +216,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: UI cleanup/imaging
-	Jesse: 
+	Jesse: Found csv files or distances
 	Sean: Review what we needed for our sprint submission the next day, documents and whatnot.
 	Ethan: Added a log in window and a way for the user to sign into an existing account.
 
@@ -224,7 +224,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: UI/imaging
-	Jesse: 
+	Jesse: parse csv file
 	Sean:  Look over the study window with Kevin and begin to look into box2d physics.
 	Ethan:  Implement deserializing the user data and get saving/loading the file connected to login/signup.
 
@@ -232,7 +232,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: no. 
-	Jesse: 
+	Jesse: No.
 	Sean: no.
 	Ethan: No.
 	
@@ -247,7 +247,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: Started study window/help windows
-	Jesse: 
+	Jesse: parsed csv file for distances
 	Sean: Made a small screen for win case in the ui.
 	Ethan: Finished implementing userDataHandler to work with login in and signing up.
 
@@ -255,7 +255,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: study windows/help windows 
-	Jesse: 
+	Jesse: added these data to country
 	Sean: Study box2d and work towards making some sort of animation appear.
 	Ethan: Connect the userDataHandler to the game model so that it updates every time the user plays a game.  Also add a way
 	users to see their local stats.
@@ -264,7 +264,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: Box2D issues
-	Jesse: 
+	Jesse: no
 	Sean: Having trouble understanding box2d.
 	Ethan: No.
 
@@ -279,7 +279,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: Helped Sean with inital box2d 
-	Jesse: 
+	Jesse: added these data to country
 	Sean: Imported the box2d class example to our code and tried to learn from it.
 	Ethan: 
 
@@ -287,7 +287,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: Continue looking at box2d
-	Jesse: 
+	Jesse: implement direction calculation
 	Sean: Learn more about how to use box2d and work on animation for flag guess.
 	Ethan: 
 
@@ -295,7 +295,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: more documentation for box2d
-	Jesse: 
+	Jesse: waiting on distance calculation to be calced. 
 	Sean: no.
 	Ethan: 
 
@@ -310,7 +310,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: Finished study window continue with box2d and helps 
-	Jesse: 
+	Jesse: started implemented direction calc
 	Sean: Messed with the ui to get animation widget to appear.
 	Ethan: 
 
@@ -318,7 +318,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: Nothing busy today
-	Jesse: 
+	Jesse: finish implementing direction
 	Sean: Fiddle more with getting the bouncy flag animation to fit the image and look cleaner.
 	Ethan: 
 
@@ -326,7 +326,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: no.
-	Jesse: 
+	Jesse: no.
 	Sean: Could not figure out how to get correct image to display, Jessie figured it out for me.
 	Ethan: 
 
@@ -341,7 +341,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: Was busy yesterday did not work on it
-	Jesse: 
+	Jesse: finished implementing direction calculation
 	Sean: tried to figure out how to handle data from the game window to the physics.
 	Ethan: 
 
@@ -349,7 +349,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: Help windows. 
-	Jesse: 
+	Jesse: figure out box2d "fall" logic 
 	Sean: Make flag animation on correct guess, become more familiar with box2d.
 	Ethan: 
 
@@ -357,7 +357,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: no.
-	Jesse: 
+	Jesse: no
 	Sean: Box2d meters to pixels is confusing.
 	Ethan: 
 
@@ -372,7 +372,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: solved box2d timer
 	Sean: Roughly finished flag animation, want to ask TA more before finalizing it.
 	Ethan: 
 
@@ -380,7 +380,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: add shake to invalid guess
 	Sean: 
 	Ethan: 
 
@@ -388,7 +388,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: better understanding of box2d. 
 	Sean: 
 	Ethan: 
 
@@ -404,7 +404,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: added shake to invalid guess, and arrow picture labels to guesses
 	Sean: 
 	Ethan: 
 
@@ -412,7 +412,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: nothing. internship
 	Sean:
 	Ethan: 
 
@@ -420,7 +420,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: internship.
 	Sean: 
 	Ethan: 
 
