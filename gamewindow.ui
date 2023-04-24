@@ -483,11 +483,14 @@
    <widget class="UIPhysics" name="flagAnimation" native="true">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>160</y>
-      <width>281</width>
-      <height>600</height>
+      <width>341</width>
+      <height>531</height>
      </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
     </property>
    </widget>
    <zorder>winLabel</zorder>

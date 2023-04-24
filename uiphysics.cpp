@@ -7,17 +7,17 @@
 UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     image(":/flags/FlagImages/argentina.jpg"),
     timer(this),
-    world(b2Vec2(0.0f, 10.0f))
-
+    count(10),
+    world(b2Vec2(0.0f, 50.0f))
 {
     connect(&timer, &QTimer::timeout, this, &UIPhysics::updateWorld);
     set();
 }
 
 void UIPhysics::set(){
-    // Define the ground body.
+
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, 25.0f);
+    groundBodyDef.position.Set(10.0f, 33.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -53,10 +53,10 @@ void UIPhysics::set(){
 
     // Override the default friction.
     fixtureDef.friction = 0.3f;
-    fixtureDef.restitution = 0.9;
+    fixtureDef.restitution = 1.0;
     // Add the shape to the body.
     body->CreateFixture(&fixtureDef);
-    printf("Init world\n");
+
 }
 
 void UIPhysics::paintEvent(QPaintEvent *) {
@@ -65,16 +65,19 @@ void UIPhysics::paintEvent(QPaintEvent *) {
     b2Vec2 position = body->GetPosition();
 //    float angle = body->GetAngle();
 
-//    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
-
-    painter.drawImage((int)(position.x*20), (int)(position.y*20), image);
+    //use this print statement to check out how the meters look
+    //printf("%4.2f %4.2f %4.2f\n", position.x, position.y);
+    painter.drawImage((int)(position.x - count), (int)(position.y*20), image);
 
 //    qDebug() << image;
     painter.end();
+    count++;
    }
+
 
 void UIPhysics::updateWorld() {
     // It is generally best to keep the time step and iterations fixed.
     world.Step(1.0/60.0, 6, 2);
+    count++;
     update();
 }

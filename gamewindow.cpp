@@ -22,6 +22,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->guessButton->setStyleSheet("QPushButton {background-color: rgb(50,200,50);} "
                                    "QPushButton:pressed {background-color: rgb(150,255,150);}");
 
+
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
     connect(this, &GameWindow::newGame, &model, &GameModel::newGameStartedSlot);
@@ -394,10 +395,15 @@ void GameWindow::backToHomeSlot()
 
 void GameWindow::receiveFlagAnimation(QString filepath){
     QImage image(filepath);
-    ui->flagAnimation->image = image;
+    QImage re = image.scaledToHeight(ui->flagImageLabel->height());
+    re = re.scaledToWidth(ui->flagImageLabel->width());
+    ui->flagAnimation->image = re;
+    ui->flagAnimation->count = 10;
+
     ui->flagImageLabel->setVisible(false);
     ui->flagAnimation->setVisible(true);
     ui->flagAnimation->timer.start(10);
+
 
 }
 
