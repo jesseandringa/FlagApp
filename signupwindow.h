@@ -1,6 +1,6 @@
 /// This header represents a class that handles the signinwindow user interface.
 /// Written By:
-///
+
 #ifndef SIGNUPWINDOW_H
 #define SIGNUPWINDOW_H
 

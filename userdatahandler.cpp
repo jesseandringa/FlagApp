@@ -189,7 +189,6 @@ void UserDataHandler::statsRequest()
 /// \brief UserDataHandler::firstGuessCorrect
 void UserDataHandler::countryFinished(int finishPosition)
 {
-    std::cout<<finishPosition<<std::endl;
     usersData[currentUser][finishPosition]++;
     serializeUserDataToJSON();
 }

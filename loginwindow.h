@@ -1,3 +1,6 @@
+/// LoginWindow.h represents the implementation of a login window user interface.
+/// The logic of logging in is done by the userDataHandler.
+
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 

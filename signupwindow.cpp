@@ -1,4 +1,5 @@
-/// This class handles the user interface for the signupwindow.
+/// SignupWindow implements the user interface for the signupwindow.
+/// The logic for signing up is handled by UserDataHandler.
 /// Written By:
 
 #include "signupwindow.h"

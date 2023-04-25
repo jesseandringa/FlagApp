@@ -1,3 +1,5 @@
+/// StatsWindow.h represents a class that displays the users stats in a window.
+
 #ifndef STATSWINDOW_H
 #define STATSWINDOW_H
 

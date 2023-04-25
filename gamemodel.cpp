@@ -1,4 +1,4 @@
-/// This class stores info about the user who is logged in and handles model side of gameplay.
+/// This class handles model side of gameplay.
 
 #include "gamemodel.h"
 #include <iostream>
@@ -8,7 +8,6 @@ using std::string;
 
 GameModel::GameModel(QObject *parent)
     : QObject{parent},
-    gamesPlayed(0),
     country(),
     guessNumber(0),
     roundNumber(0),

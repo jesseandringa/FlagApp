@@ -1,6 +1,11 @@
+/// StatsWindow.cpp impliments displaying the users stats in a window.
+
 #include "statswindow.h"
 #include "ui_statswindow.h"
 
+/// \brief StatsWindow::StatsWindow
+/// Constructor
+/// \param parent
 StatsWindow::StatsWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::StatsWindow)
@@ -8,6 +13,8 @@ StatsWindow::StatsWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/// \brief StatsWindow::~StatsWindow
+/// Deconstructors
 StatsWindow::~StatsWindow()
 {
     delete ui;
