@@ -57,7 +57,7 @@ signals:
     void countryFinished(int finishPosition);
     void newSuggestions(std::vector<string> suggs);
     void backToMain();
-    void sendFlagAnimation(QString flagfilepath);
+    void sendFlagAnimation(QString flagfilepath, int event);
 
 };
 

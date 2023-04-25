@@ -25,7 +25,10 @@ signals:
 
 public:
     int count;
+    int event;
 private:
+    int turnDir;
+    float turnAngle;
     b2World world;
     b2Body* body;
 

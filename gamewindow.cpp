@@ -273,8 +273,8 @@ void GameWindow::winScreen(QString country)
     ui->currentGuess->setEnabled(false);
 }
 
-/// \brief GameWindow::winScreen
-/// Display a `you win` screen when the correct country is guessed.
+/// \brief GameWindow::lossScreen
+/// Display a `you lose` screen when the wrong country is guessed.
 void GameWindow::lossScreen(QString country)
 {
     ui->winLabel->setText("You Lost!");
@@ -285,6 +285,7 @@ void GameWindow::lossScreen(QString country)
 
     ui->guessButton->setEnabled(false);
     ui->currentGuess->setEnabled(false);
+
 }
 
 /// \brief GameWindow::on_nextFlag_clicked
@@ -399,12 +400,13 @@ void GameWindow::backToHomeSlot()
     emit backToHome();
 }
 
-void GameWindow::receiveFlagAnimation(QString filepath){
+void GameWindow::receiveFlagAnimation(QString filepath, int event){
     QImage image(filepath);
     QImage re = image.scaledToHeight(ui->flagImageLabel->height());
     re = re.scaledToWidth(ui->flagImageLabel->width());
     ui->flagAnimation->image = re;
     ui->flagAnimation->count = 10;
+    ui->flagAnimation->event = event;
 
     ui->flagImageLabel->setVisible(false);
     ui->flagAnimation->setVisible(true);

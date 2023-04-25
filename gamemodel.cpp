@@ -92,7 +92,7 @@ void GameModel::newGuessSlot(std::string guess)
     {
         emit countryFinished(guessNumber);
         emit sendWin(country.name.toUpper());
-        emit sendFlagAnimation(country.flagFilename);
+        emit sendFlagAnimation(country.flagFilename, 1);
 
     }
     else
@@ -126,6 +126,7 @@ void GameModel::newGuessSlot(std::string guess)
             {
                 emit countryFinished(guessNumber + 1);
                 emit sendLoss(country.name.toUpper());
+                emit sendFlagAnimation(country.flagFilename, 2);
             }
 
 

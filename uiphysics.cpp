@@ -8,6 +8,9 @@ UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     image(":/flags/FlagImages/argentina.jpg"),
     timer(this),
     count(10),
+    event(1),
+    turnDir(1),
+    turnAngle(0),
     world(b2Vec2(0.0f, 50.0f))
 {
     connect(&timer, &QTimer::timeout, this, &UIPhysics::updateWorld);
@@ -15,6 +18,9 @@ UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
 }
 
 void UIPhysics::set(){
+
+    turnDir = 1;
+    turnAngle = 0;
 
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(10.0f, 33.0f);
@@ -67,7 +73,21 @@ void UIPhysics::paintEvent(QPaintEvent *) {
 
     //use this print statement to check out how the meters look
     //printf("%4.2f %4.2f %4.2f\n", position.x, position.y);
-    painter.drawImage((int)(position.x - count), (int)(position.y*20), image);
+    if(event == 1){
+        painter.drawImage((int)(position.x - count), (int)(position.y*20), image);
+    } else if(event == 2) {
+        painter.translate(this->width()/2, this->height()/4);
+        painter.rotate(turnAngle);
+        painter.translate(-this->width()/2, -this->height()/4);
+        painter.drawImage(position.x, position.y, image);
+        painter.resetTransform();
+        if(turnAngle == 45){
+            turnDir = -1;
+        } else if(turnAngle == -45){
+            turnDir = 1;
+        }
+        turnAngle += 2.5 * turnDir;
+    }
 
 //    qDebug() << image;
     painter.end();
@@ -77,7 +97,9 @@ void UIPhysics::paintEvent(QPaintEvent *) {
 
 void UIPhysics::updateWorld() {
     // It is generally best to keep the time step and iterations fixed.
-    world.Step(1.0/60.0, 6, 2);
+    if(event == 1){
+        world.Step(1.0/60.0, 6, 2);
+    }
     count++;
     update();
 }
