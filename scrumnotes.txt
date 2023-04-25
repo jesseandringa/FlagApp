@@ -436,7 +436,7 @@ Scrum Questions
 
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: Nothing.
 	Sean: 
 	Ethan: 
 
@@ -444,7 +444,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: Worked on sprint 2 documentation and gathering info and what is left of project. 
 	Sean:
 	Ethan: 
 
@@ -452,7 +452,7 @@ Scrum Questions
 	
 	Sam: 
 	Kevin: 
-	Jesse: 
+	Jesse: People filling out their scrum notes for today. 
 	Sean: 
 	Ethan: 
 
