@@ -381,7 +381,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: add shake to invalid guess
-	Sean: 
+	Sean: Nothing.
 	Ethan: 
 
 3. Is anything in your way?
@@ -389,7 +389,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: better understanding of box2d. 
-	Sean: 
+	Sean: no.
 	Ethan: 
 
 
@@ -405,7 +405,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: added shake to invalid guess, and arrow picture labels to guesses
-	Sean: 
+	Sean: nothing.
 	Ethan: 
 
 2. What will you do today?
@@ -413,7 +413,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: nothing. internship
-	Sean:
+	Sean: Look into what we need more from animations from box2d, check in with TA.
 	Ethan: 
 
 3. Is anything in your way?
@@ -421,7 +421,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: internship.
-	Sean: 
+	Sean: no.
 	Ethan: 
 
 
@@ -437,7 +437,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: Nothing.
-	Sean: 
+	Sean: Asked TA about what box2d and got some opinions.
 	Ethan: 
 
 2. What will you do today?
@@ -445,7 +445,7 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: Worked on sprint 2 documentation and gathering info and what is left of project. 
-	Sean:
+	Sean: Look into making the flag not pixelated on the animation and or translate starting at the right spot.
 	Ethan: 
 
 3. Is anything in your way?
@@ -453,6 +453,6 @@ Scrum Questions
 	Sam: 
 	Kevin: 
 	Jesse: People filling out their scrum notes for today. 
-	Sean: 
+	Sean: No.
 	Ethan: 
 
