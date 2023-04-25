@@ -439,6 +439,7 @@ Scrum Questions
 	Jesse: Nothing.
 	Sean: Asked TA about what box2d and got some opinions.
 	Ethan: 
+	Eddie: Nothing
 
 2. What will you do today?
 	
@@ -447,6 +448,7 @@ Scrum Questions
 	Jesse: Worked on sprint 2 documentation and gathering info and what is left of project. 
 	Sean: Look into making the flag not pixelated on the animation and or translate starting at the right spot.
 	Ethan: 
+	Eddie: Worked on losing animation
 
 3. Is anything in your way?
 	
@@ -455,4 +457,5 @@ Scrum Questions
 	Jesse: People filling out their scrum notes for today. 
 	Sean: No.
 	Ethan: 
+	Eddie: No
 
