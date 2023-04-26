@@ -19,9 +19,8 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
     ui->flagAnimation->setVisible(false);
-    ui->guessButton->setStyleSheet("QPushButton {background-color: rgb(50,200,50);} "
-                                   "QPushButton:pressed {background-color: rgb(150,255,150);}");
-
+    ui->guessButton->setStyleSheet("QPushButton {color: white; background-color: rgb(50,200,50);}" "QPushButton:pressed {background-color: rgb(150,255,150);}");
+    ui->nextFlag->setStyleSheet("QPushButton {color: white; background-color: rgb(50,50,200);}" "QPushButton:pressed {background-color: rgb(150,150,255);}");
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);

@@ -67,7 +67,7 @@
      <string>STUDY</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="helpButton">
+   <widget class="QPushButton" name="aboutButton">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -83,7 +83,7 @@
      </font>
     </property>
     <property name="text">
-     <string>HELP</string>
+     <string>ABOUT</string>
     </property>
    </widget>
    <widget class="QPushButton" name="loginButton">
@@ -223,7 +223,7 @@
      <x>0</x>
      <y>0</y>
      <width>1013</width>
-     <height>37</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

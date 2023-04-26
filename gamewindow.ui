@@ -132,6 +132,11 @@
       <height>32</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Home</string>
     </property>
@@ -144,6 +149,11 @@
       <width>100</width>
       <height>32</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Help</string>
@@ -158,6 +168,11 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Guess</string>
     </property>
@@ -170,6 +185,11 @@
       <width>100</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Next Flag</string>

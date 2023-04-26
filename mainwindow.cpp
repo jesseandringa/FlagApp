@@ -34,7 +34,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->hardButton->setStyleSheet("color: white;");
     ui->playButton->setStyleSheet("color: white;");
     ui->studyButton->setStyleSheet("color: white;");
-    ui->helpButton->setStyleSheet("color: white;");
+    ui->aboutButton->setStyleSheet("color: white;");
     ui->backButton->setStyleSheet("color: white;");
     ui->signupButton->setStyleSheet("color: white;");
     ui->loginButton->setStyleSheet("color: white;");
@@ -42,7 +42,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
 
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
     connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);
-    connect(ui->helpButton, &QPushButton::clicked, this, &MainWindow::helpButtonClicked);
+    connect(ui->aboutButton, &QPushButton::clicked, this, &MainWindow::aboutButtonClicked);
     connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::backHomeFromDifficultySelection);
 
     connect(ui->easyButton, &QPushButton::clicked, this, &MainWindow::easyDifficultyClicked);
@@ -85,6 +85,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(&model, &GameModel::backToMain, this, &MainWindow::difficultyFinished);
     connect(&gameWindow, &GameWindow::backToHome, this, &MainWindow::backHomeFromGame);
     connect(&studyWindow, &StudyWindow::backToHome, this, &MainWindow::backHomeFromStudy);
+    connect(&aboutWindow, &AboutWindow::returnToMainWindow, this, &MainWindow::backHomeFromAbout);
 }
 
 /// \brief MainWindow::~MainWindow
@@ -100,7 +101,7 @@ void MainWindow::playButtonClicked()
 {
     ui->playButton->setVisible(false);
     ui->studyButton->setVisible(false);
-    ui->helpButton->setVisible(false);
+    ui->aboutButton->setVisible(false);
 
     ui->backButton->setVisible(true);
     ui->easyButton->setVisible(true);
@@ -117,9 +118,10 @@ void MainWindow::studyButtonClicked()
     studyWindow.show();
 }
 
-void MainWindow::helpButtonClicked()
+void MainWindow::aboutButtonClicked()
 {
-
+    aboutWindow.show();
+    this->hide();
 }
 
 /// \brief MainWindow::backHomeFromDifficultySelection
@@ -127,7 +129,7 @@ void MainWindow::backHomeFromDifficultySelection()
 {
     ui->playButton->setVisible(true);
     ui->studyButton->setVisible(true);
-    ui->helpButton->setVisible(true);
+    ui->aboutButton->setVisible(true);
 
     ui->backButton->setVisible(false);
     ui->easyButton->setVisible(false);
@@ -298,4 +300,10 @@ void MainWindow::backHomeFromStudy()
 {
     this->show();
     studyWindow.hide();
+}
+
+void MainWindow::backHomeFromAbout()
+{
+    this->show();
+    aboutWindow.hide();
 }

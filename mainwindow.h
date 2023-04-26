@@ -13,6 +13,7 @@
 #include "loginwindow.h"
 #include "userdatahandler.h"
 #include "statswindow.h"
+#include "aboutwindow.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -30,7 +31,7 @@ public:
 public slots:
     void playButtonClicked();
     void studyButtonClicked();
-    void helpButtonClicked();
+    void aboutButtonClicked();
     void easyDifficultyClicked();
     void mediumDifficultyClicked();
     void hardDifficultyClicked();
@@ -57,6 +58,7 @@ public slots:
     void difficultyFinished();
     void backHomeFromGame();
     void backHomeFromStudy();
+    void backHomeFromAbout();
 
 signals:
     void startGame(int difficulty);
@@ -83,5 +85,6 @@ private:
     StudyWindow studyWindow;
     UserDataHandler userdatahandler;
     StatsWindow statswindow;
+    AboutWindow aboutWindow;
 };
 #endif // MAINWINDOW_H
