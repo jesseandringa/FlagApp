@@ -152,6 +152,8 @@ void GameWindow::clearHintsAndGuesses()
     ui->hintLabel3->setText("Hint 3: ");
     ui->hintLabel4->setText("Hint 4: ");
     ui->hintLabel5->setText("Hint 5: ");
+
+    ui->currentGuess->setPlaceholderText("Guess a Country");
 }
 
 /// \brief GameWindow::setUIforNewCountry
@@ -164,6 +166,7 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
 {
     //set flag
     QPixmap flag(filepath);
+
     //emit sendPixmapForAnimation(flag);
     ui->flagImageLabel->setPixmap(flag.scaled(ui->flagImageLabel->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
 
@@ -177,7 +180,6 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
 
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
 {
-    //if distance == 0, maybe do something else? 0 meaning that the guess was not found in resource
     QString guessStr = QString::fromStdString(guess);
     QString distanceStr = QString::number(distance);
 
@@ -190,6 +192,8 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     if(angle % 90== 0 ) scale = 24;
     QPixmap arrow(":/new/prefix1/arrowImage.png");
     arrow = arrow.transformed(rotationAngle);
+
+    ui->currentGuess->setPlaceholderText("Guess a Country");
 
     if(guessNum == 0)
     {
@@ -405,7 +409,8 @@ void GameWindow::receiveFlagAnimation(QString filepath, int event){
     QImage re = image.scaledToHeight(ui->flagImageLabel->height());
     re = re.scaledToWidth(ui->flagImageLabel->width());
     ui->flagAnimation->image = re;
-    ui->flagAnimation->count = 10;
+    ui->flagAnimation->count = 1;
+    ui->flagAnimation->size = 1;
     ui->flagAnimation->event = event;
 
     ui->flagImageLabel->setVisible(false);

@@ -26,6 +26,8 @@ signals:
 public:
     int count;
     int event;
+    float size;
+
 private:
     int turnDir;
     float turnAngle;

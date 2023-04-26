@@ -7,9 +7,10 @@
 UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     image(":/flags/FlagImages/argentina.jpg"),
     timer(this),
-    count(10),
+    count(1),
     event(1),
     turnDir(1),
+    size(1),
     turnAngle(0),
     world(b2Vec2(0.0f, 50.0f))
 {
@@ -23,7 +24,7 @@ void UIPhysics::set(){
     turnAngle = 0;
 
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(10.0f, 33.0f);
+    groundBodyDef.position.Set(10.0f, 35.0f);
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -70,22 +71,23 @@ void UIPhysics::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     b2Vec2 position = body->GetPosition();
 //    float angle = body->GetAngle();
-
     //use this print statement to check out how the meters look
     //printf("%4.2f %4.2f %4.2f\n", position.x, position.y);
     if(event == 1){
+
         painter.drawImage((int)(position.x - count), (int)(position.y*20), image);
+
     } else if(event == 2) {
         painter.translate(this->width()/2, this->height()/4);
         painter.rotate(turnAngle);
+        painter.scale(size,size);
         painter.translate(-this->width()/2, -this->height()/4);
-        painter.drawImage(position.x, position.y, image);
-        painter.resetTransform();
-        if(turnAngle == 45){
-            turnDir = -1;
-        } else if(turnAngle == -45){
-            turnDir = 1;
+        if (size > 0){
+            painter.drawImage(position.x, position.y + 80, image);
         }
+
+        painter.resetTransform();
+        turnDir = 1;
         turnAngle += 2.5 * turnDir;
     }
 
@@ -101,5 +103,8 @@ void UIPhysics::updateWorld() {
         world.Step(1.0/60.0, 6, 2);
     }
     count++;
+    if (size > 0){
+        size = size - 0.005;
+    }
     update();
 }
