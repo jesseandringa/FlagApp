@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Study</string>
   </property>
   <widget class="QToolButton" name="nextCountryArrow">
    <property name="geometry">
