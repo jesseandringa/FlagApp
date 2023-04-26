@@ -257,8 +257,7 @@ Scrum Questions
 	Kevin: study windows/help windows 
 	Jesse: added these data to country
 	Sean: Study box2d and work towards making some sort of animation appear.
-	Ethan: Connect the userDataHandler to the game model so that it updates every time the user plays a game.  Also add a way
-	users to see their local stats.
+	Ethan: Connect the userDataHandler to the game model so that it updates every time the user plays a game.  Also add a way users to see their local stats.
 
 3. Is anything in your way?
 	
@@ -281,7 +280,7 @@ Scrum Questions
 	Kevin: Helped Sean with inital box2d 
 	Jesse: added these data to country
 	Sean: Imported the box2d class example to our code and tried to learn from it.
-	Ethan: 
+	Ethan: Made game stats functional.
 
 2. What will you do today?
 	
@@ -289,7 +288,7 @@ Scrum Questions
 	Kevin: Continue looking at box2d
 	Jesse: implement direction calculation
 	Sean: Learn more about how to use box2d and work on animation for flag guess.
-	Ethan: 
+	Ethan: Update the game window for when a flag is guessed correctly.  And improve the login and signup windows.
 
 3. Is anything in your way?
 	
@@ -297,7 +296,7 @@ Scrum Questions
 	Kevin: more documentation for box2d
 	Jesse: waiting on distance calculation to be calced. 
 	Sean: no.
-	Ethan: 
+	Ethan: No.
 
 ########################
 ## Friday 04/21/23 ##
@@ -312,7 +311,7 @@ Scrum Questions
 	Kevin: Finished study window continue with box2d and helps 
 	Jesse: started implemented direction calc
 	Sean: Messed with the ui to get animation widget to appear.
-	Ethan: 
+	Ethan: Made the login and sign up window a little bit nicer and changed the way the user moves to the next country.
 
 2. What will you do today?
 	
@@ -320,7 +319,7 @@ Scrum Questions
 	Kevin: Nothing busy today
 	Jesse: finish implementing direction
 	Sean: Fiddle more with getting the bouncy flag animation to fit the image and look cleaner.
-	Ethan: 
+	Ethan: Add the home buttons to the game window and study window.  Also change what stats are displayed.
 
 3. Is anything in your way?
 	
@@ -328,7 +327,7 @@ Scrum Questions
 	Kevin: no.
 	Jesse: no.
 	Sean: Could not figure out how to get correct image to display, Jessie figured it out for me.
-	Ethan: 
+	Ethan: No
 
 ########################
 ## Saturday 04/22/23 ##
@@ -343,7 +342,7 @@ Scrum Questions
 	Kevin: Was busy yesterday did not work on it
 	Jesse: finished implementing direction calculation
 	Sean: tried to figure out how to handle data from the game window to the physics.
-	Ethan: 
+	Ethan: Added back and home button functionality.  Changed the stats window.
 
 2. What will you do today?
 	
@@ -351,7 +350,7 @@ Scrum Questions
 	Kevin: Help windows. 
 	Jesse: figure out box2d "fall" logic 
 	Sean: Make flag animation on correct guess, become more familiar with box2d.
-	Ethan: 
+	Ethan: Nothing
 
 3. Is anything in your way?
 	
@@ -359,7 +358,7 @@ Scrum Questions
 	Kevin: no.
 	Jesse: no
 	Sean: Box2d meters to pixels is confusing.
-	Ethan: 
+	Ethan: No
 
 ########################
 ## Sunday 04/23/23 ##
@@ -374,7 +373,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: solved box2d timer
 	Sean: Roughly finished flag animation, want to ask TA more before finalizing it.
-	Ethan: 
+	Ethan: Nothing.
 
 2. What will you do today?
 	
@@ -382,7 +381,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: add shake to invalid guess
 	Sean: Nothing.
-	Ethan: 
+	Ethan: Nothing.
 
 3. Is anything in your way?
 	
@@ -390,7 +389,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: better understanding of box2d. 
 	Sean: no.
-	Ethan: 
+	Ethan: No.
 
 
 ########################
@@ -406,7 +405,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: added shake to invalid guess, and arrow picture labels to guesses
 	Sean: nothing.
-	Ethan: 
+	Ethan: Nothing.
 
 2. What will you do today?
 	
@@ -414,7 +413,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: nothing. internship
 	Sean: Look into what we need more from animations from box2d, check in with TA.
-	Ethan: 
+	Ethan: Nothing.
 
 3. Is anything in your way?
 	
@@ -422,7 +421,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: internship.
 	Sean: no.
-	Ethan: 
+	Ethan: Essay due.
 
 
 ########################
@@ -438,7 +437,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: Nothing.
 	Sean: Asked TA about what box2d and got some opinions.
-	Ethan: 
+	Ethan: Nothing.
 	Eddie: Nothing
 
 2. What will you do today?
@@ -447,7 +446,7 @@ Scrum Questions
 	Kevin: 
 	Jesse: Worked on sprint 2 documentation and gathering info and what is left of project. 
 	Sean: Look into making the flag not pixelated on the animation and or translate starting at the right spot.
-	Ethan: 
+	Ethan: Refactor some of the code and look for bugs.
 	Eddie: Worked on losing animation
 
 3. Is anything in your way?
@@ -456,6 +455,6 @@ Scrum Questions
 	Kevin: 
 	Jesse: People filling out their scrum notes for today. 
 	Sean: No.
-	Ethan: 
+	Ethan: No.
 	Eddie: No
 
