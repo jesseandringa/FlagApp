@@ -26,9 +26,9 @@ Country::Country(QString name, QString flagFilename, std::vector<QString> facts)
 
 /// \brief Country::Country
 /// Constructor to load about coordinates from each country
-/// \param name
-/// \param lon
-/// \param lat
+/// \param name of country
+/// \param longitude
+/// \param latitude
 Country::Country(QString name, double lon, double lat):
     name(name),
     flagFilename(""),

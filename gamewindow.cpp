@@ -460,6 +460,7 @@ void GameWindow::openHelpWindow()
 }
 
 /// \brief GameWindow::openGameWindow
+/// shows game window hides help window
 void GameWindow::openGameWindow()
 {
     this->show();

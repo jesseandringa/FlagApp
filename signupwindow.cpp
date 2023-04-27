@@ -36,26 +36,26 @@ void SignUpWindow::signUpAttemptSlot()
     emit signUpAttemptSignal(temp);
 }
 
-/// \brief SignUpWindow::signupFailedNotAllFields
+/// \brief SignUpWindow::signupFailedNotAllFields SLOT
 void SignUpWindow::signupFailedNotAllFields()
 {
     ui->signupLabel->setText("Enter All Fields:");
 }
 
-/// \brief SignUpWindow::signupFailedUserExists
+/// \brief SignUpWindow::signupFailedUserExists SLOT
 void SignUpWindow::signupFailedUserExists()
 {
     ui->signupLabel->setText("User Already Exists:");
 }
 
-/// \brief SignUpWindow::signupFailedPasswordMismatch
+/// \brief SignUpWindow::signupFailedPasswordMismatch SLOT
 void SignUpWindow::signupFailedPasswordMismatch()
 {
     ui->signupLabel->setText("Password Mismatch:");
 }
 
 
-/// \brief SignUpWindow::signupFailedSpacesDetected
+/// \brief SignUpWindow::signupFailedSpacesDetected SLOT
 void SignUpWindow::signupFailedSpacesDetected()
 {
     ui->signupLabel->setText("No Spaces Allowed:");

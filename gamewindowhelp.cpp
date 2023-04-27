@@ -1,6 +1,7 @@
 #include "gamewindowhelp.h"
 #include "ui_gamewindowhelp.h"
 
+///\brief constructor that gets images for help window and text
 GameWindowHelp::GameWindowHelp(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameWindowHelp)
@@ -21,6 +22,7 @@ GameWindowHelp::~GameWindowHelp()
     delete ui;
 }
 
+/// \briefs closes help window by signaling gameWindow
 void GameWindowHelp::backButtonClicked()
 {
     emit returnToGame();
