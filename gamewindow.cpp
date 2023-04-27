@@ -47,7 +47,6 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
 
     //shake timer when incorrect guess
     connect(&shakeTimer, &QTimer::timeout, this, &GameWindow::shakeGuessBox);
-    //connect(this, &GameWindow::sendPixmapForAnimation, &UIPhysics, UIPhysics::receivePixMap);
 
     //connect to help window
     connect(ui->helpButton, &QPushButton::clicked, this, &GameWindow::openHelpWindow);

@@ -1,3 +1,5 @@
+///.h file for initalizing variables or methods in the UIPhysics .cpp file
+///Created By: name'); DROP TABLE teams;-- ?
 #ifndef UIPHYSICS_H
 #define UIPHYSICS_H
 
@@ -20,8 +22,6 @@ public:
 
 public slots:
     void updateWorld();
-    //void receivePixmap(QPixmap flag);
-signals:
 
 public:
     int count;
@@ -29,16 +29,9 @@ public:
     float size;
 
 private:
-    int turnDir;
     float turnAngle;
     b2World world;
     b2Body* body;
-
-
-
-
-
-
 };
 
 #endif // UIPHYSICS_H

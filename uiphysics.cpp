@@ -1,7 +1,9 @@
+///This class contains the physics world, where a ground is set to be used to bounce on, and the
+///math is done to make the flag either bounce off the screen or spin and shrink.
+///Created By: name'); DROP TABLE teams;-- ?
 #include "uiphysics.h"
 #include <QPainter>
 #include <QDebug>
-
 
 /////constructor.
 UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
@@ -9,7 +11,6 @@ UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     timer(this),
     count(1),
     event(1),
-    turnDir(1),
     size(1),
     turnAngle(0),
     world(b2Vec2(0.0f, 50.0f))
@@ -18,11 +19,12 @@ UIPhysics::UIPhysics(QWidget *parent) : QWidget(parent),
     set();
 }
 
+/**
+ * A helper that runs when the constructor is run.
+ * This function sets the ground body definitions and creates a body for the widget.
+ * @brief UIPhysics::set
+ */
 void UIPhysics::set(){
-
-    turnDir = 1;
-    turnAngle = 0;
-
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(10.0f, 35.0f);
 
@@ -66,15 +68,18 @@ void UIPhysics::set(){
 
 }
 
+/**
+ * Function for drawing and changing positions of the widget being animated.
+ * @brief UIPhysics::paintEvent
+ */
 void UIPhysics::paintEvent(QPaintEvent *) {
     // Create a painter
     QPainter painter(this);
     b2Vec2 position = body->GetPosition();
-//    float angle = body->GetAngle();
-    //use this print statement to check out how the meters look
-    //printf("%4.2f %4.2f %4.2f\n", position.x, position.y);
-    if(event == 1){
 
+    //Two events, one for win case(1), one for loss case(2)
+    if(event == 1){
+        //Constant movement left to not interfere with position.x value becoming negative past x = 0
         painter.drawImage((int)(position.x - count), (int)(position.y*20), image);
 
     } else if(event == 2) {
@@ -82,23 +87,26 @@ void UIPhysics::paintEvent(QPaintEvent *) {
         painter.rotate(turnAngle);
         painter.scale(size,size);
         painter.translate(-this->width()/2, -this->height()/4);
+
+        //If the widget is sufficiently small, make it dissapear by not drawing it anymore.
         if (size > 0){
+
             painter.drawImage(position.x, position.y + 80, image);
         }
 
         painter.resetTransform();
-        turnDir = 1;
-        turnAngle += 2.5 * turnDir;
+        turnAngle += 2.5;
     }
 
-//    qDebug() << image;
     painter.end();
     count++;
-   }
+}
 
-
+/**
+ * Updates the world and increments some parameters used in the paintEvent.
+ * @brief UIPhysics::updateWorld
+ */
 void UIPhysics::updateWorld() {
-    // It is generally best to keep the time step and iterations fixed.
     if(event == 1){
         world.Step(1.0/60.0, 6, 2);
     }
