@@ -55,11 +55,11 @@ SOURCES += \
     Box2D/Dynamics/b2World.cpp \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
+    aboutwindow.cpp \
     country.cpp \
     gamemodel.cpp \
     gamewindow.cpp \
     gamewindowhelp.cpp \
-    helpwindow.cpp \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -117,11 +117,11 @@ HEADERS += \
     Box2D/Dynamics/b2World.h \
     Box2D/Dynamics/b2WorldCallbacks.h \
     Box2D/Rope/b2Rope.h \
+    aboutwindow.h \
     country.h \
     gamemodel.h \
     gamewindow.h \
     gamewindowhelp.h \
-    helpwindow.h \
     loginwindow.h \
     mainwindow.h \
     signupwindow.h \
@@ -131,9 +131,9 @@ HEADERS += \
     userdatahandler.h
 
 FORMS += \
+    aboutwindow.ui \
     gamewindow.ui \
     gamewindowhelp.ui \
-    helpwindow.ui \
     loginwindow.ui \
     mainwindow.ui \
     signupwindow.ui \

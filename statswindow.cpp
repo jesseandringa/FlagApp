@@ -1,6 +1,12 @@
+/// StatsWindow.cpp impliments displaying the users stats in a window.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #include "statswindow.h"
 #include "ui_statswindow.h"
 
+/// \brief StatsWindow::StatsWindow
+/// Constructor
+/// \param parent
 StatsWindow::StatsWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::StatsWindow)
@@ -8,6 +14,8 @@ StatsWindow::StatsWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/// \brief StatsWindow::~StatsWindow
+/// Deconstructors
 StatsWindow::~StatsWindow()
 {
     delete ui;
@@ -18,27 +26,29 @@ StatsWindow::~StatsWindow()
 /// \param stats
 void StatsWindow::receiveStats(std::array<int, 6> stats)
 {
+    //Stat: Complete games
     double gamesPlayed = 0;
     for(int i : stats)
     {
         gamesPlayed += i;
     }
-    ui->gamesPlayed->setText(QString::number(gamesPlayed/12));
+    ui->gamesPlayed->setText((QString::number((int)gamesPlayed/12)));
 
-    int gamesWon = 0;
+    //Stat: correct Guesses
+    int numCorrectGuesses = 0;
     for(int i = 0; i < 5; i++)
     {
-        gamesWon += stats[i];
+        numCorrectGuesses += stats[i];
     }
-    ui->correctGuesses->setText(QString::number(gamesWon));
+    ui->correctGuesses->setText(QString::number(numCorrectGuesses));
 
+    //Stat: Never Got It
     ui->noCorrectGuess->setText(QString::number(stats[5]));
 
-    double tempWins(gamesWon);
-    double tempTotal(gamesPlayed);
-    double winPercent = tempWins / tempTotal;
+    //Stat: right on first guess
     ui->firstGuessRight->setText(QString::number(stats[0]));
 
+    //Stat: every time they guessed wrong
     int totalWrongGuesses = 0;
     for(int i = 0; i < 6; i++)
     {

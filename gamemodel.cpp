@@ -1,4 +1,5 @@
-/// This class stores info about the user who is logged in and handles model side of gameplay.
+/// This class handles model side of gameplay.
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #include "gamemodel.h"
 #include <iostream>
@@ -6,9 +7,11 @@ using std::cout;
 using std::endl;
 using std::string;
 
+/// \brief GameModel::GameModel
+/// Constructor.
+/// \param parent
 GameModel::GameModel(QObject *parent)
     : QObject{parent},
-    gamesPlayed(0),
     country(),
     guessNumber(0),
     roundNumber(0),
@@ -18,6 +21,12 @@ GameModel::GameModel(QObject *parent)
     countriesNames = Country::getAllCountryNames();
 }
 
+/// \brief GameModel::getArrowDirection
+/// Calculates the direction of the actual country relative to the guess.
+/// \param xDistance
+/// \param yDistance
+/// \return
+/// A direction as a string.
 string GameModel::getArrowDirection(double xDistance, double yDistance)
 {
     string xDir = "";
@@ -71,7 +80,8 @@ void GameModel::resetRound()
     guessNumber = 0;
 }
 
-///slot to start logic to see if guess is correct
+/// \brief GameModel::newGuessSlot
+/// slot to start logic to see if guess is correct
 /// also to see how far guess is off
 /// also to see what direction etc.
 /// tells view what hint to display next, or if won or lost game
@@ -156,7 +166,6 @@ void GameModel::newGameStartedSlot(int difficulty)
     emit newCountryPicked(country.flagFilename, country.facts[guessNumber]);
 }
 
-///
 /// \brief GameModel::playNextCountry
 /// Iterate the game to the next country
 void GameModel::playNextCountry()
@@ -172,9 +181,11 @@ void GameModel::playNextCountry()
     emit newCountryPicked(country.flagFilename, country.facts[guessNumber]);
 }
 
+/// \brief GameModel::getSuggestionsForUserSlot
+/// Emits a vector of autofill suggestions for the users guess.
+/// \param currentText
 void GameModel::getSuggestionsForUserSlot(string currentText)
 {
-    //do somethign
     std::vector<string> suggestions;
     for (auto name :countriesNames){
         for(unsigned int i = 0; i<currentText.length(); i++){
@@ -194,9 +205,6 @@ void GameModel::getSuggestionsForUserSlot(string currentText)
         }
     }
     emit newSuggestions(suggestions);
-
-
-
 }
 
 

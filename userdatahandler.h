@@ -1,7 +1,7 @@
 /// This header represents a class that handles saving and loading user game stats.
 /// Stats are local to each machine and will not be stored within the github repo.
 /// This class also handles logic for signing up as a user and logging in as a user.
-/// Written By:
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #ifndef USERDATAHANDLER_H
 #define USERDATAHANDLER_H

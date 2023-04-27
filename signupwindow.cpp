@@ -1,5 +1,6 @@
-/// This class handles the user interface for the signupwindow.
-/// Written By:
+/// SignupWindow implements the user interface for the signupwindow.
+/// The logic for signing up is handled by UserDataHandler.
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #include "signupwindow.h"
 #include "ui_signupwindow.h"

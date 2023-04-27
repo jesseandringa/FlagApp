@@ -1,3 +1,7 @@
+/// GameWindow handles the UI side of gameplay.  It registers users input, emits it
+/// to the GameModel and then recieves an emit from the GameModel to update the users screen.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #include "gamewindow.h"
 #include "gamemodel.h"
 #include "ui_gamewindow.h"
@@ -6,6 +10,10 @@
 using std::cout;
 using std::endl;
 
+/// \brief GameWindow::GameWindow
+/// Constructor.
+/// \param model
+/// \param parent
 GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameWindow)
@@ -19,9 +27,8 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     ui->nextFlag->setVisible(false);
     ui->nextFlag->setEnabled(false);
     ui->flagAnimation->setVisible(false);
-    ui->guessButton->setStyleSheet("QPushButton {background-color: rgb(50,200,50);} "
-                                   "QPushButton:pressed {background-color: rgb(150,255,150);}");
-
+    ui->guessButton->setStyleSheet("QPushButton {color: white; background-color: rgb(50,200,50);}" "QPushButton:pressed {background-color: rgb(150,255,150);}");
+    ui->nextFlag->setStyleSheet("QPushButton {color: white; background-color: rgb(50,50,200);}" "QPushButton:pressed {background-color: rgb(150,150,255);}");
 
     //signal with string of guess connect to model
     connect(this, &GameWindow::newGuess, &model, &GameModel::newGuessSlot);
@@ -41,6 +48,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
     connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
 
+    //connect home button to main UI.
     connect(ui->homeButton, &QPushButton::clicked, this, &GameWindow::backToHomeSlot);
 
     connect(&model, &GameModel::sendFlagAnimation, this, &GameWindow::receiveFlagAnimation);
@@ -60,13 +68,16 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
 
 }
 
+/// \brief GameWindow::~GameWindow
+/// Destructor
 GameWindow::~GameWindow()
 {
     delete ui;
 }
 
-///SLOT
-/// resets ui when new game is created.. send signal to reset model
+/// \brief GameWindow::initNewGame
+/// Rsets ui when new game is created. Send signal to reset model.
+/// \param difficulty
 void GameWindow::initNewGame(int difficulty)
 {
     ui->hintLabel1->setText("Hint 1:");
@@ -177,26 +188,41 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
     ui->flagAnimation->set();
 }
 
+/// \brief GameWindow::receiveCurrentGuessInfo
+/// Slot triggered from a GameModel emit.
+/// Parameters provide data needed to give feedback to the user.
+/// \param guess
+/// \param guessNum
+/// \param distance
+/// \param hints
+/// \param arrowDirection
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
 {
-    QString guessStr = QString::fromStdString(guess);
-    QString distanceStr = QString::number(distance);
+    ui->currentGuess->setPlaceholderText("Guess A Country");
 
     //calculate roation of arrow and size of pixmap
     int angle = getRotationAngle(arrowDirection);
+    int scale;
+    if(angle % 90 == 0 )
+    {
+        scale = 24;
+    }
+    else
+    {
+        scale = 32;
+    }
     QTransform rotationAngle;
     rotationAngle.rotate(angle);
-    ui->currentGuess->setPlaceholderText("Guess A Country");
-    int scale = 32;
-    if(angle % 90== 0 ) scale = 24;
     QPixmap arrow(":/new/prefix1/arrowImage.png");
     arrow = arrow.transformed(rotationAngle);
 
-    ui->currentGuess->setPlaceholderText("Guess a Country");
+    //text based updates for whichever guess they are on.
+    QString guessStr = QString::fromStdString(guess);
+    QString distanceStr = QString::number(distance);
 
     if(guessNum == 0)
     {
-        ui->hintLabel2->setText("Hint 2: " + hints[1]);
+        ui->hintLabel2->setText("Hint 2: " + hints[1]);  //A hint is already displayed before first guess
         ui->guessLine1->setText(guessStr);
         ui->distanceLine1->setText(distanceStr + " Miles");
         ui->arrowLabel1->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation)); ///ui->arrowLabel1->size()
@@ -217,7 +243,7 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     }
     else if(guessNum == 3)
     {
-        ui->hintLabel5->setText("Hint 5: " + hints[4]);
+        ui->hintLabel5->setText("Hint 5: " + hints[4]);  //last hint because its their last guess next
         ui->guessLine4->setText(guessStr);
         ui->distanceLine4->setText(distanceStr + " Miles");
         ui->arrowLabel4->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));
@@ -311,6 +337,7 @@ void GameWindow::invalidGuessSlot()
     shakeTimer.start(50);
 }
 
+/// \brief GameWindow::shakeGuessBox
 void GameWindow::shakeGuessBox(){
     if(shakeCount>=5){
         shakeTimer.stop();
@@ -360,6 +387,9 @@ void GameWindow::on_currentGuess_textChanged(const QString &arg1)
 
 }
 
+/// \brief GameWindow::addSuggestions
+/// Adds suggestions to the suggList.
+/// \param suggestions
 void GameWindow::addSuggestions(std::vector<string> suggestions)
 {
     ui->scrollArea->setVisible(true);
@@ -384,10 +414,11 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
     QRect sizeOfBox(340,518,481,scrollBoxHeight);
     //    ui->suggList->setGeometry(sizeOfBox);
     ui->scrollArea->setGeometry(sizeOfBox);
-
-
 }
 
+/// \brief GameWindow::on_suggList_itemClicked
+/// When the user clicks a suggested item then current guess becomes the selected country.
+/// \param item
 void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
 {
     QString countryName = item->text();
@@ -403,6 +434,9 @@ void GameWindow::backToHomeSlot()
     emit backToHome();
 }
 
+/// \brief GameWindow::receiveFlagAnimation
+///
+/// \param filepath
 void GameWindow::receiveFlagAnimation(QString filepath, int event){
     QImage image(filepath);
     QImage re = image.scaledToHeight(ui->flagImageLabel->height());
@@ -415,18 +449,19 @@ void GameWindow::receiveFlagAnimation(QString filepath, int event){
     ui->flagImageLabel->setVisible(false);
     ui->flagAnimation->setVisible(true);
     ui->flagAnimation->timer.start(10);
-
-
 }
 
+/// \brief GameWindow::openHelpWindow
+/// Open the game window help.
 void GameWindow::openHelpWindow()
 {
     gameWindowHelp.show();
     this->close();
 }
 
+/// \brief GameWindow::openGameWindow
 void GameWindow::openGameWindow()
 {
     this->show();
-    gameWindowHelp.close();
+    gameWindowHelp.hide();
 }

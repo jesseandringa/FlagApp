@@ -276,7 +276,7 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
+	Sam: Helped Sean with inital box2d 
 	Kevin: Helped Sean with inital box2d 
 	Jesse: added these data to country
 	Sean: Imported the box2d class example to our code and tried to learn from it.
@@ -284,7 +284,7 @@ Scrum Questions
 
 2. What will you do today?
 	
-	Sam: 
+	Sam: Helped Sean with inital box2d 
 	Kevin: Continue looking at box2d
 	Jesse: implement direction calculation
 	Sean: Learn more about how to use box2d and work on animation for flag guess.
@@ -292,7 +292,7 @@ Scrum Questions
 
 3. Is anything in your way?
 	
-	Sam: 
+	Sam: no
 	Kevin: more documentation for box2d
 	Jesse: waiting on distance calculation to be calced. 
 	Sean: no.
@@ -307,7 +307,7 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
+	Sam: Helped Sean with inital box2d 
 	Kevin: Finished study window continue with box2d and helps 
 	Jesse: started implemented direction calc
 	Sean: Messed with the ui to get animation widget to appear.
@@ -315,7 +315,7 @@ Scrum Questions
 
 2. What will you do today?
 	
-	Sam: 
+	Sam: Helped Sean with inital box2d 
 	Kevin: Nothing busy today
 	Jesse: finish implementing direction
 	Sean: Fiddle more with getting the bouncy flag animation to fit the image and look cleaner.
@@ -323,7 +323,7 @@ Scrum Questions
 
 3. Is anything in your way?
 	
-	Sam: 
+	Sam: no.
 	Kevin: no.
 	Jesse: no.
 	Sean: Could not figure out how to get correct image to display, Jessie figured it out for me.
@@ -338,7 +338,7 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
+	Sam: nothing
 	Kevin: Was busy yesterday did not work on it
 	Jesse: finished implementing direction calculation
 	Sean: tried to figure out how to handle data from the game window to the physics.
@@ -346,7 +346,7 @@ Scrum Questions
 
 2. What will you do today?
 	
-	Sam: 
+	Sam: nothing
 	Kevin: Help windows. 
 	Jesse: figure out box2d "fall" logic 
 	Sean: Make flag animation on correct guess, become more familiar with box2d.
@@ -354,7 +354,7 @@ Scrum Questions
 
 3. Is anything in your way?
 	
-	Sam: 
+	Sam: no.
 	Kevin: no.
 	Jesse: no
 	Sean: Box2d meters to pixels is confusing.
@@ -369,24 +369,24 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin: 
+	Sam: Helped Sean with inital box2d 
+	Kevin: Helped Sean with inital box2d 
 	Jesse: solved box2d timer
 	Sean: Roughly finished flag animation, want to ask TA more before finalizing it.
 	Ethan: Nothing.
 
 2. What will you do today?
 	
-	Sam: 
-	Kevin: 
+	Sam: Helped Sean with inital box2d 
+	Kevin: Helped Sean with inital box2d 
 	Jesse: add shake to invalid guess
 	Sean: Nothing.
 	Ethan: Nothing.
 
 3. Is anything in your way?
 	
-	Sam: 
-	Kevin: 
+	Sam: no
+	Kevin: no
 	Jesse: better understanding of box2d. 
 	Sean: no.
 	Ethan: No.
@@ -401,24 +401,24 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin: 
+	Sam: nothing
+	Kevin: nothign
 	Jesse: added shake to invalid guess, and arrow picture labels to guesses
 	Sean: nothing.
 	Ethan: Nothing.
 
 2. What will you do today?
 	
-	Sam: 
-	Kevin: 
+	Sam: nothing
+	Kevin: nothing
 	Jesse: nothing. internship
 	Sean: Look into what we need more from animations from box2d, check in with TA.
 	Ethan: Nothing.
 
 3. Is anything in your way?
 	
-	Sam: 
-	Kevin: 
+	Sam: no
+	Kevin: no
 	Jesse: internship.
 	Sean: no.
 	Ethan: Essay due.
@@ -433,8 +433,8 @@ Notes:
 Scrum Questions
 1. What did you do yesterday?
 
-	Sam: 
-	Kevin: 
+	Sam: nothing
+	Kevin: nothing
 	Jesse: Nothing.
 	Sean: Asked TA about what box2d and got some opinions.
 	Ethan: Nothing.
@@ -442,8 +442,8 @@ Scrum Questions
 
 2. What will you do today?
 	
-	Sam: 
-	Kevin: 
+	Sam: help window ui
+	Kevin: help window ui
 	Jesse: Worked on sprint 2 documentation and gathering info and what is left of project. 
 	Sean: Look into making the flag not pixelated on the animation and or translate starting at the right spot.
 	Ethan: Refactor some of the code and look for bugs.
@@ -451,8 +451,8 @@ Scrum Questions
 
 3. Is anything in your way?
 	
-	Sam: 
-	Kevin: 
+	Sam: no
+	Kevin: no
 	Jesse: People filling out their scrum notes for today. 
 	Sean: No.
 	Ethan: No.

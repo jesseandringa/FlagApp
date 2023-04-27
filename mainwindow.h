@@ -1,3 +1,8 @@
+/// MainWindow is the starting window for the game.  This class handles the UI for the window
+/// which allows users to start game, choose a difficulty, open the study window, open the help window,
+/// signup locally and login locally.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -9,6 +14,7 @@
 #include "loginwindow.h"
 #include "userdatahandler.h"
 #include "statswindow.h"
+#include "aboutwindow.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -26,7 +32,7 @@ public:
 public slots:
     void playButtonClicked();
     void studyButtonClicked();
-    void helpButtonClicked();
+    void aboutButtonClicked();
     void easyDifficultyClicked();
     void mediumDifficultyClicked();
     void hardDifficultyClicked();
@@ -53,6 +59,7 @@ public slots:
     void difficultyFinished();
     void backHomeFromGame();
     void backHomeFromStudy();
+    void backHomeFromAbout();
 
 signals:
     void startGame(int difficulty);
@@ -79,5 +86,6 @@ private:
     StudyWindow studyWindow;
     UserDataHandler userdatahandler;
     StatsWindow statswindow;
+    AboutWindow aboutWindow;
 };
 #endif // MAINWINDOW_H

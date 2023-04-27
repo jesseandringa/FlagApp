@@ -1,3 +1,8 @@
+/// MainWindow is the starting window for the game.  This class handles the UI for the window
+/// which allows users to start game, choose a difficulty, open the study window, open the help window,
+/// signup locally and login locally.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
@@ -30,17 +35,19 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->hardButton->setStyleSheet("color: white;");
     ui->playButton->setStyleSheet("color: white;");
     ui->studyButton->setStyleSheet("color: white;");
-    ui->helpButton->setStyleSheet("color: white;");
+    ui->aboutButton->setStyleSheet("color: white;");
     ui->backButton->setStyleSheet("color: white;");
     ui->signupButton->setStyleSheet("color: white;");
     ui->loginButton->setStyleSheet("color: white;");
     ui->statsButton->setStyleSheet("color: white;");
 
+    //starting button connections
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
     connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);
-    connect(ui->helpButton, &QPushButton::clicked, this, &MainWindow::helpButtonClicked);
+    connect(ui->aboutButton, &QPushButton::clicked, this, &MainWindow::aboutButtonClicked);
     connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::backHomeFromDifficultySelection);
 
+    //difficulty connections
     connect(ui->easyButton, &QPushButton::clicked, this, &MainWindow::easyDifficultyClicked);
     connect(ui->mediumButton, &QPushButton::clicked, this, &MainWindow::mediumDifficultyClicked);
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
@@ -74,7 +81,6 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(this, &MainWindow::getStats, &userdatahandler, &UserDataHandler::statsRequest);
     connect(&userdatahandler, &UserDataHandler::sendStats, this, &MainWindow::statsReceived);
     connect(this, &MainWindow::sendStats, &statswindow, &StatsWindow::receiveStats);
-
     connect(&model, &GameModel::countryFinished, this, &MainWindow::countryFinishedSlot);
     connect(this, &MainWindow::countryFinished, &userdatahandler, &UserDataHandler::countryFinished);
 
@@ -82,6 +88,7 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     connect(&model, &GameModel::backToMain, this, &MainWindow::difficultyFinished);
     connect(&gameWindow, &GameWindow::backToHome, this, &MainWindow::backHomeFromGame);
     connect(&studyWindow, &StudyWindow::backToHome, this, &MainWindow::backHomeFromStudy);
+    connect(&aboutWindow, &AboutWindow::returnToMainWindow, this, &MainWindow::backHomeFromAbout);
 }
 
 /// \brief MainWindow::~MainWindow
@@ -97,7 +104,7 @@ void MainWindow::playButtonClicked()
 {
     ui->playButton->setVisible(false);
     ui->studyButton->setVisible(false);
-    ui->helpButton->setVisible(false);
+    ui->aboutButton->setVisible(false);
 
     ui->backButton->setVisible(true);
     ui->easyButton->setVisible(true);
@@ -114,9 +121,10 @@ void MainWindow::studyButtonClicked()
     studyWindow.show();
 }
 
-void MainWindow::helpButtonClicked()
+void MainWindow::aboutButtonClicked()
 {
-
+    aboutWindow.show();
+    this->hide();
 }
 
 /// \brief MainWindow::backHomeFromDifficultySelection
@@ -124,7 +132,7 @@ void MainWindow::backHomeFromDifficultySelection()
 {
     ui->playButton->setVisible(true);
     ui->studyButton->setVisible(true);
-    ui->helpButton->setVisible(true);
+    ui->aboutButton->setVisible(true);
 
     ui->backButton->setVisible(false);
     ui->easyButton->setVisible(false);
@@ -295,4 +303,11 @@ void MainWindow::backHomeFromStudy()
 {
     this->show();
     studyWindow.hide();
+}
+
+/// \brief MainWindow::backHomeFromAbout
+void MainWindow::backHomeFromAbout()
+{
+    this->show();
+    aboutWindow.hide();
 }

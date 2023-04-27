@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Flagger</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -52,7 +52,7 @@
      <rect>
       <x>300</x>
       <y>160</y>
-      <width>601</width>
+      <width>633</width>
       <height>281</height>
      </rect>
     </property>
@@ -100,9 +100,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>460</x>
       <y>440</y>
-      <width>171</width>
+      <width>231</width>
       <height>61</height>
      </rect>
     </property>
@@ -123,36 +123,19 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="gameNameLabel">
+   <widget class="QPushButton" name="homeButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>0</y>
-      <width>221</width>
-      <height>61</height>
+      <x>5</x>
+      <y>5</y>
+      <width>100</width>
+      <height>32</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>30</pointsize>
       <bold>true</bold>
      </font>
-    </property>
-    <property name="text">
-     <string>Flagger</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="homeButton">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>100</width>
-      <height>32</height>
-     </rect>
     </property>
     <property name="text">
      <string>Home</string>
@@ -161,11 +144,16 @@
    <widget class="QPushButton" name="helpButton">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>30</y>
+      <x>5</x>
+      <y>40</y>
       <width>100</width>
       <height>32</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Help</string>
@@ -180,6 +168,11 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Guess</string>
     </property>
@@ -193,6 +186,11 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Next Flag</string>
     </property>
@@ -201,9 +199,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>470</y>
+      <y>460</y>
       <width>301</width>
-      <height>211</height>
+      <height>219</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -475,34 +473,53 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>60</y>
-      <width>371</width>
-      <height>80</height>
+      <x>220</x>
+      <y>0</y>
+      <width>456</width>
+      <height>122</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="topLabel">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Guess the country!</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="gameNameLabel">
+         <property name="font">
+          <font>
+           <pointsize>30</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Flagger</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="topLabel">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Guess the country!</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
    <zorder>winLabel</zorder>
    <zorder>flagImageLabel</zorder>
    <zorder>verticalLayoutWidget_2</zorder>
-   <zorder>gameNameLabel</zorder>
    <zorder>homeButton</zorder>
    <zorder>helpButton</zorder>
    <zorder>guessButton</zorder>

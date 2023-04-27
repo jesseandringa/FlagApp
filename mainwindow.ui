@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1013</width>
-    <height>886</height>
+    <height>892</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -20,7 +20,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Flagger</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
@@ -67,7 +67,7 @@
      <string>STUDY</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="helpButton">
+   <widget class="QPushButton" name="aboutButton">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -83,7 +83,7 @@
      </font>
     </property>
     <property name="text">
-     <string>HELP</string>
+     <string>ABOUT</string>
     </property>
    </widget>
    <widget class="QPushButton" name="loginButton">

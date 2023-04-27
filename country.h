@@ -1,3 +1,8 @@
+/// The country class stores the game data for a specific country.
+/// The game data (country name, flag, and facts) are stored in the resourses folder.
+/// A static method in this class can be used to make Country objects from the resource files
+/// associated with the difficulty chosen at the start of the game.
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #ifndef COUNTRY_H
 #define COUNTRY_H

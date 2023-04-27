@@ -1,4 +1,5 @@
-/// This class stores info about the user who is logged in and handles model side of gameplay.
+/// This class handles model side of gameplay.
+/// /// Written By: name'); DROP TABLE teams;-- ?
 
 #ifndef GAMEMODEL_H
 #define GAMEMODEL_H
@@ -25,7 +26,6 @@ public:
 
 private:
     const int allowedGuesses = 5;
-    int gamesPlayed;  // total games this user has played
     //These three below should be selected on startup of game, they are compared to for checking the users guess! not implemented fully:
     Country country;
     float xCoordCountry;
