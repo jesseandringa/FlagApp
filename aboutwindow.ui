@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>993</width>
-    <height>759</height>
+    <width>999</width>
+    <height>543</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -56,23 +56,32 @@
   <widget class="QLabel" name="flaggerLabel">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>80</y>
-     <width>49</width>
-     <height>16</height>
+     <x>40</x>
+     <y>90</y>
+     <width>181</width>
+     <height>81</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>Flagger</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="mainGameImage">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>110</y>
-     <width>211</width>
-     <height>181</height>
+     <x>50</x>
+     <y>170</y>
+     <width>250</width>
+     <height>250</height>
     </rect>
    </property>
    <property name="text">
@@ -82,75 +91,70 @@
   <widget class="QLabel" name="aboutFlagger">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>130</y>
-     <width>311</width>
-     <height>141</height>
+     <x>40</x>
+     <y>400</y>
+     <width>220</width>
+     <height>140</height>
     </rect>
    </property>
    <property name="text">
-    <string>About Flagger</string>
+    <string>Flagger is an interactive educational game that helps you learn flags from around the world. It offers three difficulty levels and a study mode, and keeps track of your stats. With its engaging gameplay and informative content, Flagger makes learning about flags fun and enjoyable for all ages.</string>
    </property>
-  </widget>
-  <widget class="QLabel" name="difficultyLabel">
-   <property name="geometry">
-    <rect>
-     <x>8</x>
-     <y>295</y>
-     <width>91</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Difficulty</string>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="studyLabel">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>300</y>
-     <width>91</width>
-     <height>91</height>
+     <x>350</x>
+     <y>90</y>
+     <width>181</width>
+     <height>81</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>Study Window</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="statsLabel">
    <property name="geometry">
     <rect>
-     <x>760</x>
-     <y>310</y>
-     <width>91</width>
-     <height>91</height>
+     <x>700</x>
+     <y>90</y>
+     <width>181</width>
+     <height>81</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>Stats Screen</string>
    </property>
-  </widget>
-  <widget class="QLabel" name="difficultyImage">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>390</y>
-     <width>211</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Difficulty Image</string>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="studyImage">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>410</y>
-     <width>211</width>
-     <height>181</height>
+     <x>340</x>
+     <y>170</y>
+     <width>250</width>
+     <height>250</height>
     </rect>
    </property>
    <property name="text">
@@ -160,53 +164,46 @@
   <widget class="QLabel" name="statsImage">
    <property name="geometry">
     <rect>
-     <x>740</x>
-     <y>420</y>
-     <width>211</width>
-     <height>181</height>
+     <x>680</x>
+     <y>170</y>
+     <width>260</width>
+     <height>220</height>
     </rect>
    </property>
    <property name="text">
     <string>Stats Image</string>
    </property>
   </widget>
-  <widget class="QLabel" name="aboutDifficulty">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>610</y>
-     <width>311</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>about difficulty</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="aboutStudy">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>610</y>
-     <width>311</width>
-     <height>141</height>
+     <x>330</x>
+     <y>375</y>
+     <width>220</width>
+     <height>140</height>
     </rect>
    </property>
    <property name="text">
-    <string>About study</string>
+    <string>We have a study window where if you have difficulty identifying a flag, you can learn about the flag and its associated facts. This will help you perform better the next time.</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="aboutStats">
    <property name="geometry">
     <rect>
-     <x>750</x>
-     <y>590</y>
-     <width>311</width>
-     <height>141</height>
+     <x>670</x>
+     <y>375</y>
+     <width>220</width>
+     <height>140</height>
     </rect>
    </property>
    <property name="text">
-    <string>About stats</string>
+    <string>We keep track of your stats! Whether you perform well or not, we record it and provide you with feedback on how awesome or how much you need to improve!</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

@@ -9,11 +9,9 @@ AboutWindow::AboutWindow(QWidget *parent) :
     connect(ui->backButton, &QPushButton::clicked, this, &AboutWindow::backButtonClicked);
 
     QPixmap mainGameImage(":/HelpWindowImages/HelpWindowImages/maingame.PNG");
-    QPixmap difficultyImage(":/HelpWindowImages/HelpWindowImages/difficultyImg.PNG");
     QPixmap studyImage(":/HelpWindowImages/HelpWindowImages/studyImg.PNG");
     QPixmap statsImage(":/HelpWindowImages/HelpWindowImages/statsImg.PNG");
     ui->mainGameImage->setPixmap(mainGameImage.scaled(ui->mainGameImage->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
-    ui->difficultyImage->setPixmap(difficultyImage.scaled(ui->difficultyImage->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
     ui->studyImage->setPixmap(studyImage.scaled(ui->studyImage->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
     ui->statsImage->setPixmap(statsImage.scaled(ui->statsImage->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
 }
