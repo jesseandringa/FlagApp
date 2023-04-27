@@ -55,5 +55,8 @@
         <file>HelpWindowImages/GuessArea.PNG</file>
         <file>HelpWindowImages/hintarea.PNG</file>
         <file>HelpWindowImages/maingame.PNG</file>
+        <file>HelpWindowImages/difficultyImg.PNG</file>
+        <file>HelpWindowImages/statsImg.PNG</file>
+        <file>HelpWindowImages/studyImg.PNG</file>
     </qresource>
 </RCC>
