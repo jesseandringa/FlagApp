@@ -198,7 +198,7 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
 /// \param arrowDirection
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
 {
-    ui->currentGuess->setPlaceholderText("Guess A Country");
+    ui->currentGuess->setPlaceholderText("Guess a Country");
 
     //calculate roation of arrow and size of pixmap
     int angle = getRotationAngle(arrowDirection);
