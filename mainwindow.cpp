@@ -1,6 +1,7 @@
 /// MainWindow is the starting window for the game.  This class handles the UI for the window
 /// which allows users to start game, choose a difficulty, open the study window, open the help window,
 /// signup locally and login locally.
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"

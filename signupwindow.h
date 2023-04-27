@@ -1,5 +1,5 @@
 /// This header represents a class that handles the signinwindow user interface.
-/// Written By:
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #ifndef SIGNUPWINDOW_H
 #define SIGNUPWINDOW_H

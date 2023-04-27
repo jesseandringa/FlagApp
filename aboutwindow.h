@@ -1,3 +1,6 @@
+/// AboutWindow tells the user basic info about how to play from the mainwindow.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #ifndef ABOUTWINDOW_H
 #define ABOUTWINDOW_H
 

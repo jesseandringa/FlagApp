@@ -1,3 +1,7 @@
+/// GameWindow handles the UI side of gameplay.  It registers users input, emits it
+/// to the GameModel and then recieves an emit from the GameModel to update the users screen.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #include "gamewindow.h"
 #include "gamemodel.h"
 #include "ui_gamewindow.h"
@@ -185,26 +189,41 @@ void GameWindow::setUIforNewCountry(QString filepath, QString fact1)
     ui->flagAnimation->set();
 }
 
+/// \brief GameWindow::receiveCurrentGuessInfo
+/// Slot triggered from a GameModel emit.
+/// Parameters provide data needed to give feedback to the user.
+/// \param guess
+/// \param guessNum
+/// \param distance
+/// \param hints
+/// \param arrowDirection
 void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double distance, std::vector<QString> hints, std::string arrowDirection)
 {
-    QString guessStr = QString::fromStdString(guess);
-    QString distanceStr = QString::number(distance);
+    ui->currentGuess->setPlaceholderText("Guess A Country");
 
     //calculate roation of arrow and size of pixmap
     int angle = getRotationAngle(arrowDirection);
+    int scale;
+    if(angle % 90 == 0 )
+    {
+        scale = 24;
+    }
+    else
+    {
+        scale = 32;
+    }
     QTransform rotationAngle;
     rotationAngle.rotate(angle);
-    ui->currentGuess->setPlaceholderText("Guess A Country");
-    int scale = 32;
-    if(angle % 90== 0 ) scale = 24;
     QPixmap arrow(":/new/prefix1/arrowImage.png");
     arrow = arrow.transformed(rotationAngle);
 
-    ui->currentGuess->setPlaceholderText("Guess a Country");
+    //text based updates for whichever guess they are on.
+    QString guessStr = QString::fromStdString(guess);
+    QString distanceStr = QString::number(distance);
 
     if(guessNum == 0)
     {
-        ui->hintLabel2->setText("Hint 2: " + hints[1]);
+        ui->hintLabel2->setText("Hint 2: " + hints[1]);  //A hint is already displayed before first guess
         ui->guessLine1->setText(guessStr);
         ui->distanceLine1->setText(distanceStr + " Miles");
         ui->arrowLabel1->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation)); ///ui->arrowLabel1->size()
@@ -225,7 +244,7 @@ void GameWindow::receiveCurrentGuessInfo(std::string guess, int guessNum, double
     }
     else if(guessNum == 3)
     {
-        ui->hintLabel5->setText("Hint 5: " + hints[4]);
+        ui->hintLabel5->setText("Hint 5: " + hints[4]);  //last hint because its their last guess next
         ui->guessLine4->setText(guessStr);
         ui->distanceLine4->setText(distanceStr + " Miles");
         ui->arrowLabel4->setPixmap(arrow.scaled(scale,scale, Qt::KeepAspectRatio,Qt::SmoothTransformation));

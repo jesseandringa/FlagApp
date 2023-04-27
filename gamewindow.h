@@ -1,3 +1,7 @@
+/// GameWindow handles the UI side of gameplay.  It registers users input, emits it
+/// to the GameModel and then recieves an emit from the GameModel to update the users screen.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 

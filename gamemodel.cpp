@@ -1,4 +1,5 @@
 /// This class handles model side of gameplay.
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #include "gamemodel.h"
 #include <iostream>

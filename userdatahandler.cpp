@@ -2,7 +2,7 @@
 /// Stats are local to each machine and will not be stored within the github repo.
 /// The implimentation for logging in and signing up also exists within this class;
 /// in addition there is a slot that is used to update user stats from gameplay.
-/// Written By:
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #include "userdatahandler.h"
 

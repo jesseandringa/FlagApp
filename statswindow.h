@@ -1,4 +1,5 @@
 /// StatsWindow.h represents a class that displays the users stats in a window.
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #ifndef STATSWINDOW_H
 #define STATSWINDOW_H

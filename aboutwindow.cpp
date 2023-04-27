@@ -1,6 +1,12 @@
+/// AboutWindow tells the user basic info about how to play from the mainwindow.
+/// Written By: name'); DROP TABLE teams;-- ?
+
 #include "aboutwindow.h"
 #include "ui_aboutwindow.h"
 
+/// \brief AboutWindow::AboutWindow
+/// Constructor
+/// \param parent
 AboutWindow::AboutWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AboutWindow)
@@ -16,11 +22,14 @@ AboutWindow::AboutWindow(QWidget *parent) :
     ui->statsImage->setPixmap(statsImage.scaled(ui->statsImage->size(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
 }
 
+/// \brief AboutWindow::~AboutWindow
+/// Destructor
 AboutWindow::~AboutWindow()
 {
     delete ui;
 }
 
+/// \brief AboutWindow::backButtonClicked
 void AboutWindow::backButtonClicked()
 {
     emit returnToMainWindow();

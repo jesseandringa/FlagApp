@@ -1,5 +1,6 @@
 /// LoginWindow.cpp implements the user interface of a login window.
 /// The logic of logging in is done by the userDataHandler.
+/// Written By: name'); DROP TABLE teams;-- ?
 
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
