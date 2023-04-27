@@ -23,7 +23,11 @@ Country::Country(QString name, QString flagFilename, std::vector<QString> facts)
     shuffleFacts();
 }
 
-//data to load about distances from each country
+/// \brief Country::Country
+/// Constructor to load about coordinates from each country
+/// \param name
+/// \param lon
+/// \param lat
 Country::Country(QString name, double lon, double lat):
     name(name),
     flagFilename(""),
@@ -33,7 +37,8 @@ Country::Country(QString name, double lon, double lat):
 
 }
 
-//default constructor
+/// \brief Country::Country
+/// Default constructor.
 Country::Country():
     name(""),
     flagFilename(""),
@@ -53,6 +58,10 @@ void Country::shuffleFacts()
     std::shuffle(facts.begin(), facts.end(), rng);
 }
 
+/// \brief Country::loadAllCountries
+/// Loads all the countrys names, flag file, and facts from a JSON.
+/// \return
+/// A vector of Country objects
 std::vector<Country> Country::loadAllCountries()
 {
    QString filename = ":/facts/easy_facts.json";
@@ -227,6 +236,10 @@ Country Country::loadCountryNameAndLocation(QString name)
 
 }
 
+/// \brief Country::isInvalidGuess
+/// \param guess
+/// \return
+/// True if the user entered any text, false if empty guess
 bool Country::isInvalidGuess(string guess)
 {
     QString quessStr = QString::fromStdString(guess);
@@ -241,6 +254,10 @@ bool Country::isInvalidGuess(string guess)
     }
 }
 
+/// \brief Country::getAllCountryNames
+/// Reads the country names from a JSON file and stores them in a vector.
+/// \return
+/// Vector of country names.
 std::vector<string> Country::getAllCountryNames()
 {
     QString filename = ":/distanceData/country_latitude_and_longitude.csv";

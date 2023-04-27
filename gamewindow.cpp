@@ -6,6 +6,10 @@
 using std::cout;
 using std::endl;
 
+/// \brief GameWindow::GameWindow
+/// Constructor.
+/// \param model
+/// \param parent
 GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameWindow)
@@ -40,6 +44,7 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
     connect(this, &GameWindow::userTypingAndNeedsSuggestions, &model, &GameModel::getSuggestionsForUserSlot);
     connect(&model, &GameModel::newSuggestions, this, &GameWindow::addSuggestions);
 
+    //connect home button to main UI.
     connect(ui->homeButton, &QPushButton::clicked, this, &GameWindow::backToHomeSlot);
 
     connect(&model, &GameModel::sendFlagAnimation, this, &GameWindow::receiveFlagAnimation);
@@ -60,13 +65,16 @@ GameWindow::GameWindow(GameModel &model, QWidget *parent) :
 
 }
 
+/// \brief GameWindow::~GameWindow
+/// Destructor
 GameWindow::~GameWindow()
 {
     delete ui;
 }
 
-///SLOT
-/// resets ui when new game is created.. send signal to reset model
+/// \brief GameWindow::initNewGame
+/// Rsets ui when new game is created. Send signal to reset model.
+/// \param difficulty
 void GameWindow::initNewGame(int difficulty)
 {
     ui->hintLabel1->setText("Hint 1:");
@@ -311,6 +319,7 @@ void GameWindow::invalidGuessSlot()
     shakeTimer.start(50);
 }
 
+/// \brief GameWindow::shakeGuessBox
 void GameWindow::shakeGuessBox(){
     if(shakeCount>=5){
         shakeTimer.stop();
@@ -360,6 +369,9 @@ void GameWindow::on_currentGuess_textChanged(const QString &arg1)
 
 }
 
+/// \brief GameWindow::addSuggestions
+/// Adds suggestions to the suggList.
+/// \param suggestions
 void GameWindow::addSuggestions(std::vector<string> suggestions)
 {
     ui->scrollArea->setVisible(true);
@@ -384,10 +396,11 @@ void GameWindow::addSuggestions(std::vector<string> suggestions)
     QRect sizeOfBox(340,518,481,scrollBoxHeight);
     //    ui->suggList->setGeometry(sizeOfBox);
     ui->scrollArea->setGeometry(sizeOfBox);
-
-
 }
 
+/// \brief GameWindow::on_suggList_itemClicked
+/// When the user clicks a suggested item then current guess becomes the selected country.
+/// \param item
 void GameWindow::on_suggList_itemClicked(QListWidgetItem *item)
 {
     QString countryName = item->text();
@@ -403,6 +416,9 @@ void GameWindow::backToHomeSlot()
     emit backToHome();
 }
 
+/// \brief GameWindow::receiveFlagAnimation
+///
+/// \param filepath
 void GameWindow::receiveFlagAnimation(QString filepath, int event){
     QImage image(filepath);
     QImage re = image.scaledToHeight(ui->flagImageLabel->height());
@@ -415,18 +431,19 @@ void GameWindow::receiveFlagAnimation(QString filepath, int event){
     ui->flagImageLabel->setVisible(false);
     ui->flagAnimation->setVisible(true);
     ui->flagAnimation->timer.start(10);
-
-
 }
 
+/// \brief GameWindow::openHelpWindow
+/// Open the game window help.
 void GameWindow::openHelpWindow()
 {
     gameWindowHelp.show();
     this->close();
 }
 
+/// \brief GameWindow::openGameWindow
 void GameWindow::openGameWindow()
 {
     this->show();
-    gameWindowHelp.close();
+    gameWindowHelp.hide();
 }

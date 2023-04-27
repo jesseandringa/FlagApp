@@ -40,11 +40,13 @@ MainWindow::MainWindow (GameModel &model, QWidget *parent)
     ui->loginButton->setStyleSheet("color: white;");
     ui->statsButton->setStyleSheet("color: white;");
 
+    //starting button connections
     connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playButtonClicked);
     connect(ui->studyButton, &QPushButton::clicked, this, &MainWindow::studyButtonClicked);
     connect(ui->aboutButton, &QPushButton::clicked, this, &MainWindow::aboutButtonClicked);
     connect(ui->backButton, &QPushButton::clicked, this, &MainWindow::backHomeFromDifficultySelection);
 
+    //difficulty connections
     connect(ui->easyButton, &QPushButton::clicked, this, &MainWindow::easyDifficultyClicked);
     connect(ui->mediumButton, &QPushButton::clicked, this, &MainWindow::mediumDifficultyClicked);
     connect(ui->hardButton, &QPushButton::clicked, this, &MainWindow::hardDifficultyClicked);
@@ -302,6 +304,7 @@ void MainWindow::backHomeFromStudy()
     studyWindow.hide();
 }
 
+/// \brief MainWindow::backHomeFromAbout
 void MainWindow::backHomeFromAbout()
 {
     this->show();
